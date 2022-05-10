@@ -49,7 +49,7 @@ Oracle11
 
 ## 서비스 흐름도
 
-<img src="https://user-images.githubusercontent.com/99248442/167537944-91fd7a69-fe4c-4c94-9f5d-3b93bb67d3b3.png" width="700" height="370">
+<img src="https://user-images.githubusercontent.com/99248442/167537944-91fd7a69-fe4c-4c94-9f5d-3b93bb67d3b3.png" width="700" height="500">
 
 
 ## 개발 및 작업 환경
