@@ -13,20 +13,20 @@
 
 ## 사용 기술
 
-- Android
+- Android  
 Java  
 
-- Web
+- Web  
 Java/JSP/Servlet  
 React 
 HTML/CSS/JS
 
-- 이미지 전처리
+- 이미지 전처리  
 OCR  
 OpenCV  
 YOLOv5  
 
-- DB
+- DB  
 Oracle11  
 
 
