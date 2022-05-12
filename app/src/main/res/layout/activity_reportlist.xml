@@ -4,91 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReportlistActivity"
+    android:padding="0dp"
 
 
-
-    >
+    tools:context=".ReportlistActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar1"
+        android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:background="@color/blue_1"
-        android:contextClickable="false"
+        android:gravity="center"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:subtitleTextColor="#FFFFFF"
+        app:titleTextColor="#FFFFFF" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="나의 신고 현황"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="16dp" />
+    </androidx.appcompat.widget.Toolbar>
 
     <TableLayout
+        android:id="@+id/tableLayout2"
         android:layout_width="368dp"
-        android:layout_height="116dp"
-        android:layout_marginTop="25dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/border"
         android:stretchColumns="*"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar1">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="match_parent"
+            android:paddingTop="13dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="신고접수"
+                android:textColor="@color/blue_1"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="처리중"
+                android:textColor="#B3B0B0"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="처리완료"
+                android:textColor="#23A462"
+                android:textSize="15dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
 
             <TextView
                 android:id="@+id/repTv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="신고접수"
+                android:text="3건"
                 android:textColor="@color/blue_1"
-                android:textSize="15sp" />
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/repTv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="처리중"
-                android:textColor="#B3B0B0"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tv3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="처리완료"
-                android:textColor="#23A462" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
-
-            <TextView
-                android:id="@+id/tv4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="3건"
-                android:textColor="@color/blue_1"
-                android:textSize="30dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="2건"
+                android:text=" 2건"
                 android:textColor="#B3B0B0"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv6"
+                android:id="@+id/repTv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -98,5 +115,109 @@
                 android:textStyle="bold" />
         </TableRow>
     </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/repLL"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/border"
+        android:orientation="vertical"
+        android:paddingLeft="14dp"
+        android:paddingTop="20dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="발생 지역 - "
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/repTvarea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="광주광역시 남구 송암로 60"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/reportList3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="발생 일자 - "
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/reportList2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2022.05.04"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="발생 시간 - "
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="16 : 05"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/repBtn"
+                android:layout_width="64dp"
+                android:layout_height="28dp"
+                android:layout_gravity="right"
+                android:background="@drawable/button_background"
+                android:backgroundTint="#EBEBEB"
+                android:padding="0dp"
+                android:text="처리중"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:text="더이상의 자료가 없습니다."
+        android:textColor="#B3B0B0"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repLL" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
