@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
         <activity
+            android:name=".GalaryActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReportlistActivity"
             android:exported="true" >
             <intent-filter>
@@ -21,9 +24,7 @@
         </activity>
         <activity
             android:name=".MemberActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
