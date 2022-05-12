@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.citybang.databinding.ActivityNavigationBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class NavigationActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavigationBinding binding;
