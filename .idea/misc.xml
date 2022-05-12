@@ -3,11 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout-w1240dp/activity_lo.xml" value="0.387890625" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout-w936dp/activity_lo.xml" value="0.274609375" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_lo.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_login.xml" value="0.33" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_login.xml" value="0.19722222222222222" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_member.xml" value="0.19722222222222222" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_reportlist.xml" value="0.33" />
       </map>
     </option>
   </component>
