@@ -16,5 +16,5 @@ ConnectDB1 connectDB1 = ConnectDB1.getInstance1();
    System.out.println(returns);
 
    // 안드로이드로 전송
-   out.println(returns);
+   out.print(returns);
 %>

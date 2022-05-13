@@ -8,9 +8,9 @@ ConnectDB2 connectDB2 = ConnectDB2.getInstance2();
    
    /* String returns = id; */
 
-    String returns = connectDB2.connectionDB2(id); 
+   String returns = connectDB2.connectionDB2(id); 
    System.out.println(returns);
 
    // 안드로이드로 전송
-   out.println(returns);
+   out.print(returns);
 %>
