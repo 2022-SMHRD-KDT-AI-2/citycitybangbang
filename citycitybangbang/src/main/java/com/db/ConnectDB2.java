@@ -5,13 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ConnectDB {
-    private static ConnectDB instance = new ConnectDB();
+public class ConnectDB2 {
+    private static ConnectDB2 instance2 = new ConnectDB2();
 
-    public static ConnectDB getInstance() {
-        return instance;
+    public static ConnectDB2 getInstance2() {
+        return instance2;
     }
-    public ConnectDB() {  }
+    public ConnectDB2() {  }
 
     // oracle 계정`
     String jdbcUrl = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:XE";
@@ -27,7 +27,7 @@ public class ConnectDB {
     String sql2 = "";
     String returns = "a";
 
-    public String connectionDB(String mem_id, String mem_pwd, String mem_name, String mem_email, String mem_sex) {
+    public String connectionDB2(String mem_id) {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conn = DriverManager.getConnection(jdbcUrl, userId, userPw);
@@ -39,16 +39,8 @@ public class ConnectDB {
             rs = pstmt.executeQuery();
             if (rs.next()) {
                 returns = "이미 존재하는 아이디 입니다.";
-            } else {
-                sql2 = "INSERT INTO t_member(mem_id, mem_pwd, mem_name, mem_email, mem_sex) VALUES(?,?,?,?,?)";
-                pstmt2 = conn.prepareStatement(sql2);
-                pstmt2.setString(1, mem_id);
-                pstmt2.setString(2, mem_pwd);
-                pstmt2.setString(3, mem_name);
-                pstmt2.setString(4, mem_email);
-                pstmt2.setString(5,mem_sex);        
-                pstmt2.executeUpdate();
-                returns = "회원 가입 성공 !";
+            }else {
+            	returns = "생성 가능한 아이디 입니다.";
             }
         } catch (Exception e) {
             e.printStackTrace();
