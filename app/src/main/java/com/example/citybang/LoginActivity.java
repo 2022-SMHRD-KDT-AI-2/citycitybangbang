@@ -42,16 +42,12 @@ public class LoginActivity extends AppCompatActivity {
                 String id = binding.etLogId.getText().toString();
                 String pw = binding.etLogPw.getText().toString();
 
-                String url = "http://220.80.33.17:8090/web/login?id=" + id + "&pw=" + pw;
+                String url = "http://220.80.33.17:8090/citycitybangbang/login?id=" + id + "&pw=" + pw;
 
                 StringRequest request = new StringRequest(
                         Request.Method.GET, url, new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response) {
-
-                        Log.d("확인", response);
-                        Log.d("확인", String.valueOf(response.length()));
-
                         if(response.equals("로그인 성공!")){
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
