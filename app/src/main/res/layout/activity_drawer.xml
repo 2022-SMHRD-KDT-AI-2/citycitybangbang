@@ -228,14 +228,16 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@color/blue_3"
-                android:text="로그인" />
+                android:text="로그인"
+                android:textColor="#000000" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@color/blue_3"
-                android:text="회원가입" />
+                android:text="회원가입"
+                android:textColor="#000000" />
         </LinearLayout>
 
 
@@ -246,6 +248,8 @@
             android:background="#FFFFFF"
             android:text="     마이페이지"
             android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <Button
@@ -254,7 +258,8 @@
             android:layout_height="wrap_content"
             android:background="#EBEBEB"
             android:text="     나의 신고내역"
-            android:textAlignment="textStart" />
+            android:textAlignment="textStart"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btnDraSafe"
@@ -263,6 +268,8 @@
             android:background="#FFFFFF"
             android:text="     안전정보"
             android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <Button
@@ -271,7 +278,8 @@
             android:layout_height="wrap_content"
             android:background="#EBEBEB"
             android:text="     이륜차 도로교통법"
-            android:textAlignment="textStart" />
+            android:textAlignment="textStart"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btnDraLaw2"
@@ -279,7 +287,8 @@
             android:layout_height="wrap_content"
             android:background="#EBEBEB"
             android:text="     이륜차 번호판 관련 법령"
-            android:textAlignment="textStart" />
+            android:textAlignment="textStart"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btnDraCustomer"
@@ -288,6 +297,8 @@
             android:background="#FFFFFF"
             android:text="     고객센터"
             android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <Button
@@ -296,7 +307,8 @@
             android:layout_height="wrap_content"
             android:background="#EBEBEB"
             android:text="     자주하는 질문"
-            android:textAlignment="textStart" />
+            android:textAlignment="textStart"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btnDraStep"
@@ -304,7 +316,8 @@
             android:layout_height="wrap_content"
             android:background="#EBEBEB"
             android:text="     처리 절차 안내"
-            android:textAlignment="textStart" />
+            android:textAlignment="textStart"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/button11"
