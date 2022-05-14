@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".drawerActivity">
+    tools:context=".MainActivity">
 
     <!-- 메인 -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,8 +63,7 @@
             android:id="@+id/btnMaiSiren"
             android:layout_width="170dp"
             android:layout_height="105dp"
-            android:background="@drawable/button_radius"
-            android:backgroundTint="@color/blue_2"
+            android:background="@color/blue_2"
             android:drawableTop="@drawable/sirensize"
             android:text="신고하기"
             android:textSize="15sp"
@@ -74,7 +73,7 @@
             app:layout_constraintTop_toTopOf="@+id/btnMaiCamera" />
 
         <Button
-            android:id="@+id/btnMaigallery"
+            android:id="@+id/btnMaiGallery"
             android:layout_width="170dp"
             android:layout_height="105dp"
             android:layout_marginTop="20dp"
