@@ -3,35 +3,41 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/border.xml" value="0.1465" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_background.xml" value="0.162" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_grayradius.xml" value="0.3225" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_radius.xml" value="0.2265" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_shadow.xml" value="0.25" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/calendar.xml" value="0.2265" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/clocksize.xml" value="0.3225" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/gallerysize.xml" value="0.3225" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/locationsize.xml" value="0.3225" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/test2.xml" value="0.25" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/test3.xml" value="0.1" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout-w1240dp/activity_lo.xml" value="0.387890625" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout-w936dp/activity_lo.xml" value="0.274609375" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3125" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/border.xml" value="0.3125" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_background.xml" value="0.3205" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_click_dffect.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_effect.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_grayradius.xml" value="0.3055" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_radius.xml" value="0.254" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_shadow.xml" value="0.1275" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_test.xml" value="0.3055" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_test_click.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/button_test_notclick.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/camera1size.xml" value="0.108" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/click_effect.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/click_style.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/cmrsym.xml" value="0.3205" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/gallery1size.xml" value="0.108" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/galsym.xml" value="0.3205" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3125" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/mainsymbol.xml" value="0.3205" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/rptsym.xml" value="0.3205" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/rssimpormation.xml" value="0.108" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/side_nav_bar.xml" value="0.134" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/drawable/sirensize.xml" value="0.108" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_auto.xml" value="0.33" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_drawer.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_galary.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_imformation.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_lo.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_member.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_photoselect.xml" value="0.34057971014492755" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_reportlist.xml" value="0.22" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_self.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_shootselect.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_splash1.xml" value="0.22" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_splash2.xml" value="0.1" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/app_bar_navigation.xml" value="0.3338541666666667" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/fragment_time_picker.xml" value="0.15780141843971632" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_drawer.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_galary.xml" value="0.67" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_main.xml" value="0.2949438202247191" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_member.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_reportlist.xml" value="0.1875" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/activity_self.xml" value="0.28958333333333336" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/app_bar_navigation.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/content_navigation.xml" value="0.284375" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/fragment_home.xml" value="0.284375" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/citycitybangbang/app/src/main/res/layout/test.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>
