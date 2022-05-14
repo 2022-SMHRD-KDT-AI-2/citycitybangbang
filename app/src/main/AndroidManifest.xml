@@ -14,7 +14,7 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".QnaActivity"
+            android:name=".LawActivity2"
             android:exported="true">
 
         </activity>
@@ -24,50 +24,28 @@
 
         </activity>
         <activity
-            android:name=".SelfActivity"
+            android:name=".QnaActivity"
             android:exported="true">
 
         </activity>
+        <activity
+            android:name=".SelfActivity"
+            android:exported="false" />
         <activity
             android:name=".GalaryActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".ShootselectActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".PhotoselectActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".ImformationActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".AutoActivity"
             android:exported="true">
-
-        </activity>
-
-        <activity
-            android:name=".drawerActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".ReportlistActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".splashActivity1"
-            android:exported="true"
-            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -75,10 +53,18 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".drawerActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".ReportlistActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".splashActivity1"
+            android:exported="true"
+            android:theme="@style/SplashTheme"></activity>
+        <activity
             android:name=".MemberActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -86,9 +72,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

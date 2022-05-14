@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="간단한 이륜차 관련 법령"
+            android:text="번호판 관련 이륜차 법령"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
