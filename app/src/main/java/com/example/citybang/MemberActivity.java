@@ -61,7 +61,11 @@ public class MemberActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response)
                     {
-                        binding.tvId.setText(response);
+                        if(response.equals("이미 존재하는 아이디 입니다.")){
+                            binding.tvId.setText(response);
+                        }else if ( response.equals("생성 가능한 아이디 입니다.")){
+                            binding.tvId.setText(response);
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
