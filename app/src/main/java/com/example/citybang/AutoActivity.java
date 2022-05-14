@@ -5,17 +5,21 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TimePicker;
 
 public class AutoActivity extends AppCompatActivity {
 
-    Button autoBtnCancel;
+    Button autoBtnCancel, autoBtnClock;
 
 
     @Override
@@ -57,6 +61,28 @@ public class AutoActivity extends AppCompatActivity {
             }
         });
         // 팝업 창 끝
+
+        //시간선택구현
+//        autoBtnClock = findViewById(R.id.autoBtnClock);
+//        autoBtnClock.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                TimePickerDialog timePickerDialog = new TimePickerDialog(AutoActivity.this,
+//                        android.R.style.Theme_Holo_Light_Dialog, new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
+//
+//                    }
+//                }, alarmHour, alarmMinute, false);
+//                timePickerDialog.show();
+//                Log.d(TAG, String.valueOf(alarmHour));
+//            }
+//        });
+
+        //2
+
+
+
 
 
     }
