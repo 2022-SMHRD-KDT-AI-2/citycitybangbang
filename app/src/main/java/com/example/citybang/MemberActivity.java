@@ -100,7 +100,7 @@ public class MemberActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         if(response.equals("회원 가입 성공!")){
-                            Intent intent = new Intent(MemberActivity.this, MainActivity.class);
+                            Intent intent = new Intent(MemberActivity.this, LoginActivity.class);
                             startActivity(intent);
                         }
                     }
