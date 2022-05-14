@@ -69,7 +69,7 @@ public class AutoActivity extends AppCompatActivity {
         autoBtnArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerDialog dialog = new DatePickerDialog(AutoActivity.this, listener, 2022, 5, 13);
+                DatePickerDialog dialog = new DatePickerDialog(AutoActivity.this, listener, 2022, 5-1, 13);
                 dialog.show();
             }
         });
@@ -81,7 +81,7 @@ public class AutoActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            autoTvArea.setText(year + "년 " + monthOfYear + "월 " + dayOfMonth +"일");
+            autoTvArea.setText(year + "년 " + (monthOfYear+1 )+ "월 " + dayOfMonth +"일");
         }
     };
 
