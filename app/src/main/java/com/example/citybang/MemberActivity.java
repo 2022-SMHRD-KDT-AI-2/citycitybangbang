@@ -54,14 +54,18 @@ public class MemberActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String id = binding.etMemId.getText().toString();
 
-                String url = "http://220.80.33.17:8090/citycitybangbang/idCheck.jsp?id=" + id;
+                String url = "http://220.80.33.17:8090/citycitybangbang/idCheck?id=" + id;
 
                 StringRequest request = new StringRequest(
                         Request.Method.GET, url, new Response.Listener<String>(){
                     @Override
-                    public void onResponse(String response) {
-
-                        binding.tvId.setText(response);
+                    public void onResponse(String response)
+                    {
+                        if(response.equals("이미 존재하는 아이디 입니다.")){
+                            binding.tvId.setText(response);
+                        }else if ( response.equals("생성 가능한 아이디 입니다.")){
+                            binding.tvId.setText(response);
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -85,7 +89,7 @@ public class MemberActivity extends AppCompatActivity {
                 sex = result;
 
 
-                String url = "http://220.80.33.17:8090/web/androidDB?id=";
+                String url = "http://220.80.33.17:8090/citycitybangbang/androidDB?id=";
                 url += id;
                 url += "&pw=";
                 url += pw;
@@ -95,10 +99,6 @@ public class MemberActivity extends AppCompatActivity {
                         Request.Method.GET, url, new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response) {
-
-                        Log.d("확인", response);
-                        Log.d("확인", String.valueOf(response.length()));
-
                         if(response.equals("회원 가입 성공!")){
                             Intent intent = new Intent(MemberActivity.this, MainActivity.class);
                             startActivity(intent);
