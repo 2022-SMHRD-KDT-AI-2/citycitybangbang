@@ -31,8 +31,6 @@
             android:name=".AutoActivity"
             android:exported="true">
 
-
-
         </activity>
         <activity
             android:name=".drawerActivity"

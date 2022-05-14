@@ -259,7 +259,8 @@
             android:background="#EBEBEB"
             android:text="     나의 신고내역"
             android:textAlignment="textStart"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:theme="@style/RippleEffect" />
 
         <Button
             android:id="@+id/btnDraSafe"
@@ -279,7 +280,8 @@
             android:background="#EBEBEB"
             android:text="     이륜차 도로교통법"
             android:textAlignment="textStart"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:theme="@style/RippleEffect" />
 
         <Button
             android:id="@+id/btnDraLaw2"
@@ -288,7 +290,8 @@
             android:background="#EBEBEB"
             android:text="     이륜차 번호판 관련 법령"
             android:textAlignment="textStart"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:theme="@style/RippleEffect" />
 
         <Button
             android:id="@+id/btnDraCustomer"
@@ -308,7 +311,8 @@
             android:background="#EBEBEB"
             android:text="     자주하는 질문"
             android:textAlignment="textStart"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:theme="@style/RippleEffect" />
 
         <Button
             android:id="@+id/btnDraStep"
@@ -317,7 +321,8 @@
             android:background="#EBEBEB"
             android:text="     처리 절차 안내"
             android:textAlignment="textStart"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:theme="@style/RippleEffect" />
 
         <Button
             android:id="@+id/button11"
