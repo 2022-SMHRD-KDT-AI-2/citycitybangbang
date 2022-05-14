@@ -3,6 +3,7 @@ package com.example.citybang;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -62,8 +63,11 @@ public class MemberActivity extends AppCompatActivity {
                     public void onResponse(String response)
                     {
                         if(response.equals("이미 존재하는 아이디 입니다.")){
+                            binding.tvId.setTextColor(Color.parseColor("#23A462"));
                             binding.tvId.setText(response);
+
                         }else if ( response.equals("생성 가능한 아이디 입니다.")){
+                            binding.tvId.setTextColor(Color.parseColor("#F33434"));
                             binding.tvId.setText(response);
                         }
                     }
