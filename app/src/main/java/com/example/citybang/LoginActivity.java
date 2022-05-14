@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         if(response.equals("로그인 성공!")){
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, splashActivity1.class);
                             startActivity(intent);
                         }
                     }
