@@ -38,7 +38,9 @@ public class ConnectDB3 {
             rs = pstmt.executeQuery();
             if (rs.next()) {     
             	returns = "로그인 성공!";
-            } 
+            } else {
+            	returns = "0";
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
