@@ -26,11 +26,13 @@ public class MainActivity extends AppCompatActivity {
         btnMaiSiren = findViewById(R.id.btnMaiSiren);
         btnMaiGallery = findViewById(R.id.btnMaiGallery);
 
+        // 회원탈퇴 밑줄
         Button button = findViewById(R.id.btnDraWithdrawal);
         button.setPaintFlags(button.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        // 밑줄 끝
 
+        // 팝업창
         btnDraWithdrawal = findViewById(R.id.btnDraWithdrawal);
-
         btnDraWithdrawal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 ad.show();
             }
         });
-
+        // 팝업창 끝
 
     }
 }
