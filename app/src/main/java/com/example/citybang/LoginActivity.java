@@ -78,6 +78,8 @@ public class LoginActivity extends AppCompatActivity {
                             save();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
+                        }else if(response.equals("로그인에 실패했습니다.")){
+                            Toast.makeText(LoginActivity.this, "로그인에 실패했습니다.", Toast.LENGTH_LONG).show();
                         }
                     }
                 }, new Response.ErrorListener() {
