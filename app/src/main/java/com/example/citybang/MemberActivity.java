@@ -54,12 +54,13 @@ public class MemberActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String id = binding.etMemId.getText().toString();
 
-                String url = "http://220.80.33.17:8090/citycitybangbang/idCheck.jsp?id=" + id;
+                String url = "http://220.80.33.17:8090/citycitybangbang/idCheck?id=" + id;
 
                 StringRequest request = new StringRequest(
                         Request.Method.GET, url, new Response.Listener<String>(){
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(String response){
+//                        binding.tvId.setText("생성 가능한 아이디 입니다.");
                         binding.tvId.setText(response);
                     }
                 }, new Response.ErrorListener() {
