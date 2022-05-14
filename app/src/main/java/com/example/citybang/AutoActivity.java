@@ -81,7 +81,6 @@ public class AutoActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            Toast.makeText(getApplicationContext(), year + "년" + monthOfYear + "월" + dayOfMonth +"일", Toast.LENGTH_SHORT).show();
             autoTvArea.setText(year + "년 " + monthOfYear + "월 " + dayOfMonth +"일");
         }
     };
