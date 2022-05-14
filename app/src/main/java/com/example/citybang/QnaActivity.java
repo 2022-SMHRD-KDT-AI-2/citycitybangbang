@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class lawActivity extends AppCompatActivity {
+public class QnaActivity extends AppCompatActivity {
 
     ExpandableListView expandableListView;
     ExpandableListviewAdapter listAdapter;
@@ -59,11 +59,11 @@ public class lawActivity extends AppCompatActivity {
         chapterList = new ArrayList<String>();
         topicList = new HashMap<String, List<String>>();
 
-        chapterList.add("이륜 자동차의 기본 정의");
-        chapterList.add("고속도로 통행 불가");
-        chapterList.add("주행중 안전장비 착용");
-        chapterList.add("번호판 훼손 벌금");
-        chapterList.add("번호판 미부착 벌금");
+        chapterList.add("신고는 어떻게 하나요");
+        chapterList.add("회원가입");
+        chapterList.add("로그인 안하고 신고하는법");
+        chapterList.add("회원 탈퇴");
+        chapterList.add("내가 신고한 건 확인하기");
 
         List<String> topic1 = new ArrayList<>();
         topic1.add("도로 교통법 제2조(정의)\n\n" +
