@@ -63,8 +63,11 @@
             android:id="@+id/btnMaiSiren"
             android:layout_width="170dp"
             android:layout_height="105dp"
-            android:background="@color/blue_2"
             android:drawableTop="@drawable/sirensize"
+
+            android:elevation="50dp"
+
+            android:includeFontPadding="false"
             android:text="신고하기"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/btnMaiCamera"
