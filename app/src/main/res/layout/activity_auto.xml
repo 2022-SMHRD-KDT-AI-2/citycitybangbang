@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".AutoActivity">
 
+
+    //툴바 여기부터//
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -31,6 +33,7 @@
             tools:layout_editor_absoluteX="163dp"
             tools:layout_editor_absoluteY="16dp" />
     </androidx.appcompat.widget.Toolbar>
+    // 툴바 끝
 
     <ScrollView
         android:layout_width="0dp"
