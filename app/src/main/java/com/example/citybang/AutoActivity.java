@@ -5,21 +5,22 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.app.TimePickerDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TimePicker;
+import android.widget.DatePicker;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class AutoActivity extends AppCompatActivity {
 
-    Button autoBtnCancel, autoBtnClock;
+    Button autoBtnCancel,autoBtnArea;
+    TextView autoTvArea;
 
 
     @Override
@@ -62,30 +63,27 @@ public class AutoActivity extends AppCompatActivity {
         });
         // 팝업 창 끝
 
-        //시간선택구현
-//        autoBtnClock = findViewById(R.id.autoBtnClock);
-//        autoBtnClock.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                TimePickerDialog timePickerDialog = new TimePickerDialog(AutoActivity.this,
-//                        android.R.style.Theme_Holo_Light_Dialog, new TimePickerDialog.OnTimeSetListener() {
-//                    @Override
-//                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
-//
-//                    }
-//                }, alarmHour, alarmMinute, false);
-//                timePickerDialog.show();
-//                Log.d(TAG, String.valueOf(alarmHour));
-//            }
-//        });
-
-        //2
-
-
-
-
+        // 버튼클릭 시 날짜 다이얼로그 출력
+        autoTvArea = findViewById(R.id.autoTvArea);
+        autoBtnArea = findViewById(R.id.autoBtnArea);
+        autoBtnArea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog dialog = new DatePickerDialog(AutoActivity.this, listener, 2022, 5, 13);
+                dialog.show();
+            }
+        });
+        // 버튼클릭 날짜 끝
 
     }
+
+    // 버튼클릭 리스너 생성
+    private DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            autoTvArea.setText(year + "년 " + monthOfYear + "월 " + dayOfMonth +"일");
+        }
+    };
 
 
 }
