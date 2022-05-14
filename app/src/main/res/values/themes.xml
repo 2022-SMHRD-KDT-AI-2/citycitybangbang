@@ -17,12 +17,19 @@
         <item name="windowActionBar">false</item>
     </style>
 
+    <!--  스플래쉬 이미지 설정  -->
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowBackground">@drawable/splash1</item>
     </style>
 
+    <!-- 툴바 버튼 색 흰색으로!! -->
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <!-- 버튼 클릭 효과   -->
     <style name="RippleEffect">
         <item name="colorControlHighlight">@color/blue_1</item>
     </style>
