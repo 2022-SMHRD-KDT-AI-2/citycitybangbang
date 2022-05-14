@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".drawerActivity">
+    tools:context=".MainActivity">
 
     <!-- 메인 -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,7 +74,7 @@
             app:layout_constraintTop_toTopOf="@+id/btnMaiCamera" />
 
         <Button
-            android:id="@+id/btnMaigallery"
+            android:id="@+id/btnMaiGallery"
             android:layout_width="170dp"
             android:layout_height="105dp"
             android:layout_marginTop="20dp"

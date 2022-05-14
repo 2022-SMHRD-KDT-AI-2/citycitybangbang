@@ -22,4 +22,9 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowBackground">@drawable/splash1</item>
     </style>
+
+    <style name="RippleEffect">
+        <item name="colorControlHighlight">@color/blue_1</item>
+    </style>
+
 </resources>

@@ -51,7 +51,7 @@
             android:layout_height="105dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="80dp"
-            android:background="@drawable/button_shadow"
+            android:background="@drawable/button_radius"
             android:backgroundTint="@color/blue_2"
             android:drawableTop="@drawable/camera1size"
             android:text="촬영하기"
@@ -63,7 +63,7 @@
             android:id="@+id/btnMaiSiren"
             android:layout_width="170dp"
             android:layout_height="105dp"
-            android:background="@drawable/button_shadow"
+            android:background="@drawable/button_radius"
             android:backgroundTint="@color/blue_2"
             android:drawableTop="@drawable/sirensize"
             android:text="신고하기"
@@ -74,11 +74,11 @@
             app:layout_constraintTop_toTopOf="@+id/btnMaiCamera" />
 
         <Button
-            android:id="@+id/btnMaigallery"
+            android:id="@+id/btnMaiGallery"
             android:layout_width="170dp"
             android:layout_height="105dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/button_shadow"
+            android:background="@drawable/button_radius"
             android:backgroundTint="@color/blue_2"
             android:drawableTop="@drawable/gallery1size"
             android:text="갤러리"
