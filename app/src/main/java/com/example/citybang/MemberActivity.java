@@ -2,7 +2,9 @@ package com.example.citybang;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -29,6 +31,7 @@ public class MemberActivity extends AppCompatActivity {
         binding = ActivityMemberBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         // 네트워크 통신
 
         if (requestQueue == null){
@@ -51,13 +54,18 @@ public class MemberActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String id = binding.etMemId.getText().toString();
 
-                String url = "http://220.80.33.17:8090/web/idCheck.jsp?id=" + id;
+                String url = "http://220.80.33.17:8090/citycitybangbang/idCheck?id=" + id;
 
                 StringRequest request = new StringRequest(
                         Request.Method.GET, url, new Response.Listener<String>(){
                     @Override
-                    public void onResponse(String response) {
-                        binding.tvId.setText(response);
+                    public void onResponse(String response)
+                    {
+                        if(response.equals("이미 존재하는 아이디 입니다.")){
+                            binding.tvId.setText(response);
+                        }else if ( response.equals("생성 가능한 아이디 입니다.")){
+                            binding.tvId.setText(response);
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -66,7 +74,6 @@ public class MemberActivity extends AppCompatActivity {
                     }
                 }
                 );
-
 
                 requestQueue.add(request);
             }
@@ -82,7 +89,7 @@ public class MemberActivity extends AppCompatActivity {
                 sex = result;
 
 
-                String url = "http://220.80.33.17:8090/web/androidDB.jsp?id=";
+                String url = "http://220.80.33.17:8090/citycitybangbang/androidDB?id=";
                 url += id;
                 url += "&pw=";
                 url += pw;
@@ -92,7 +99,10 @@ public class MemberActivity extends AppCompatActivity {
                         Request.Method.GET, url, new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(MemberActivity.this, "응답 성공", Toast.LENGTH_SHORT).show();
+                        if(response.equals("회원 가입 성공!")){
+                            Intent intent = new Intent(MemberActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -102,10 +112,25 @@ public class MemberActivity extends AppCompatActivity {
                 }
                 );
 
-
                 requestQueue.add(request);
-
             }
         });
+
+
+
+
+        binding.btnDraSafe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
+
     }
 }

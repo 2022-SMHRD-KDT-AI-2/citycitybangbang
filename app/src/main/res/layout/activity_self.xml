@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AutoActivity">
+    tools:context=".SelfActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -76,26 +76,12 @@
                             android:textSize="18dp" />
 
                         <TextView
-                            android:id="@+id/autoTvArea"
+                            android:id="@+id/selfTvArea"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2022-05-03"
-                            android:textColor="#A8A5A5" />
+                            android:textColor="#000000" />
                     </LinearLayout>
-
-                    <Button
-                        android:id="@+id/autoBtnArea"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_grayradius"
-                        android:drawableLeft="@drawable/calendarsize"
-                        android:paddingLeft="12dp"
-                        android:paddingRight="8dp"
-                        android:text="일자 변경"
-                        android:textColorHint="#000000"
-                        android:textSize="18dp" />
 
                 </LinearLayout>
 
@@ -131,27 +117,12 @@
                             android:textSize="18dp" />
 
                         <TextView
-                            android:id="@+id/autoTvClock"
+                            android:id="@+id/selfTvClock"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="16:05"
-                            android:textColor="#A8A5A5" />
+                            android:textColor="#000000" />
                     </LinearLayout>
-
-                    <Button
-                        android:id="@+id/autoBtnClock"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="top"
-                        android:layout_marginTop="2dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_grayradius"
-                        android:drawableLeft="@drawable/clocksize"
-                        android:paddingLeft="12dp"
-                        android:paddingRight="8dp"
-                        android:text="시간 변경"
-                        android:textColorHint="#000000"
-                        android:textSize="18dp" />
 
                 </LinearLayout>
 
@@ -187,15 +158,15 @@
                             android:textSize="18dp" />
 
                         <TextView
-                            android:id="@+id/autoTvLocation"
+                            android:id="@+id/selfTvLocation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="광주 광역시 남구 송암로11광주 광역시 남구 송암로11"
+                            android:text="광주 광역시 남구 송암로11광주 광역시 남구 송암로11광주 광역시 남구 송암로11광주 광역시 남구 송암로11"
                             android:textColor="#A8A5A5" />
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/autoBtnLocation"
+                        android:id="@+id/selfBtnLocation"
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_gravity="top"
@@ -205,7 +176,7 @@
                         android:drawableLeft="@drawable/locationsize"
                         android:paddingLeft="12dp"
                         android:paddingRight="8dp"
-                        android:text="위치 찾기"
+                        android:text="위치 변경"
                         android:textColorHint="#000000"
                         android:textSize="18dp" />
 
@@ -245,7 +216,7 @@
                             android:textSize="18dp" />
 
                         <ImageView
-                            android:id="@+id/autoImg"
+                            android:id="@+id/selfImg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:scaleType="fitStart"
@@ -253,20 +224,10 @@
 
                     </LinearLayout>
 
-                    <Button
-                        android:id="@+id/autoBtnGallery"
+                    <Space
                         android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="top"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_grayradius"
-                        android:drawableLeft="@drawable/gallery2size"
-                        android:paddingLeft="12dp"
-                        android:paddingRight="8dp"
-                        android:text="갤러리"
-                        android:textColorHint="#000000"
-                        android:textSize="18dp" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
 
                 </LinearLayout>
 
@@ -297,7 +258,7 @@
                         android:textColorHint="#000000" />
 
                     <EditText
-                        android:id="@+id/autoEtContent"
+                        android:id="@+id/selfEtContent"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:layout_centerHorizontal="true"
@@ -329,7 +290,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/autoBtnsiren"
+                    android:id="@+id/selfBtnsiren"
                     android:layout_width="70dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
@@ -345,7 +306,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/autoBtnCancel"
+                    android:id="@+id/selfBtnCancel"
                     android:layout_width="70dp"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
@@ -363,6 +324,7 @@
 
         </LinearLayout>
     </ScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
