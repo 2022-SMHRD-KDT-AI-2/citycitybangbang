@@ -12,34 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
-
         <activity
             android:name=".LawActivity2"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
-            android:name=".lawActivity"
-            android:exported="true">
-
-        </activity>
+            android:name=".LawActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".QnaActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".SelfActivity"
-            android:exported="false" />
+            android:exported="true"></activity>
         <activity
             android:name=".GalaryActivity"
-            android:exported="false" />
+            android:exported="true"></activity>
         <activity
             android:name=".ShootselectActivity"
             android:exported="true"></activity>
         <activity
             android:name=".PhotoselectActivity"
-            android:exported="false" />
+            android:exported="true"></activity>
         <activity
             android:name=".ImformationActivity"
             android:exported="true"></activity>
@@ -54,7 +47,8 @@
         </activity>
         <activity
             android:name=".drawerActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+        </activity>
         <activity
             android:name=".ReportlistActivity"
             android:exported="true"></activity>
@@ -64,15 +58,13 @@
             android:theme="@style/SplashTheme"></activity>
         <activity
             android:name=".MemberActivity"
-            android:exported="false" />
+            android:exported="true"></activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"></activity>
     </application>
 
 </manifest>
