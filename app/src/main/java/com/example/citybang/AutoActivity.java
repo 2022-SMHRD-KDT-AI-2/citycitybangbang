@@ -50,7 +50,7 @@ public class AutoActivity extends AppCompatActivity {
         autoTvLocation = findViewById(R.id.autoTvLocation);
         autoBtnLocation = findViewById(R.id.autoBtnLocation);
 
-        Intent intent = new Intent(AutoActivity.this,SearchActivity.class);
+        Intent intent = new Intent(AutoActivity.this,MapActivity.class);
 
         autoBtnLocation.setOnClickListener(new View.OnClickListener() {
             @Override
