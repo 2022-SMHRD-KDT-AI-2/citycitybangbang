@@ -3,31 +3,35 @@
     package="com.example.citybang">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-
-        android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_security_config">
-
-        <meta-data
-            android:name="com.kakao.sdk.AppKey"
-            android:value="ec77042832d6bfae0b4568956cbbd7f1"/>
-
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".MapActivity"
+            android:name=".WebviewSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchActivity"
             android:exported="true">
 
         </activity>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="ec77042832d6bfae0b4568956cbbd7f1" />
+
+        <activity
+            android:name=".MapActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".LawActivity2"
             android:exported="true" />
@@ -60,15 +64,15 @@
             android:exported="true" />
         <activity
             android:name=".AutoActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".drawerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ReportlistActivity"
             android:exported="true">
 
         </activity>
-        <activity
-            android:name=".drawerActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".ReportlistActivity"
-            android:exported="true" />
         <activity
             android:name=".splashActivity1"
             android:exported="true"
