@@ -1,5 +1,7 @@
 package com.example.citybang;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -28,6 +31,10 @@ public class AutoActivity extends AppCompatActivity {
     TextView autoTvArea, autoTvClock;
     private int myYear, myMonth, myDay, myHour, myMinute;
 
+    TextView autoTvLocation;
+    Button autoBtnLocation;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +46,23 @@ public class AutoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        // 위치 찾기
+        autoTvLocation = findViewById(R.id.autoTvLocation);
+        autoBtnLocation = findViewById(R.id.autoBtnLocation);
+
+        Intent intent = new Intent(AutoActivity.this,SearchActivity.class);
+
+        autoBtnLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
+        String address = getIntent().getStringExtra("address");
+        String address2 = getIntent().getStringExtra("address2");
+        String address3 = address+ " " + address2;
+
+        autoTvLocation.setText(address3);
 
 
         // 신고 취소하겟냐? 팝업창
@@ -102,6 +126,7 @@ public class AutoActivity extends AppCompatActivity {
 
 
 
+
     }
 
     private DatePickerDialog.OnDateSetListener myDateSetListener
@@ -130,5 +155,7 @@ public class AutoActivity extends AppCompatActivity {
             autoTvClock.setText(time);
         }
     };
+
+
 
 }
