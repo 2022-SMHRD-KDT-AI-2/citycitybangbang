@@ -3,6 +3,10 @@
     package="com.example.citybang">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
     <application
         android:allowBackup="true"
@@ -11,12 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-        android:usesCleartextTraffic="true">
+
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config">
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="ec77042832d6bfae0b4568956cbbd7f1"/>
+
         <activity
-            android:name=".LawActivity2"
-            android:exported="true"></activity>
-        <activity
-            android:name=".LawActivity"
+            android:name=".MapActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,23 +33,29 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".LawActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".LawActivity"
+            android:exported="true" />
+        <activity
             android:name=".QnaActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SelfActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".GalaryActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ShootselectActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".PhotoselectActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ImformationActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".AutoActivity"
             android:exported="true">
@@ -49,24 +63,23 @@
         </activity>
         <activity
             android:name=".drawerActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ReportlistActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".splashActivity1"
             android:exported="true"
-            android:theme="@style/SplashTheme"></activity>
+            android:theme="@style/SplashTheme" />
         <activity
             android:name=".MemberActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
