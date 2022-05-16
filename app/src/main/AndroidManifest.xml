@@ -34,32 +34,25 @@
             android:exported="true"></activity>
         <activity
             android:name=".LawActivity2"
-            android:exported="true" >
-
-        </activity>
-        <activity
-            android:name=".LawActivity"
-            android:exported="true" >
-
-        </activity>
-        <activity
-            android:name=".QnaActivity"
-            android:exported="true" >
-
-        </activity>
-        <activity
-            android:name=".SelfActivity"
             android:exported="true" />
         <activity
-            android:name=".GalaryActivity"
+            android:name=".LawActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity
+            android:name=".QnaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SelfActivity"
+            android:exported="true" />
+        <activity
+            android:name=".GalaryActivity"
+            android:exported="true" />
         <activity
             android:name=".ShootselectActivity"
             android:exported="true" />
