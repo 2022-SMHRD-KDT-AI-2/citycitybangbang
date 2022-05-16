@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="0dp"
-    android:background="#fcfcfc"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -28,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="번호판 관련 이륜차 법령"
+            android:text="간단한 이륜차 관련 법령"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -38,12 +37,14 @@
 
     <ExpandableListView
         android:id="@+id/eListview"
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layoutDirection="rtl"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:layoutDirection="ltr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/toolbar"
         app:layout_constraintTop_toTopOf="parent" />
 
 </LinearLayout>

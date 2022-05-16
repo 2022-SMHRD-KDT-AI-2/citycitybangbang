@@ -18,26 +18,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:subtitleTextColor="#FFFFFF"
-        app:titleTextColor="#FFFFFF">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="사진확인"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="16dp" />
-    </androidx.appcompat.widget.Toolbar>
+        app:titleTextColor="#FFFFFF"/>
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnDel"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginEnd="80dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/button_radius"
         android:backgroundTint="@color/blue_1"
         android:text="저장"
@@ -55,15 +43,15 @@
         android:text="신고"
         android:textColor="#FFFFFF"
         app:cornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnSave"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSave"
-        app:layout_constraintTop_toTopOf="@+id/btnSave" />
+        app:layout_constraintStart_toEndOf="@+id/btnDel"
+        app:layout_constraintTop_toTopOf="@+id/btnDel" />
 
     <ImageView
         android:id="@+id/imgReport"
-        android:layout_width="167dp"
-        android:layout_height="181dp"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +63,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="200dp" />
+        app:layout_constraintGuide_end="120dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

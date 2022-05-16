@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="나의 신고 현황   Q \u0026 A"
+            android:text="자주 묻는 질문   Q \u0026 A"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -38,12 +38,14 @@
 
     <ExpandableListView
         android:id="@+id/eListview"
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layoutDirection="rtl"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:layoutDirection="ltr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/toolbar"
         app:layout_constraintTop_toTopOf="parent" />
 
 </LinearLayout>
