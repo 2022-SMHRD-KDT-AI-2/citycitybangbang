@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -15,13 +17,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class AutoActivity extends AppCompatActivity {
 
-    Button autoBtnCancel,autoBtnArea;
-    TextView autoTvArea;
-
+    Button autoBtnCancel,autoBtnArea, autoBtnClock;
+    TextView autoTvArea, autoTvClock;
+    private int myYear, myMonth, myDay, myHour, myMinute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,7 @@ public class AutoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
 
         // 신고 취소하겟냐? 팝업창
@@ -63,27 +69,66 @@ public class AutoActivity extends AppCompatActivity {
         });
         // 팝업 창 끝
 
-        // 버튼클릭 시 날짜 다이얼로그 출력
-        autoTvArea = findViewById(R.id.autoTvArea);
-        autoBtnArea = findViewById(R.id.autoBtnArea);
-        autoBtnArea.setOnClickListener(new View.OnClickListener() {
+        // 날짜 찾기
+        final Calendar c = Calendar.getInstance();
+        Button datePickerButton = (Button) findViewById(R.id.autoBtnArea);
+        datePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerDialog dialog = new DatePickerDialog(AutoActivity.this, listener, 2022, 5, 13);
-                dialog.show();
+                myYear = c.get(Calendar.YEAR);
+                myMonth = c.get(Calendar.MONTH);
+                myDay = c.get(Calendar.DAY_OF_MONTH);
+
+                Dialog dlgDate = new DatePickerDialog(AutoActivity.this, myDateSetListener,
+                        myYear, myMonth, myDay);
+                dlgDate.show();
+
             }
         });
-        // 버튼클릭 날짜 끝
+
+        // 시간 찾기
+        Button timePickerButton = (Button) findViewById(R.id.autoBtnClock);
+        timePickerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myHour = c.get(Calendar.HOUR_OF_DAY);
+                myMinute = c.get(Calendar.MINUTE);
+                Dialog dlgTime = new TimePickerDialog(AutoActivity.this, myTimeSetListener,
+                        myHour, myMinute, false);
+                dlgTime.show();
+            }
+        });
+
+
+
 
     }
 
-    // 버튼클릭 리스너 생성
-    private DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            autoTvArea.setText(year + "년 " + monthOfYear + "월 " + dayOfMonth +"일");
+    private DatePickerDialog.OnDateSetListener myDateSetListener
+            = new DatePickerDialog.OnDateSetListener() {
+
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            String date = String.valueOf(year) + "년 " +
+                    String.valueOf(monthOfYear + 1) + "월 "
+                    + String.valueOf(dayOfMonth) + "일";
+            TextView autoTvArea;
+            autoTvArea = findViewById(R.id.autoTvArea);
+            autoTvArea.setText(date);
         }
     };
 
+    private TimePickerDialog.OnTimeSetListener myTimeSetListener
+            = new TimePickerDialog.OnTimeSetListener() {
+
+
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            String time = String.valueOf(hourOfDay) + ":"
+                    + String.valueOf(minute);
+            TextView autoTvClock;
+            autoTvClock = findViewById(R.id.autoTvClock);
+            autoTvClock.setText(time);
+        }
+    };
 
 }
