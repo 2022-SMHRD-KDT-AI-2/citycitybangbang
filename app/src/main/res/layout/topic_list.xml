@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
+    android:layout_gravity="left"
     android:background="@drawable/edge"
     android:orientation="vertical">
 
@@ -16,7 +16,8 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="4dp" />
+        tools:layout_editor_absoluteY="4dp"
+        android:padding="15dp"/>
 
 
 </LinearLayout>
