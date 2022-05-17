@@ -77,9 +77,12 @@ public class AutoActivity extends AppCompatActivity {
                 ad.setPositiveButton("예", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
-                        Intent intent = new Intent(AutoActivity.this,MainActivity.class);
                         dialogInterface.dismiss();
+                        Intent intent = new Intent(AutoActivity.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
+
+
                     }
                 });
 

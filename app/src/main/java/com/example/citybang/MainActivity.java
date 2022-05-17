@@ -15,7 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     Button btnMaiCamera, btnMaiSiren, btnMaiGallery, btnDraReportlist,
-            btnDraLaw1, btnDraLaw2, btnDraAsk, btnDraStep, btnDraWithdrawal;
+            btnDraLaw1, btnDraLaw2, btnDraAsk, btnDraStep, btnDraWithdrawal,
+            btnLogin, btnMember;
 
     Intent intent;
 
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         btnDraLaw2 = findViewById(R.id.btnDraLaw2);
         btnDraAsk = findViewById(R.id.btnDraAsk);
         btnDraStep = findViewById(R.id.btnDraStep);
+        btnDraWithdrawal = findViewById(R.id.btnDraWithdrawal);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnMember = findViewById(R.id.btnMember);
 
         // 회원탈퇴 밑줄
         Button button = findViewById(R.id.btnDraWithdrawal);
@@ -41,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         // 밑줄 끝
 
         // 팝업창
-        btnDraWithdrawal = findViewById(R.id.btnDraWithdrawal);
         btnDraWithdrawal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,14 +52,15 @@ public class MainActivity extends AppCompatActivity {
                 ad.setTitle("회원탈퇴");
                 ad.setMessage("회원탈퇴를 하시면 해당 아이디로 로그인이되지 않습니다. 회원탈퇴 하시겠습니까?");
 
-                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                ad.setPositiveButton("예", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        // 회원 탈퇴 구현하기!!
                         dialogInterface.dismiss();
                     }
                 });
 
-                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                ad.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
@@ -67,6 +71,28 @@ public class MainActivity extends AppCompatActivity {
         });
         // 팝업창 끝
 
+        // 로그인 클릭 시
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        //회원가입 클릭 시
+        btnMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(MainActivity.this, MemberActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+        // 갤러리로 이동
         btnMaiGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 신고하기로 이동!!
+        // 신고하기로 이동
         btnMaiSiren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 나의 신고내역 이동!
+        // 나의 신고내역 이동
         btnDraReportlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 도로 교통법 이동!
+        // 도로 교통법 이동
         btnDraLaw1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 법령 이동!
+        // 법령 이동
         btnDraLaw2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 자주하는 질문 이동!
+        // 자주하는 질문 이동
         btnDraAsk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 절차 이동!
+        // 절차 이동
         btnDraStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

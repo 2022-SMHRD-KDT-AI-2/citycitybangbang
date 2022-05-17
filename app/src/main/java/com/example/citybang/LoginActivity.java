@@ -1,5 +1,6 @@
 package com.example.citybang;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.Intent;
 import android.os.Bundle;
@@ -78,6 +79,8 @@ public class LoginActivity extends AppCompatActivity {
                             save();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
+
+
                         }else if(response.equals("로그인에 실패했습니다.")){
                             Toast.makeText(LoginActivity.this, "로그인에 실패했습니다.", Toast.LENGTH_LONG).show();
                         }
@@ -126,4 +129,7 @@ public class LoginActivity extends AppCompatActivity {
         idd = appData.getString("ID", "");
         pwd = appData.getString("PWD", "");
     }
+
+
+
 }
