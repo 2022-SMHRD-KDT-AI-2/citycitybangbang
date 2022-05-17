@@ -50,12 +50,12 @@ public class AutoActivity extends AppCompatActivity {
         autoTvLocation = findViewById(R.id.autoTvLocation);
         autoBtnLocation = findViewById(R.id.autoBtnLocation);
 
-        Intent intent = new Intent(AutoActivity.this,MapActivity.class);
+        final Intent[] intent = {new Intent(AutoActivity.this, MapActivity.class)};
 
         autoBtnLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(intent);
+                startActivity(intent[0]);
             }
         });
         String address = getIntent().getStringExtra("address");
@@ -77,6 +77,8 @@ public class AutoActivity extends AppCompatActivity {
                 ad.setPositiveButton("예", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Intent intent = new Intent(AutoActivity.this,MainActivity.class);
                         dialogInterface.dismiss();
                     }
                 });

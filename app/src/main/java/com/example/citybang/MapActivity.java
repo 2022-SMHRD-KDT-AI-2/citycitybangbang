@@ -25,7 +25,7 @@ public class MapActivity extends AppCompatActivity {
         // 툴바
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
@@ -44,5 +44,10 @@ public class MapActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
+
+
+
 }
