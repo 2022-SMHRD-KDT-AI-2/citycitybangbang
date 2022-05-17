@@ -26,6 +26,7 @@ public class SearchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // 툴바 끝
 
         et_address2 = findViewById(R.id.et_address2);
         et_address = findViewById(R.id.et_address);
