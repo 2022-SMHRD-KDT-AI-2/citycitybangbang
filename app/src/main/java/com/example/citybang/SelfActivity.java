@@ -31,7 +31,7 @@ public class SelfActivity extends AppCompatActivity {
         selfBtnsiren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SelfActivity.this,splashActivity2.class);
+                Intent intent = new Intent(SelfActivity.this,SplashingActivity.class);
                 startActivity(intent);
                 finish();
             }
