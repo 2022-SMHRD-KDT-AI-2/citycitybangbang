@@ -27,7 +27,7 @@ import java.util.Calendar;
 
 public class AutoActivity extends AppCompatActivity {
 
-    Button autoBtnCancel,autoBtnArea, autoBtnClock;
+    Button autoBtnCancel,autoBtnArea, autoBtnClock, autoBtnsiren;
     TextView autoTvArea, autoTvClock;
     private int myYear, myMonth, myDay, myHour, myMinute;
 
@@ -45,6 +45,17 @@ public class AutoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // 신고하기 클릭 시!!
+        autoBtnsiren = findViewById(R.id.autoBtnsiren);
+        autoBtnsiren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),SplashingActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // 위치 찾기
         autoTvLocation = findViewById(R.id.autoTvLocation);

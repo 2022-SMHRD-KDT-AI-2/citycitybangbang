@@ -12,7 +12,7 @@ import android.widget.Button;
 
 public class SelfActivity extends AppCompatActivity {
 
-    Button selfBtnCancel;
+    Button selfBtnCancel, selfBtnsiren;
 
 
     @Override
@@ -25,6 +25,17 @@ public class SelfActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // 신고하기 클릭 시!!
+        selfBtnsiren = findViewById(R.id.selfBtnsiren);
+        selfBtnsiren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelfActivity.this,splashActivity2.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // 신고 취소하겟냐? 팝업창
         selfBtnCancel = findViewById(R.id.selfBtnCancel);
