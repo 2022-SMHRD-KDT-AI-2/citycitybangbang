@@ -22,7 +22,11 @@
         <activity
             android:name=".SearchActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data
@@ -37,14 +41,7 @@
             android:exported="true" />
         <activity
             android:name=".LawActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".QnaActivity"
             android:exported="true" />
@@ -72,6 +69,7 @@
         <activity
             android:name=".ReportlistActivity"
             android:exported="true">
+
         </activity>
         <activity
             android:name=".splashActivity1"

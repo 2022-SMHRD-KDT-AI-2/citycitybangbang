@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-class ImageAdapter extends BaseAdapter {
+class ImageAdapter extends BaseAdapter{
     Context context;
 
     //가데이터
