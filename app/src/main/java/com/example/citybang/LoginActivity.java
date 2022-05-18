@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 String id = binding.etLogId.getText().toString();
                 String pw = binding.etLogPw.getText().toString();
 
-                String url = "http://121.147.185.123:8090/citycitybangbang/login?id=" + id + "&pw=" + pw;
+                String url = "http://125.136.66.65:8090/citycitybangbang/login?id=" + id + "&pw=" + pw;
 
                 StringRequest request = new StringRequest(
                         Request.Method.GET, url, new Response.Listener<String>(){

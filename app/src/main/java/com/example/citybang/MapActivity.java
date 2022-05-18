@@ -42,12 +42,15 @@ public class MapActivity extends AppCompatActivity {
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
     MapPoint MARKER_POINT;
     MapPOIItem marker;
+    String address;
     // GPS
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        address = "";
 
         // 툴바
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -122,8 +125,10 @@ public class MapActivity extends AppCompatActivity {
                 double latitude = gpsTracker.getLatitude();
                 double longitude = gpsTracker.getLongitude();
 
-                String address = getCurrentAddress(latitude, longitude);
+                // 여기에 주소 들어옴!!!
+                address = getCurrentAddress(latitude, longitude);
                 textview_address.setText(address);
+
 
 
                 // 중심점 변경
@@ -141,6 +146,25 @@ public class MapActivity extends AppCompatActivity {
 
             }
         });
+
+        // 확인 버튼 누르면? main으로 이동하면서 main의 text 변경
+
+        Button btnYes = findViewById(R.id.btnYes);
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+
+                intent.putExtra("address", address);
+
+                setResult(RESULT_OK, intent);
+                finish();
+
+            }
+        });
+
+
     }
 
 

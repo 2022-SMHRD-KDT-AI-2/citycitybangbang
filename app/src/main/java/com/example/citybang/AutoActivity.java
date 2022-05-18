@@ -3,6 +3,7 @@ package com.example.citybang;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -33,6 +34,9 @@ public class AutoActivity extends AppCompatActivity {
 
     TextView autoTvLocation;
     Button autoBtnLocation;
+    int LOTATE = 1004;
+
+
 
 
     @Override
@@ -57,6 +61,8 @@ public class AutoActivity extends AppCompatActivity {
             }
         });
 
+
+
         // 위치 찾기
         autoTvLocation = findViewById(R.id.autoTvLocation);
         autoBtnLocation = findViewById(R.id.autoBtnLocation);
@@ -66,7 +72,7 @@ public class AutoActivity extends AppCompatActivity {
         autoBtnLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(intent[0]);
+                startActivityForResult(intent[0], LOTATE);
             }
         });
         String address = getIntent().getStringExtra("address");
@@ -74,6 +80,9 @@ public class AutoActivity extends AppCompatActivity {
         String address3 = address+ " " + address2;
 
         autoTvLocation.setText(address3);
+        // 예지가 쓴것
+        String textview_address = getIntent().getStringExtra("textview_address");
+        autoTvLocation.setText(textview_address);
 
 
         // 신고 취소하겟냐? 팝업창
@@ -171,6 +180,23 @@ public class AutoActivity extends AppCompatActivity {
             autoTvClock.setText(time);
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == LOTATE){
+            if(resultCode == RESULT_OK){
+                autoTvLocation.setText(data.getStringExtra("address"));
+
+
+
+
+            }
+        }
+
+
+    }
 
 
 

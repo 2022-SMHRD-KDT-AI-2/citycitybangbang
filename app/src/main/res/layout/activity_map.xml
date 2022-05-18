@@ -26,14 +26,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:subtitleTextColor="#FFFFFF"
-            app:titleTextColor="#FFFFFF"
-            app:theme="@style/ToolbarTheme">
+            app:theme="@style/ToolbarTheme"
+            app:titleTextColor="#FFFFFF">
 
         </androidx.appcompat.widget.Toolbar>
         <!--   툴바 끝     -->
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnYes"
             android:layout_width="140dp"
             android:layout_height="45dp"
             android:layout_marginTop="21dp"

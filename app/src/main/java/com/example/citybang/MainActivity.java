@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnMaiCamera, btnMaiSiren, btnMaiGallery, btnDraReportlist,
             btnDraLaw1, btnDraLaw2, btnDraAsk, btnDraStep, btnDraWithdrawal,
-            btnLogin, btnMember;
+            btnLogin, btnMember, btnLogout;
 
     Intent intent;
 
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnDraWithdrawal = findViewById(R.id.btnDraWithdrawal);
         btnLogin = findViewById(R.id.btnLogin);
         btnMember = findViewById(R.id.btnMember);
+        btnLogout = findViewById(R.id.btnLogout);
 
         // 회원탈퇴 밑줄
         Button button = findViewById(R.id.btnDraWithdrawal);
@@ -70,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // 팝업창 끝
+
+
+        // 처음에는 로그아웃 버튼 안보이게!!
+
+        btnLogin.setVisibility(View.GONE);
+        btnMember.setVisibility(View.GONE);
 
         // 로그인 클릭 시
         btnLogin.setOnClickListener(new View.OnClickListener() {
