@@ -25,7 +25,7 @@ public class login extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
-		/* String returns = id+"/"+pw; */
+		//String returns = id+"/"+pw; 
 
 		String returns = connectDB3.connectionDB3(id, pw);
 
