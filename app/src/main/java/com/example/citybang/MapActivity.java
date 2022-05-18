@@ -62,16 +62,16 @@ public class MapActivity extends AppCompatActivity {
         ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
 
         // 중심점 변경
-        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(34.438512988478, 126.35604737656), true);
+        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(35.153393317173, 126.79934130274), true);
         // 줌 레벨 변경
-        mapView.setZoomLevel(3, true);
+        mapView.setZoomLevel(2, true);
 //        // 줌 인
 //        mapView.zoomIn(true);
 //        // 줌 아웃
 //        mapView.zoomOut(true);
 
         //마커 찍기
-        MARKER_POINT = MapPoint.mapPointWithGeoCoord(34.438512988478, 126.35604737656);
+        MARKER_POINT = MapPoint.mapPointWithGeoCoord(35.153393317173, 126.79934130274);
 
         marker = new MapPOIItem();
         marker.setItemName("현재위치");
@@ -125,7 +125,6 @@ public class MapActivity extends AppCompatActivity {
                 String address = getCurrentAddress(latitude, longitude);
                 textview_address.setText(address);
 
-               // Toast.makeText(MapActivity.this, "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
 
                 // 중심점 변경
                 mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(latitude, longitude), true);

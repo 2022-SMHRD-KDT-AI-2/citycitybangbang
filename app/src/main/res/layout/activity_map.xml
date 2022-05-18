@@ -77,7 +77,7 @@
             android:layout_width="369dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="21dp"
-            android:text="\송암로 11광주 광역시 남고 송암로 11광주 광역시 남고 송암로 11광주 광역시 남고 송암로 11광주 광역시 남고 송암로 1"
+            android:text="현재 위치 버튼을 누르면, 지도에 현재 위치가 표시됩니다."
             android:textColor="#000000"
             android:textSize="17sp"
             android:textStyle="bold"
