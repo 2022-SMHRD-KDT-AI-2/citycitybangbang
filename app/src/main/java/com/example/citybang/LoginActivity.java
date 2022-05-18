@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -67,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 String id = binding.etLogId.getText().toString();
                 String pw = binding.etLogPw.getText().toString();
+
+                SharedPreference.setAttribute(getBaseContext(), "id", binding.etLogId.getText().toString());
 
                 String url = "http://125.136.66.65:8090/citycitybangbang/login?id=" + id + "&pw=" + pw;
 

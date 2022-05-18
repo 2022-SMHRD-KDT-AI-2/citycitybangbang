@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        String a = SharedPreference.getAttribute(getBaseContext(), "id");
 
         btnMaiCamera = findViewById(R.id.btnMaiCamera);
         btnMaiSiren = findViewById(R.id.btnMaiSiren);
@@ -72,31 +72,48 @@ public class MainActivity extends AppCompatActivity {
         });
         // 팝업창 끝
 
+        if (a==null) {
+            btnMember.setVisibility(View.VISIBLE);
+            btnLogin.setVisibility(View.VISIBLE);
+            btnLogout.setVisibility(View.GONE);
 
-        // 처음에는 로그아웃 버튼 안보이게!!
+            // 로그인 클릭 시
+            btnLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
 
-        btnLogin.setVisibility(View.GONE);
-        btnMember.setVisibility(View.GONE);
+            //회원가입 클릭 시
+            btnMember.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    intent = new Intent(MainActivity.this, MemberActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        }
 
-        // 로그인 클릭 시
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        if (a!= null){
+            btnLogin.setVisibility(View.GONE);
+            btnMember.setVisibility(View.GONE);
+            btnLogout.setVisibility(View.VISIBLE);
 
-        //회원가입 클릭 시
-        btnMember.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(MainActivity.this, MemberActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+            btnLogout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SharedPreference.removeAttribute(getBaseContext(), "id");
+                    intent = new Intent(MainActivity.this, splashActivity1.class);
+                    startActivity(intent);
+                }
+            });
+
+
+        }
 
 
         // 갤러리로 이동
