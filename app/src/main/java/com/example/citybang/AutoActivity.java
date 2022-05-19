@@ -24,25 +24,46 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.citybang.databinding.ActivityAutoBinding;
+
 import java.util.Calendar;
 
 public class AutoActivity extends AppCompatActivity {
 
     Button autoBtnCancel,autoBtnArea, autoBtnClock, autoBtnsiren;
-    TextView autoTvArea, autoTvClock;
+    TextView autoTvArea, autoTvClock, autoEtContent;
     private int myYear, myMonth, myDay, myHour, myMinute;
 
-    TextView autoTvLocation;
+    RequestQueue requestQueue;
+
+    TextView autoTvLocation ;
     Button autoBtnLocation;
     int LOTATE = 1004;
 
-
+    ActivityAutoBinding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auto);
+
+        if (requestQueue == null){
+            requestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
+
+        autoTvArea = findViewById(R.id.autoTvArea);
+        autoTvClock = findViewById(R.id.autoTvClock);
+        autoTvLocation = findViewById(R.id.autoTvLocation);
+        autoEtContent = findViewById(R.id.autoEtContent);
+
+        String a = SharedPreference.getAttribute(getBaseContext(), "id");
 
         // 툴바
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -51,17 +72,40 @@ public class AutoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         // 신고하기 클릭 시!!
+
         autoBtnsiren = findViewById(R.id.autoBtnsiren);
         autoBtnsiren.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),SplashingActivity.class);
-                startActivity(intent);
-                finish();
-            }
+                @Override
+                public void onClick(View view) {
+                    String acc_date = autoTvArea.getText().toString() + " " + autoTvClock.getText().toString();
+                    String acc_place = autoTvLocation.getText().toString();
+                    String re_comment = autoEtContent.getText().toString();
+
+                    String url = "http://125.136.66.65:8090/citycitybangbang/report?id=" + a +
+                            "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
+
+                    StringRequest request = new StringRequest(
+                            Request.Method.GET, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            if (response.equals("신고 완료!")) {
+                                Intent intent = new Intent(getApplicationContext(),SplashingActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(AutoActivity.this, "응답 실패", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    );
+
+                    requestQueue.add(request);
+
+                    finish();
+                }
         });
-
-
 
         // 위치 찾기
         autoTvLocation = findViewById(R.id.autoTvLocation);
