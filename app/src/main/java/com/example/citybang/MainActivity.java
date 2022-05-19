@@ -50,10 +50,7 @@ public class MainActivity extends AppCompatActivity {
         btnMember = findViewById(R.id.btnMember);
         btnLogout = findViewById(R.id.btnLogout);
 
-        // 회원탈퇴 밑줄
         Button button = findViewById(R.id.btnDraWithdrawal);
-        button.setPaintFlags(button.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        // 밑줄 끝
 
         if (requestQueue == null){
             requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -78,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
                             public void onResponse(String response)
                             {
                                 if(response.equals("회원 탈퇴 성공!")){
+                                    SharedPreference.removeAttribute(getBaseContext(), "id");
                                     Toast.makeText(MainActivity.this, "회원 탈퇴 성공!", Toast.LENGTH_SHORT).show();
+                                    intent = new Intent(MainActivity.this, splashActivity1.class);
+                                    startActivity(intent);
                                 }else if ( response.equals("0")){
 
                                 }
@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             btnMember.setVisibility(View.VISIBLE);
             btnLogin.setVisibility(View.VISIBLE);
             btnLogout.setVisibility(View.GONE);
+            button.setVisibility(View.GONE);
 
             // 로그인 클릭 시
             btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
             btnLogin.setVisibility(View.GONE);
             btnMember.setVisibility(View.GONE);
             btnLogout.setVisibility(View.VISIBLE);
+            button.setVisibility(View.VISIBLE);
 
             btnLogout.setOnClickListener(new View.OnClickListener() {
                 @Override
