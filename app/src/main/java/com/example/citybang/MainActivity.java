@@ -2,14 +2,22 @@ package com.example.citybang;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
             btnLogin, btnMember, btnLogout;
 
     Intent intent;
+
+    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         button.setPaintFlags(button.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         // 밑줄 끝
 
+        if (requestQueue == null){
+            requestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
+
         // 팝업창
         btnDraWithdrawal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +70,28 @@ public class MainActivity extends AppCompatActivity {
                 ad.setPositiveButton("예", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        // 회원 탈퇴 구현하기!!
+
+                        String url = "http://125.136.66.65:8090/citycitybangbang/deleteUser?id=" + a;
+                        StringRequest request = new StringRequest(
+                                Request.Method.GET, url, new Response.Listener<String>(){
+                            @Override
+                            public void onResponse(String response)
+                            {
+                                if(response.equals("회원 탈퇴 성공!")){
+                                    Toast.makeText(MainActivity.this, "회원 탈퇴 성공!", Toast.LENGTH_SHORT).show();
+                                }else if ( response.equals("0")){
+
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(MainActivity.this, "응답 실패", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        );
+
+                        requestQueue.add(request);
                         dialogInterface.dismiss();
                     }
                 });
