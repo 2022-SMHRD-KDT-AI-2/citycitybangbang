@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
                             {
                                 if(response.equals("회원 탈퇴 성공!")){
                                     SharedPreference.removeAttribute(getBaseContext(), "id");
-                                    Toast.makeText(MainActivity.this, "회원 탈퇴 성공!", Toast.LENGTH_SHORT).show();
-                                    intent = new Intent(MainActivity.this, splashActivity1.class);
+                                    Toast.makeText(getApplicationContext(), "회원 탈퇴 성공!", Toast.LENGTH_SHORT).show();
+                                    intent = new Intent(getApplicationContext(), splashActivity1.class);
                                     startActivity(intent);
                                 }else if ( response.equals("0")){
 
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(MainActivity.this, "응답 실패", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "응답 실패", Toast.LENGTH_SHORT).show();
                             }
                         }
                         );
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             btnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    intent = new Intent(MainActivity.this, LoginActivity.class);
+                    intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             btnMember.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    intent = new Intent(MainActivity.this, MemberActivity.class);
+                    intent = new Intent(getApplicationContext(), MemberActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     SharedPreference.removeAttribute(getBaseContext(), "id");
-                    intent = new Intent(MainActivity.this, splashActivity1.class);
+                    intent = new Intent(getApplicationContext(), splashActivity1.class);
                     startActivity(intent);
                 }
             });
@@ -157,9 +157,8 @@ public class MainActivity extends AppCompatActivity {
         btnMaiGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this,GalaryActivity.class);
+                intent = new Intent(getApplicationContext(),GalaryActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -167,9 +166,8 @@ public class MainActivity extends AppCompatActivity {
         btnMaiSiren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this,AutoActivity.class);
+                intent = new Intent(getApplicationContext(),AutoActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -177,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         btnDraReportlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this,ReportlistActivity.class);
+                intent = new Intent(getApplicationContext(),ReportlistActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -187,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         btnDraLaw1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this,LawActivity.class);
+                intent = new Intent(getApplicationContext(),LawActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -197,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
         btnDraLaw2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this,LawActivity2.class);
+                intent = new Intent(getApplicationContext(),LawActivity2.class);
                 startActivity(intent);
                 finish();
             }
@@ -207,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
         btnDraAsk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this,QnaActivity.class);
+                intent = new Intent(getApplicationContext(),QnaActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -217,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
         btnDraStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this,ImformationActivity.class);
+                intent = new Intent(getApplicationContext(),ImformationActivity.class);
                 startActivity(intent);
                 finish();
             }
