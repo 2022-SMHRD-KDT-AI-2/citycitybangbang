@@ -80,9 +80,7 @@ public class AutoActivity extends AppCompatActivity {
         String address3 = address+ " " + address2;
 
         autoTvLocation.setText(address3);
-        // 예지가 쓴것
-        String textview_address = getIntent().getStringExtra("textview_address");
-        autoTvLocation.setText(textview_address);
+
 
 
         // 신고 취소하겟냐? 팝업창
@@ -180,7 +178,7 @@ public class AutoActivity extends AppCompatActivity {
             autoTvClock.setText(time);
         }
     };
-
+    // 현재 위치 값!
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -188,15 +186,11 @@ public class AutoActivity extends AppCompatActivity {
         if (requestCode == LOTATE){
             if(resultCode == RESULT_OK){
                 autoTvLocation.setText(data.getStringExtra("address"));
-
-
-
-
             }
         }
-
-
     }
+
+
 
 
 

@@ -42,14 +42,13 @@ public class MapActivity extends AppCompatActivity {
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
     MapPoint MARKER_POINT;
     MapPOIItem marker;
-    String address;
     // GPS
+    String address;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-
         address = "";
 
         // 툴바
@@ -90,12 +89,14 @@ public class MapActivity extends AppCompatActivity {
 
 
 
-        Intent intent = new Intent(MapActivity.this,SearchActivity.class);
+
         btnMapSearch = findViewById(R.id.btnMapSearch);
         btnMapSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(MapActivity.this,SearchActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -160,6 +161,7 @@ public class MapActivity extends AppCompatActivity {
 
                 setResult(RESULT_OK, intent);
                 finish();
+
 
             }
         });
