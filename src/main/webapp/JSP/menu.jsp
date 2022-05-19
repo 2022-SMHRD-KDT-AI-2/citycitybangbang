@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-<title>Insert title here</title>
+    <title>산고 관리</title>
 </head>
 <body>
     <div class="tbaner"><p>신고 통계</p></div>
@@ -36,7 +36,7 @@
                     <td>신고위치</td>
                 </tr>
             </table>
-            <table  class="barmenu"  id="select" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/graph.jsp'">
+            <table  class="barmenu" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/graph.jsp'">
                 <tr>
                     <td><img class="appimg" src="../img/pngwing.com (1).png" alt="어플이미지"></td>
                 </tr>
@@ -51,10 +51,10 @@
                 <tr>
                     <td>리스트</td>
                 </tr>
-            </table>
-            <div id="columnchart_material" class="chart1" ></div>    
-            <div id="employee_piechart" class="chart2" style="width: 900px; height: 500px;"></div>          
+            </table>     
         </div>
     </div>
+    
+
 </body>
-</html>
+</html>     
