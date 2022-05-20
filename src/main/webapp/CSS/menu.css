@@ -18,3 +18,50 @@ body {
   margin: 0px;
   overflow:auto;
 }
+
+.sbaner{
+  width: 130px;
+  height: 1080px;
+  color: #ffffff;
+  box-shadow: 0.75px 0.75px 0.75px 0.75px rgb(201, 201, 201);
+  position: absolute;
+}
+.bar_manager{
+  width: 130px;
+  height: 190px;
+  border-bottom-style:solid;
+  border-color: gray;
+  border-width:0.5px ;
+}
+.appimg{
+  width: 62px;
+  height: 62px;
+}
+
+.login{
+  position: static;
+}
+#logout{
+  width: 93px;
+  height: 33px;
+  background-color: #1187CF;
+  border-color: transparent;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.managername{
+  font-weight: 700;
+  font-size: 15px;
+  color: black;
+  text-align: center; 
+}
+.barmenu{
+  width: 130px;
+  height: 130px;
+  border-bottom-style:solid;
+  border-color: gray;
+  border-width:0.5px ;
+  }

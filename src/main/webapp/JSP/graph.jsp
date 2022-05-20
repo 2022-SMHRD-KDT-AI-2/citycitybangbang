@@ -18,9 +18,10 @@
     <link rel="stylesheet" href="../CSS/graph.css">
 </head>
 <body>
-    
-<div id="columnchart_material" class="chart1" ></div>    
-<div id="employee_piechart" class="chart2" style="width: 900px; height: 500px;"></div>            
-
+<jsp:include page="menu.jsp"/>
+<div class="tbaner"><p>신고 통계</p></div>    
+<div id="columnchart_material" class="chart1" ></div>  
+<input type="date" class="yymmdd">  
+<div id="donutchart" class="chart2" style="width: 1200px; height: 800px;"></div>            
 </body>
 </html>     

@@ -17,6 +17,7 @@
 </head>
 
 <body>
+<jsp:include page="menu.jsp"/>
    <div id="map">
    </div>
    

@@ -9,13 +9,13 @@
 <head>
     <meta charset="UTF-8">
     <title>산고 관리</title>
+    <link rel="stylesheet" href="../CSS/menu.css">
 </head>
 <body>
-    <div class="tbaner"><p>신고 통계</p></div>
     <div class="sbaner">
             <table class="bar_manager">
             <tr>
-                <td><img class="appimg" src="../img/리스트.png" alt="어플이미지"></td>
+                <td><img class="appimg" src="../IMG/리스트.png" alt="어플이미지"></td>
             </tr>
             <tr>
                 <td>
@@ -28,32 +28,32 @@
                 <td><button id="logout" >로그아웃</button></td>
             </tr>
             </table>
-            <table class="barmenu" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/map.jsp'">
+            <table class="barmenu" id="report" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/map.jsp'">
                 <tr>
-                    <td><img class="appimg" src="../img/마크.png" alt="어플이미지" ></td>
+                    <td><img class="appimg" src="../IMG/마크.png" alt="어플이미지" ></td>
                 </tr>
                 <tr>
                     <td>신고위치</td>
                 </tr>
             </table>
-            <table  class="barmenu" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/graph.jsp'">
+            <table  class="barmenu" id="chart" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/graph.jsp'">
                 <tr>
-                    <td><img class="appimg" src="../img/pngwing.com (1).png" alt="어플이미지"></td>
+                    <td><img class="appimg" src="../IMG/pngwing.com (1).png" alt="어플이미지"></td>
                 </tr>
                 <tr>
                     <td>통계</td>
                 </tr>
             </table>
-            <table class="barmenu"  onclick="location.href='http://localhost:8081/citycitybangbang/JSP/list.jsp'">
+            <table class="barmenu"  id="list" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/list.jsp'">
                 <tr>
-                    <td ><img class="appimg" src="../img/리스트.png" alt="어플이미지"></td>
+                    <td ><img class="appimg" src="../IMG/리스트.png" alt="어플이미지"></td>
                 </tr>
                 <tr>
                     <td>리스트</td>
                 </tr>
             </table>     
         </div>
-    </div>
+   
     
 
 </body>

@@ -9,9 +9,10 @@
 <head>
     <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/list.css">
+<link rel="stylesheet" href="../CSS/list.css">
 </head>
 <body>
-
+<div class="tbaner"><p>접수된 신고</p></div>
+<jsp:include page="menu.jsp"/>
 </body>
 </html>
