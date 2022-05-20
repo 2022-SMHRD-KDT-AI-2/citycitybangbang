@@ -9,24 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.db.ConnectDB4;
+import com.db.ConnectDB5;
 
-@WebServlet("/deleteUser")
-public class deleteUser extends HttpServlet {
+@WebServlet("/report")
+public class report extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ConnectDB4 connectDB4 = ConnectDB4.getInstance4();
+		ConnectDB5 connectDB5 = ConnectDB5.getInstance5();
 
 		response.setContentType("text/html; charset=UTF-8");
 		
 		String id = request.getParameter("id");
+		String acc_date = request.getParameter("acc_date");
+		String acc_place = request.getParameter("acc_place");
+		String re_comment = request.getParameter("re_comment");
 		
 		/* String returns = id; */
+		
+		 System.out.println(id);
 
-		String returns = connectDB4.connectionDB4(id);
+		String returns = connectDB5.connectionDB5(id, acc_date, acc_place, re_comment);
 
 		System.out.println(returns);
 		

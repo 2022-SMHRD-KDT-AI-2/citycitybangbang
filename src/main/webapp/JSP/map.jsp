@@ -1,23 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-
+<meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9982fb8589d4aeda9ccac9ef44b2f2cf&libraries=services,clusterer,drawing"></script>
 <link href="../CSS/map.css" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
+	<jsp:include page="menu.jsp"/>
 	<div id="map">
 	</div>
-	
-	<script>
-	
-	var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
+   
+   <script>
+   var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
         center : new kakao.maps.LatLng(36.2683, 127.6358), // 지도의 중심좌표
         level : 14 // 지도의 확대 레벨
     });
@@ -27,8 +26,7 @@
     // 클러스터 마커를 클릭했을 때 클러스터 객체가 포함하는 마커들이 모두 잘 보이도록 지도의 레벨과 영역을 변경합니다
     // 이 예제에서는 disableClickZoom 값을 true로 설정하여 기본 클릭 동작을 막고
     // 클러스터 마커를 클릭했을 때 클릭된 클러스터 마커의 위치를 기준으로 지도를 1레벨씩 확대합니다
-   
-    
+ 
     var clusterer = new kakao.maps.MarkerClusterer({
         map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
         averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
@@ -106,6 +104,7 @@
         // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
         map.setLevel(level, {anchor: cluster.getCenter()});
     });
-	</script>
+
+   </script>
 </body>
 </html>

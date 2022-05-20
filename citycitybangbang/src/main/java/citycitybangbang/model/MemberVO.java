@@ -5,13 +5,13 @@ public class MemberVO {
 	private String mem_pwd;
 	private String mem_name;
 	private String mem_email;
-	private char sex;
+	private String sex;
 	private String mem_joindate;
 	private char mem_type;
 	
 	public MemberVO() { }
 	
-	public MemberVO(String mem_id, String mem_pwd, String mem_name, String mem_email, char sex, String mem_joindate,
+	public MemberVO(String mem_id, String mem_pwd, String mem_name, String mem_email, String sex, String mem_joindate,
 			char mem_type) {
 		super();
 		this.mem_id = mem_id;
@@ -56,11 +56,11 @@ public class MemberVO {
 		this.mem_email = mem_email;
 	}
 
-	public char getSex() {
+	public String getSex() {
 		return sex;
 	}
 
-	public void setSex(char sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
 
