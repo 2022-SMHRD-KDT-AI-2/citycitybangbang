@@ -30,7 +30,7 @@
             </table>
             <table class="barmenu" id="report" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/map.jsp'">
                 <tr>
-                    <td><img class="appimg" src="../IMG/마크.png" alt="어플이미지" ></td>
+                    <td><img class="appimg" src="../IMG/chart.png" alt="어플이미지" ></td>
                 </tr>
                 <tr>
                     <td>신고위치</td>
@@ -38,7 +38,7 @@
             </table>
             <table  class="barmenu" id="chart" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/graph.jsp'">
                 <tr>
-                    <td><img class="appimg" src="../IMG/pngwing.com (1).png" alt="어플이미지"></td>
+                    <td><img class="appimg" src="../IMG/mark.png" alt="어플이미지"></td>
                 </tr>
                 <tr>
                     <td>통계</td>
