@@ -1,17 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=LIBRARY"></script>
-<!-- services ¶óÀÌºê·¯¸® ºÒ·¯¿À±â -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
-<!-- services¿Í clusterer, drawing ¶óÀÌºê·¯¸® ºÒ·¯¿À±â -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9982fb8589d4aeda9ccac9ef44b2f2cf"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9982fb8589d4aeda9ccac9ef44b2f2cf&libraries=services,clusterer,drawing"></script>
 <link href="../CSS/map.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -21,50 +16,96 @@
 	</div>
 	
 	<script>
-	var map = new kakao.maps.Map(document.getElementById('map'), { // Áöµµ¸¦ Ç¥½ÃÇÒ div
-        center : new kakao.maps.LatLng(36.2683, 127.6358), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-        level : 14 // ÁöµµÀÇ È®´ë ·¹º§
+	
+	var map = new kakao.maps.Map(document.getElementById('map'), { // ì§€ë„ë¥¼ í‘œì‹œí•  div
+        center : new kakao.maps.LatLng(36.2683, 127.6358), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+        level : 14 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
     });
 
-    // ¸¶Ä¿ Å¬·¯½ºÅÍ·¯¸¦ »ı¼ºÇÕ´Ï´Ù
-    // ¸¶Ä¿ Å¬·¯½ºÅÍ·¯¸¦ »ı¼ºÇÒ ¶§ disableClickZoom °ªÀ» true·Î ÁöÁ¤ÇÏÁö ¾ÊÀº °æ¿ì
-    // Å¬·¯½ºÅÍ ¸¶Ä¿¸¦ Å¬¸¯ÇßÀ» ¶§ Å¬·¯½ºÅÍ °´Ã¼°¡ Æ÷ÇÔÇÏ´Â ¸¶Ä¿µéÀÌ ¸ğµÎ Àß º¸ÀÌµµ·Ï ÁöµµÀÇ ·¹º§°ú ¿µ¿ªÀ» º¯°æÇÕ´Ï´Ù
-    // ÀÌ ¿¹Á¦¿¡¼­´Â disableClickZoom °ªÀ» true·Î ¼³Á¤ÇÏ¿© ±âº» Å¬¸¯ µ¿ÀÛÀ» ¸·°í
-    // Å¬·¯½ºÅÍ ¸¶Ä¿¸¦ Å¬¸¯ÇßÀ» ¶§ Å¬¸¯µÈ Å¬·¯½ºÅÍ ¸¶Ä¿ÀÇ À§Ä¡¸¦ ±âÁØÀ¸·Î Áöµµ¸¦ 1·¹º§¾¿ È®´ëÇÕ´Ï´Ù
+    // ë§ˆì»¤ í´ëŸ¬ìŠ¤í„°ëŸ¬ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
+    // ë§ˆì»¤ í´ëŸ¬ìŠ¤í„°ëŸ¬ë¥¼ ìƒì„±í•  ë•Œ disableClickZoom ê°’ì„ trueë¡œ ì§€ì •í•˜ì§€ ì•Šì€ ê²½ìš°
+    // í´ëŸ¬ìŠ¤í„° ë§ˆì»¤ë¥¼ í´ë¦­í–ˆì„ ë•Œ í´ëŸ¬ìŠ¤í„° ê°ì²´ê°€ í¬í•¨í•˜ëŠ” ë§ˆì»¤ë“¤ì´ ëª¨ë‘ ì˜ ë³´ì´ë„ë¡ ì§€ë„ì˜ ë ˆë²¨ê³¼ ì˜ì—­ì„ ë³€ê²½í•©ë‹ˆë‹¤
+    // ì´ ì˜ˆì œì—ì„œëŠ” disableClickZoom ê°’ì„ trueë¡œ ì„¤ì •í•˜ì—¬ ê¸°ë³¸ í´ë¦­ ë™ì‘ì„ ë§‰ê³ 
+    // í´ëŸ¬ìŠ¤í„° ë§ˆì»¤ë¥¼ í´ë¦­í–ˆì„ ë•Œ í´ë¦­ëœ í´ëŸ¬ìŠ¤í„° ë§ˆì»¤ì˜ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì§€ë„ë¥¼ 1ë ˆë²¨ì”© í™•ëŒ€í•©ë‹ˆë‹¤
+   
+    
     var clusterer = new kakao.maps.MarkerClusterer({
-        map: map, // ¸¶Ä¿µéÀ» Å¬·¯½ºÅÍ·Î °ü¸®ÇÏ°í Ç¥½ÃÇÒ Áöµµ °´Ã¼
-        averageCenter: true, // Å¬·¯½ºÅÍ¿¡ Æ÷ÇÔµÈ ¸¶Ä¿µéÀÇ Æò±Õ À§Ä¡¸¦ Å¬·¯½ºÅÍ ¸¶Ä¿ À§Ä¡·Î ¼³Á¤
-        minLevel: 10, // Å¬·¯½ºÅÍ ÇÒ ÃÖ¼Ò Áöµµ ·¹º§
-        disableClickZoom: true // Å¬·¯½ºÅÍ ¸¶Ä¿¸¦ Å¬¸¯ÇßÀ» ¶§ Áöµµ°¡ È®´ëµÇÁö ¾Êµµ·Ï ¼³Á¤ÇÑ´Ù
+        map: map, // ë§ˆì»¤ë“¤ì„ í´ëŸ¬ìŠ¤í„°ë¡œ ê´€ë¦¬í•˜ê³  í‘œì‹œí•  ì§€ë„ ê°ì²´
+        averageCenter: true, // í´ëŸ¬ìŠ¤í„°ì— í¬í•¨ëœ ë§ˆì»¤ë“¤ì˜ í‰ê·  ìœ„ì¹˜ë¥¼ í´ëŸ¬ìŠ¤í„° ë§ˆì»¤ ìœ„ì¹˜ë¡œ ì„¤ì •
+        minLevel: 10, // í´ëŸ¬ìŠ¤í„° í•  ìµœì†Œ ì§€ë„ ë ˆë²¨
+        disableClickZoom: true // í´ëŸ¬ìŠ¤í„° ë§ˆì»¤ë¥¼ í´ë¦­í–ˆì„ ë•Œ ì§€ë„ê°€ í™•ëŒ€ë˜ì§€ ì•Šë„ë¡ ì„¤ì •í•œë‹¤
     });
+   
+	// ë°ì´í„° ë„£ê¸°!
+	var data = {
+	  "positions": [
+	    {
+	      "lat": 37.27943075229118,
+	      "lng": 127.01763998406159,
+	      "context" : "ì´ê²Œ ë­˜ê¹Œ"
+	    },
+	    {
+	      "lat": 37.55915668706214,
+	      "lng": 126.92536526611102,
+	      "context" : "ì´ê²Œ ë­˜ê¹Œ"
+	    },
+	    {
+	      "lat": 35.13854258261161,
+	      "lng": 129.1014781294671,
+	      "context" : "ì´ê²Œ ë­˜ê¹Œ"
+	    },
+	    {
+	      "lat": 37.55518388656961,
+	      "lng": 126.92926237742505,
+	      "context" : "ì´ê²Œ ë­˜ê¹Œ"
+	    }
+	  ]	    /* ...... */
+	};
+	
+	var markers = data.positions.map(function(position) {
+	    return new kakao.maps.Marker({
+	        position : new kakao.maps.LatLng(position.lat, position.lng) 
+	    });
+	});
+    
+	var iwContent = data.positions.map(function(position)){
+		iwPosition = new kakao.maps.LatLng(position.lat, position.lng)
+	};
+	
+	
+	
+    // ì¸í¬ìœˆë„ìš°
+	var iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">í°ì§€ë„ë³´ê¸°</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">ê¸¸ì°¾ê¸°</a></div>', // ì¸í¬ìœˆë„ìš°ì— í‘œì¶œë  ë‚´ìš©ìœ¼ë¡œ HTML ë¬¸ìì—´ì´ë‚˜ document elementê°€ ê°€ëŠ¥í•©ë‹ˆë‹¤
+    
 
-    // µ¥ÀÌÅÍ¸¦ °¡Á®¿À±â À§ÇØ jQuery¸¦ »ç¿ëÇÕ´Ï´Ù
-    // µ¥ÀÌÅÍ¸¦ °¡Á®¿Í ¸¶Ä¿¸¦ »ı¼ºÇÏ°í Å¬·¯½ºÅÍ·¯ °´Ã¼¿¡ ³Ñ°ÜÁİ´Ï´Ù
-    $.get("µ¥ÀÌÅÍ¸¦ ºÒ·¯¿Í¾ßÇÔ...DB¿¡¼­", function(data) {
-        // µ¥ÀÌÅÍ¿¡¼­ ÁÂÇ¥ °ªÀ» °¡Áö°í ¸¶Ä¿¸¦ Ç¥½ÃÇÕ´Ï´Ù
-        // ¸¶Ä¿ Å¬·¯½ºÅÍ·¯·Î °ü¸®ÇÒ ¸¶Ä¿ °´Ã¼´Â »ı¼ºÇÒ ¶§ Áöµµ °´Ã¼¸¦ ¼³Á¤ÇÏÁö ¾Ê½À´Ï´Ù
-        var markers = $(data.positions).map(function(i, position) {
-            return new kakao.maps.Marker({
-                position : new kakao.maps.LatLng(position.lat, position.lng)
-            });
-        });
+	// ì¸í¬ìœˆë„ìš°ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
+	var infowindow = new kakao.maps.InfoWindow({
+	    position : iwPosition, 
+	    content : iwContent 
+	});
+	  
+	
+    // ë§ˆì»¤ì— í´ë¦­ì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•©ë‹ˆë‹¤ 
+	kakao.maps.event.addListener(marker, 'click', function() { 
+		// ë§ˆì»¤ ìœ„ì— ì¸í¬ìœˆë„ìš°ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤ 
+		infowindow.open(map, marker); });
+    
+   
+    // í´ëŸ¬ìŠ¤í„°ëŸ¬ì— ë§ˆì»¤ë“¤ì„ ì¶”ê°€í•©ë‹ˆë‹¤
+	clusterer.addMarkers(markers);
 
-        // Å¬·¯½ºÅÍ·¯¿¡ ¸¶Ä¿µéÀ» Ãß°¡ÇÕ´Ï´Ù
-        clusterer.addMarkers(markers);
-    });
 
-    // ¸¶Ä¿ Å¬·¯½ºÅÍ·¯¿¡ Å¬¸¯ÀÌº¥Æ®¸¦ µî·ÏÇÕ´Ï´Ù
-    // ¸¶Ä¿ Å¬·¯½ºÅÍ·¯¸¦ »ı¼ºÇÒ ¶§ disableClickZoomÀ» true·Î ¼³Á¤ÇÏÁö ¾ÊÀº °æ¿ì
-    // ÀÌº¥Æ® Çîµé·¯·Î cluster °´Ã¼°¡ ³Ñ¾î¿ÀÁö ¾ÊÀ» ¼öµµ ÀÖ½À´Ï´Ù
+    // ë§ˆì»¤ í´ëŸ¬ìŠ¤í„°ëŸ¬ì— í´ë¦­ì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•©ë‹ˆë‹¤
+    // ë§ˆì»¤ í´ëŸ¬ìŠ¤í„°ëŸ¬ë¥¼ ìƒì„±í•  ë•Œ disableClickZoomì„ trueë¡œ ì„¤ì •í•˜ì§€ ì•Šì€ ê²½ìš°
+    // ì´ë²¤íŠ¸ í—¨ë“¤ëŸ¬ë¡œ cluster ê°ì²´ê°€ ë„˜ì–´ì˜¤ì§€ ì•Šì„ ìˆ˜ë„ ìˆìŠµë‹ˆë‹¤
     kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 
-        // ÇöÀç Áöµµ ·¹º§¿¡¼­ 1·¹º§ È®´ëÇÑ ·¹º§
+        // í˜„ì¬ ì§€ë„ ë ˆë²¨ì—ì„œ 1ë ˆë²¨ í™•ëŒ€í•œ ë ˆë²¨
         var level = map.getLevel()-1;
 
-        // Áöµµ¸¦ Å¬¸¯µÈ Å¬·¯½ºÅÍÀÇ ¸¶Ä¿ÀÇ À§Ä¡¸¦ ±âÁØÀ¸·Î È®´ëÇÕ´Ï´Ù
+        // ì§€ë„ë¥¼ í´ë¦­ëœ í´ëŸ¬ìŠ¤í„°ì˜ ë§ˆì»¤ì˜ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ í™•ëŒ€í•©ë‹ˆë‹¤
         map.setLevel(level, {anchor: cluster.getCenter()});
     });
 	</script>
-	
 </body>
 </html>
