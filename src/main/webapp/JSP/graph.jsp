@@ -1,8 +1,9 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="citycitybangbang.model.ReportDAO"%>
+<%@page import="citycitybangbang.model.ReportVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	pageContext.setAttribute("context", request.getContextPath());
-%>
+<%pageContext.setAttribute("context", request.getContextPath());%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +19,9 @@
     <link rel="stylesheet" href="../CSS/graph.css">
 </head>
 <body>
+<%
+	ReportDAO reportdao = new ReportDAO();
+%>
 <jsp:include page="menu.jsp"/>
 <div class="tbaner"><p>신고 통계</p></div>    
 <div id="columnchart_material" class="chart1" ></div>  
