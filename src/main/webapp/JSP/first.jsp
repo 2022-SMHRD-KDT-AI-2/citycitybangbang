@@ -21,7 +21,7 @@
     <input type="text" placeholder="아이디 입력" id="id" class="account">
     <p></p>
     <input type="password" placeholder="비밀번호 입력" id="pw" class="account">
-    <input  type="button" value="로그인" id="login" class="account" >
+    <input  type="button" value="로그인" id="login" class="account" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/map.jsp'" >
 	</div>
 </body>
 </body>
