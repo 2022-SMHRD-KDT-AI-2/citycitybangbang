@@ -9,13 +9,19 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import android.widget.ImageView;
 
 public class SelfActivity extends AppCompatActivity {
 
     Button selfBtnCancel, selfBtnsiren;
+    TextView selfTvArea, selfTvClock, selfTvLocation;
 
     ImageView selfImg;
 
@@ -24,6 +30,18 @@ public class SelfActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self);
+
+        selfTvArea = findViewById(R.id.selfTvArea);
+        selfTvClock = findViewById(R.id.selfTvClock);
+        selfTvLocation = findViewById(R.id.selfTvLocation);
+
+        Date dt = new Date();
+
+        SimpleDateFormat full_sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat full_sdf2 = new SimpleDateFormat("a hh:mm:ss");
+
+        selfTvArea.setText(full_sdf1.format(dt).toString());
+        selfTvClock.setText(full_sdf2.format(dt).toString());
 
         // 툴바
         Toolbar toolbar = findViewById(R.id.toolbar);
