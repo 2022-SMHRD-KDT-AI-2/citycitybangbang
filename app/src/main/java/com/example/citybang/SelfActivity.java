@@ -91,7 +91,16 @@ public class SelfActivity extends AppCompatActivity {
         });
         // 팝업 창 끝
 
+        // 현재 시간, 날짜 불러오기
+        selfTvArea = (TextView) findViewById(R.id.selfTvArea);
+        selfTvClock = (TextView) findViewById(R.id.selfTvClock);
 
+        selfTvArea.setText(getDate());
+        selfTvClock.setText(getTime());
+
+
+
+        // 사진 바로 불러와 지는 코드
         selfImg=findViewById(R.id.selfImg);
 
         Bundle extras = getIntent().getExtras();
@@ -102,7 +111,21 @@ public class SelfActivity extends AppCompatActivity {
         selfImg.setImageBitmap(bitmap);
 
     }
+    private String getDate() {
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String getTime = dateFormat.format(date);
+        return getTime;
+    }
 
+    private String getTime() {
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm");
+        String getTime = dateFormat.format(date);
+        return getTime;
+    }
 
 
 
