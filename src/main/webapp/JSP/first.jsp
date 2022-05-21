@@ -15,7 +15,7 @@
 	<div class="imgbox">
 		<img src="../IMG/v206_1522.png" alt="img" class="mainimg1">
 		<p></p>
-		<img src="../IMG/logo.jpg" alt="img" class="mainimg2">
+		<img src="../IMG/logo.png" alt="img" class="mainimg2">
 	</div>
 	<div class="loginbox">
     <input type="text" placeholder="아이디 입력" id="id" class="account">
