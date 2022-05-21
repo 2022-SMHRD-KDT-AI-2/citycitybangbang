@@ -161,7 +161,7 @@
                             android:id="@+id/selfTvLocation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="광주 광역시 남구 송암로11광주 광역시 남구 송암로11광주 광역시 남구 송암로11광주 광역시 남구 송암로11"
+                            android:text=" "
                             android:textColor="#A8A5A5" />
                     </LinearLayout>
 
@@ -176,7 +176,7 @@
                         android:drawableLeft="@drawable/locationsize"
                         android:paddingLeft="12dp"
                         android:paddingRight="8dp"
-                        android:text="위치 변경"
+                        android:text="현재 위치"
                         android:textColorHint="#000000"
                         android:textSize="18dp" />
 

@@ -13,6 +13,8 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -20,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -32,13 +35,18 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.citybang.databinding.ActivityAutoBinding;
 
+import java.io.InputStream;
 import java.util.Calendar;
 
 public class AutoActivity extends AppCompatActivity {
 
-    Button autoBtnCancel,autoBtnArea, autoBtnClock, autoBtnsiren;
+    private static final int REQUEST_CODE = 20;
+
+    Button autoBtnCancel,autoBtnArea, autoBtnClock, autoBtnsiren, autoBtnGallery;
     TextView autoTvArea, autoTvClock, autoEtContent;
     private int myYear, myMonth, myDay, myHour, myMinute;
+
+    ImageView autoImg;
 
     RequestQueue requestQueue;
 
@@ -117,13 +125,14 @@ public class AutoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivityForResult(intent[0], LOTATE);
+                String address = getIntent().getStringExtra("address");
+                String address2 = getIntent().getStringExtra("address2");
+                String address3 = address+ " " + address2;
+
+                autoTvLocation.setText(address3);
             }
         });
-        String address = getIntent().getStringExtra("address");
-        String address2 = getIntent().getStringExtra("address2");
-        String address3 = address+ " " + address2;
 
-        autoTvLocation.setText(address3);
 
 
 
@@ -190,8 +199,19 @@ public class AutoActivity extends AppCompatActivity {
             }
         });
 
+        // 갤러리버튼으로 사진 변경
+        autoImg = findViewById(R.id.autoImg);
+        autoBtnGallery = findViewById(R.id.autoBtnGallery);
 
-
+        autoBtnGallery.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
 
 
     }
@@ -201,9 +221,9 @@ public class AutoActivity extends AppCompatActivity {
 
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
-            String date = String.valueOf(year) + "년 " +
-                    String.valueOf(monthOfYear + 1) + "월 "
-                    + String.valueOf(dayOfMonth) + "일";
+            String date = String.valueOf(year) + "-" +
+                    String.valueOf(monthOfYear + 1) + "-"
+                    + String.valueOf(dayOfMonth);
             TextView autoTvArea;
             autoTvArea = findViewById(R.id.autoTvArea);
             autoTvArea.setText(date);
@@ -230,6 +250,23 @@ public class AutoActivity extends AppCompatActivity {
         if (requestCode == LOTATE){
             if(resultCode == RESULT_OK){
                 autoTvLocation.setText(data.getStringExtra("address"));
+            }
+        }
+
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                try {
+                    InputStream in = getContentResolver().openInputStream(data.getData());
+
+                    Bitmap img = BitmapFactory.decodeStream(in);
+                    in.close();
+
+                    autoImg.setImageBitmap(img);
+                } catch (Exception e) {
+
+                }
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
             }
         }
 

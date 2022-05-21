@@ -18,7 +18,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:subtitleTextColor="#FFFFFF"
-        app:titleTextColor="#FFFFFF"/>
+        app:titleTextColor="#FFFFFF"
+        app:theme="@style/ToolbarTheme"/>
 
     <Button
         android:id="@+id/btnShoCamera"

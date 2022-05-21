@@ -12,10 +12,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
@@ -104,7 +106,7 @@ public class ShootselectActivity extends AppCompatActivity {
 
             }
             catch (Exception e) {
-                Toast.makeText(this, "load failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "사진을 촬영해주세요", Toast.LENGTH_SHORT).show();
             }
 
 
@@ -241,6 +243,18 @@ public class ShootselectActivity extends AppCompatActivity {
             return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
                     matrix, true);
         }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);  // 툴바 뒤로가기 누르면 여기로 간다!
+                startActivity(intent);
+                finish();
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
 
