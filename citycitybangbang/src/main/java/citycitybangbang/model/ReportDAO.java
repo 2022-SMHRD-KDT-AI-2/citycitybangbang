@@ -13,6 +13,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import citycitybangbang.model.ReportVO;
+
 public class ReportDAO  {
 	
 private Connection conn; // Connection : 데이터베이스에 접근하게 해주는 하나의 객체 
@@ -30,6 +32,11 @@ private Connection conn; // Connection : 데이터베이스에 접근하게 해주는 하나의 �
 		}
 	}
 	
-	
+	public List<ReportVO> reportList (String date) {
+		SqlSession session = sqlSessionFactory.openSession();
+		List<ReportVO> rptlist = session.selectList("reportList", date);
+		session.close();		
+		return rptlist;
+	}
 	
 }

@@ -2,12 +2,12 @@
 
 .bdbg{
   background: linear-gradient(rgba(207,237,246,1), rgba(255,255,255,1));
-  width: auto;
+  width: 100vw;
   height: 100vh;
   opacity: 1;
   top: 0px;
   left: 0px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .loginbox{

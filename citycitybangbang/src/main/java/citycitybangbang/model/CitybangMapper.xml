@@ -9,5 +9,8 @@
    		where mem_id=#{mem_id} and mem_pwd=#{mem_pwd} and mem_type=Y 
    </select>
 	
+   <select id="reportList" resultType="citycitybangbang.model.ReportVO">
+   		select * from t_report where re_date=#{date} 
+   </select>
 
 </mapper>
