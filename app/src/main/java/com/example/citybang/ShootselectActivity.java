@@ -20,8 +20,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,7 +42,7 @@ public class ShootselectActivity extends AppCompatActivity {
     public static final int REQUEST_TAKE_PHOTO = 10;
     public static final int REQUEST_PERMISSION = 11;
 
-    private Button btnShoCamera, btnShoSave,btnShoSiren;
+    private Button btnShoCamera,btnShoSiren;
     private ImageView ivShoReport;
     private String mCurrentPhotoPath;
 
@@ -58,7 +61,6 @@ public class ShootselectActivity extends AppCompatActivity {
 
         ivShoReport = findViewById(R.id.ivShoReport); //ImageView 선언
         btnShoCamera = findViewById(R.id.btnShoCamera); // 카메라
-        btnShoSave = findViewById(R.id.btnShoSave); // 저장하기
         btnShoSiren = findViewById(R.id.btnShoSiren); // 신고하기
 
         loadImgArr();
@@ -66,33 +68,46 @@ public class ShootselectActivity extends AppCompatActivity {
         //촬영
         btnShoCamera.setOnClickListener(v -> captureCamera());
 
-        //저장
-        btnShoSave.setOnClickListener(v -> {
 
-            try {
-
-                BitmapDrawable drawable = (BitmapDrawable) ivShoReport.getDrawable();
-                Bitmap bitmap = drawable.getBitmap();
-
-                //찍은 사진이 없으면
-                if (bitmap == null) {
-                    Toast.makeText(this, "저장할 사진이 없습니다.", Toast.LENGTH_SHORT).show();
-                } else {
-                    //저장
-                    saveImg();
-//                    createImageFile();
-                    mCurrentPhotoPath = ""; //initialize
-                }
-
-            } catch (Exception e) {
-                Log.w(TAG, "SAVE ERROR!", e);
-            }
-        });
 
         btnShoSiren.setOnClickListener(v ->{
-            Intent intent = new Intent(getApplicationContext(), SelfActivity.class);
-            startActivity(intent);
-            finish();
+
+            try{
+                File file = new File(mCurrentPhotoPath);
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(file));
+
+
+                ExifInterface ei = new ExifInterface(mCurrentPhotoPath);
+                int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+
+
+
+
+
+
+
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                float scale = (float) (1024/(float)bitmap.getWidth());
+                int image_w = (int) (bitmap.getWidth()*scale);
+                int image_h = (int) (bitmap.getHeight()*scale);
+                Bitmap resize = Bitmap.createScaledBitmap(bitmap,image_w,image_h,true);
+
+                resize.compress(Bitmap.CompressFormat.JPEG,100,stream);
+                byte[] byteArray = stream.toByteArray();
+                //ivShoReport.setImageBitmap(bitmap);
+
+                Intent intent = new Intent(getApplicationContext(), SelfActivity.class);
+                intent.putExtra("image",byteArray);
+
+                startActivity(intent);
+                finish();
+
+            }
+            catch (Exception e) {
+                Toast.makeText(this, "load failed", Toast.LENGTH_SHORT).show();
+            }
+
+
         });
 
 
@@ -111,7 +126,7 @@ public class ShootselectActivity extends AppCompatActivity {
                     File tempDir = getCacheDir();
 
                     //임시촬영파일 세팅
-                    String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date());
+                    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
                     String imageFileName = "Capture_" + timeStamp + "_"; //ex) Capture_20201206_
 
                     File tempImage = File.createTempFile(
@@ -145,30 +160,6 @@ public class ShootselectActivity extends AppCompatActivity {
             }
         }
 
-        //이미지저장 메소드
-        private void saveImg() {
-            try {
-                //저장할 파일 경로
-
-                File path = Environment.getExternalStoragePublicDirectory("/gogo");
-                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                String filename = "image"+ timeStamp + ".jpg";
-
-
-
-                if (!path.exists()) //폴더가 없으면 생성.
-                    path.mkdirs();
-
-
-
-
-                Log.e(TAG, "Captured Saved");
-                Toast.makeText(this, "Capture Saved ", Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                Toast.makeText(this, "Save failed", Toast.LENGTH_SHORT).show();
-
-            }
-        }
 
 
         private void loadImgArr() {
@@ -183,6 +174,7 @@ public class ShootselectActivity extends AppCompatActivity {
                 File file = new File(path, filename);
                 Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
                 ivShoReport.setImageBitmap(bitmap);
+                //신고 페이지
 
             } catch (Exception e) {
                 Toast.makeText(this, "load failed", Toast.LENGTH_SHORT).show();
@@ -250,50 +242,6 @@ public class ShootselectActivity extends AppCompatActivity {
                     matrix, true);
         }
 
-//        @Override
-//        public void onResume() {
-//            super.onResume();
-//            checkPermission(); //권한체크
-//        }
-//
-//        //권한 확인
-//        public void checkPermission() {
-//            int permissionCamera = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
-//            int permissionRead = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
-//            int permissionWrite = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-//
-//            //권한이 없으면 권한 요청
-//            if (permissionCamera != PackageManager.PERMISSION_GRANTED
-//                    || permissionRead != PackageManager.PERMISSION_GRANTED
-//                    || permissionWrite != PackageManager.PERMISSION_GRANTED) {
-//
-//                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-//                    Toast.makeText(this, "이 앱을 실행하기 위해 권한이 필요합니다.", Toast.LENGTH_SHORT).show();
-//                }
-//
-//                ActivityCompat.requestPermissions(this, new String[]{
-//                        Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION);
-//
-//            }
-//        }
-//
-//        @Override
-//        public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-//            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//            switch (requestCode) {
-//                case REQUEST_PERMISSION: {
-//                    // 권한이 취소되면 result 배열은 비어있다.
-//                    if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//
-//                        Toast.makeText(this, "권한 확인", Toast.LENGTH_LONG).show();
-//
-//                    } else {
-//                        Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show();
-//                        finish(); //권한이 없으면 앱 종료
-//                    }
-//                }
-//            }
-//        }
 
 
     }

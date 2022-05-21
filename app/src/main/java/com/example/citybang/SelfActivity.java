@@ -6,13 +6,18 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class SelfActivity extends AppCompatActivity {
 
     Button selfBtnCancel, selfBtnsiren;
+
+    ImageView selfImg;
 
 
     @Override
@@ -68,6 +73,15 @@ public class SelfActivity extends AppCompatActivity {
         });
         // 팝업 창 끝
 
+
+        selfImg=findViewById(R.id.selfImg);
+
+        Bundle extras = getIntent().getExtras();
+        byte[] byteArray = getIntent().getByteArrayExtra("image");
+        Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+
+
+        selfImg.setImageBitmap(bitmap);
 
     }
 

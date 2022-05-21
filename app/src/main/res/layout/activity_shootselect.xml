@@ -22,7 +22,7 @@
 
     <Button
         android:id="@+id/btnShoCamera"
-        android:layout_width="110dp"
+        android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_marginStart="21dp"
         android:layout_marginBottom="40dp"
@@ -35,22 +35,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnShoSave"
-        android:layout_width="110dp"
-        android:layout_height="45dp"
-        android:background="@drawable/button_radius"
-        android:backgroundTint="@color/blue_1"
-        android:text="저장"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnShoCamera"
-        app:layout_constraintEnd_toStartOf="@+id/btnShoSiren"
-        app:layout_constraintStart_toEndOf="@+id/btnShoCamera"
-        app:layout_constraintTop_toTopOf="@+id/btnShoCamera" />
-
-    <Button
         android:id="@+id/btnShoSiren"
-        android:layout_width="110dp"
+        android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_marginEnd="21dp"
         android:background="@drawable/button_radius"
@@ -59,9 +45,12 @@
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:cornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnShoSave"
+        app:layout_constraintBottom_toBottomOf="@+id/btnShoCamera"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnShoSave" />
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toEndOf="@+id/btnShoCamera"
+        app:layout_constraintTop_toTopOf="@+id/btnShoCamera"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/ivShoReport"
