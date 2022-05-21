@@ -2,8 +2,8 @@
 @charset "utf-8";
 
 #map{
-	width: 1000px;
-	height: 1000px;
+	width: 1300px;
+	height: 896px;
 }
 
 #report{
@@ -11,5 +11,7 @@
   box-shadow: 1px 0.75px 0.75px 0.75px rgb(201, 201, 201);
 }
 
-
+.full{
+	float: right;
+}
 

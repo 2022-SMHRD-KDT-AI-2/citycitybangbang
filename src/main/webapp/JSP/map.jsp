@@ -11,23 +11,43 @@
 </head>
 
 <body>
-	<jsp:include page="menu.jsp"/>
-	<div id="map">
+<jsp:include page="menu.jsp"/>
+<div class="full">
+	<div>
+		<button onclick="seoul()">서울</button>
+		<button onclick="busan()">부산</button>
+		<button onclick="daegu()">대구</button>
+		<button onclick="incheon()">인천</button>
+		<button onclick="gwangju()">광주</button>
+		<button onclick="daejeon()">대전</button>
+		<button onclick="ulsan()">울산</button>
+		<button onclick="sejong()">세종</button>
+		<button onclick="gyeonggi()">경기</button>
+		<button onclick="gangwon()">강원</button>
+		<button onclick="chungcheonbuk()">충북</button>
+		<button onclick="chungcheonnam()">충남</button>
+		<button onclick="jeollakbuk()">전북</button>
+		<button onclick="jeollanam()">전남</button>
+		<button onclick="gyeongsangbuk()">경북</button>
+		<button onclick="gyeongsangnam()">경남</button>
+		<button onclick="jeju()">제주도</button>
 	</div>
-   
+	<div id="map"></div>
+</div>
+	
    <script>
 
    //지도를 초기화 시키는 함수
    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new kakao.maps.LatLng(36.49334, 127.27856), // 지도의 중심좌표
-        level: 14, // 지도의 확대 레벨
+        level: 12, // 지도의 확대 레벨
         mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
     }; 
     
 	// 지도를 생성한다 
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
-
+		
 	// 마커 클러스터러를 생성합니다 
     var clusterer = new kakao.maps.MarkerClusterer({
         map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
@@ -100,6 +120,31 @@
             infowindow.close();
         };
     }
+    
+  //시도 위치 이동!
+	function seoul() {            
+	    // 이동할 위도 경도 위치를 생성합니다 
+	    var moveLatLon = new kakao.maps.LatLng(	37.566205021936, 126.97770627907);
+	    
+	    // 지도 중심을 이동 시킵니다
+	    map.setCenter(moveLatLon);
+	    map.setLevel(8);
+	}
+	
+    function gwangju() {            
+	    // 이동할 위도 경도 위치를 생성합니다 
+	    var moveLatLon = new kakao.maps.LatLng(35.159003310519, 126.85302648386);
+	    
+	    // 지도 중심을 이동 시킵니다
+	    map.setCenter(moveLatLon);
+	    map.setLevel(8);
+	}
+    
+    
+    
+    
+    
+    
    </script>
 </body>
 </html>
