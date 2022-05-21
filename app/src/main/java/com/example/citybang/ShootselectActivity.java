@@ -177,7 +177,7 @@ public class ShootselectActivity extends AppCompatActivity {
                 //신고 페이지
 
             } catch (Exception e) {
-                Toast.makeText(this, "load failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "사진촬영하기", Toast.LENGTH_SHORT).show();
             }
         }
 
