@@ -6,10 +6,10 @@
 
    <select id="checkLogin" parameterType="citycitybangbang.model.MemberVO" resultType="citycitybangbang.model.MemberVO">
         select * from t_member
-   		where mem_id=#{mem_id} and mem_pwd=#{mem_pwd} and mem_type='M'
+   		where mem_id=#{mem_id} and mem_pwd=#{mem_pwd} and mem_type = 'M'
    </select>
    
-    <select id="reportList" resultType="citycitybangbang.model.ReportVO">
+    <select id="reportList" parameterType="citycitybangbang.model.ReportVO" resultType="citycitybangbang.model.ReportVO">
    		select * from t_report where re_date=#{date} 
    </select>
 </mapper>
