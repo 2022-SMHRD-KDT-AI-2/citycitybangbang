@@ -1,16 +1,14 @@
 @charset "UTF-8";
 
+#tdl{
+  border: 1px solid #000000;
+  }
+
 #list{
   background-color: #CFEDF6;
   box-shadow: 1px 0.75px 0.75px 0.75px rgb(201, 201, 201);
 }
 
-body {
-  margin: 0px;
-  overflow:hidden;
-  height: 100vh;
-  width: 100vw;
-}
 .tbaner {
 left: 130px;
 width: 100vw;
@@ -22,4 +20,71 @@ font-size: 40px;
 color: white;
 vertical-align:middle;
 display: table;
+}
+
+#id{
+    border: 1px solid;
+    margin: 0px;
+}
+
+#listtable{
+    position: absolute;
+    top: 200px;
+     left: 200px;
+    width: 750px;
+    border: 1px solid #000000;
+    }
+    
+.list{
+    margin: 0px;
+    width: 300px;
+    }
+    
+.day{
+    width: 200px;
+    }
+    
+.time{
+    width: 100px;
+}
+#daypst{
+ top: 150px;
+ left: 200px;
+ position: absolute;
+}
+.yymmdd2{  
+    width: 127px;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#detailbox{
+    top: 150px;
+    left: 1000px;
+    width: 750px;
+    position: absolute;
+
+}
+.lctlist{        
+    width: 127px;
+    height: 24px;
+    border: 1px solid;
+    border-radius: 3px;
+    text-align: center;
+}
+.reporter{
+    width: 600px;
+    height: 300;
+    font-size: 25px;
+}
+#detailtable{
+    position: absolute;
+    width: 750px;
+    border: 1px solid #000000;
+    text-align: left;
+}
+#reportscroll{
+	overflow: scroll;
 }
