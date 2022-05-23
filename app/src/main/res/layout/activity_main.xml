@@ -85,14 +85,14 @@
             app:layout_constraintTop_toTopOf="@+id/btnMaiCamera" />
 
         <Button
-            android:id="@+id/btnMaiGallery"
+            android:id="@+id/btnMaiList"
             android:layout_width="170dp"
             android:layout_height="105dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/blue_2"
             android:drawableTop="@drawable/gallery1size"
-            android:text="갤러리"
+            android:text="나의 신고 내역"
             android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/btnMaiSiren"
