@@ -2,6 +2,8 @@ package citycitybangbang.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,8 +27,9 @@ public class reSuccess extends HttpServlet {
 		   String id = request.getParameter("id");
 		   
 		   /* String returns = id; */
-
-		    String returns = connectDB6.connectionDB6(id); 
+		   
+		   List returns = connectDB6.connectionDB6(id); 
+		   
 		   System.out.println(returns);
 		   
 		   PrintWriter out = response.getWriter();
