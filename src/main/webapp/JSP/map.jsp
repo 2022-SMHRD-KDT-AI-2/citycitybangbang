@@ -8,6 +8,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9982fb8589d4aeda9ccac9ef44b2f2cf&libraries=services,clusterer,drawing"></script>
 <link href="../CSS/map.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../JS/map.js"></script>
 </head>
 
 <body>
@@ -121,24 +122,9 @@
         };
     }
     
-  //시도 위치 이동!
-	function seoul() {            
-	    // 이동할 위도 경도 위치를 생성합니다 
-	    var moveLatLon = new kakao.maps.LatLng(	37.566205021936, 126.97770627907);
-	    
-	    // 지도 중심을 이동 시킵니다
-	    map.setCenter(moveLatLon);
-	    map.setLevel(8);
-	}
+  
 	
-    function gwangju() {            
-	    // 이동할 위도 경도 위치를 생성합니다 
-	    var moveLatLon = new kakao.maps.LatLng(35.159003310519, 126.85302648386);
-	    
-	    // 지도 중심을 이동 시킵니다
-	    map.setCenter(moveLatLon);
-	    map.setLevel(8);
-	}
+    
     
     
     
