@@ -55,7 +55,6 @@ public class SelfActivity extends AppCompatActivity {
         selfTvArea = findViewById(R.id.selfTvArea);
         selfTvClock = findViewById(R.id.selfTvClock);
         selfTvLocation = findViewById(R.id.selfTvLocation);
-        selfBtnLocation = findViewById(R.id.selfBtnLocation);
 
         Date dt = new Date();
 
@@ -142,9 +141,8 @@ public class SelfActivity extends AppCompatActivity {
             checkRunTimePermission();
         }
 
-        selfBtnLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+
+
                 gpsTracker = new GpsTracker(SelfActivity.this);
 
                 double latitude = gpsTracker.getLatitude();
@@ -153,10 +151,6 @@ public class SelfActivity extends AppCompatActivity {
                 // 여기에 주소 들어옴!!!
                 String address = getCurrentAddress(latitude, longitude);
                 selfTvLocation.setText(address);
-
-
-            }
-        });
 
 
 
