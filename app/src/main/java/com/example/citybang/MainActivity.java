@@ -4,8 +4,6 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int REQUEST_PERMISSION = 11;
 
-    Button btnMaiCamera, btnMaiSiren, btnMaiGallery, btnDraReportlist,
+    Button btnMaiCamera, btnMaiSiren, btnMaiList, btnDraReportlist,
             btnDraLaw1, btnDraLaw2, btnDraAsk, btnDraStep, btnDraWithdrawal,
             btnLogin, btnMember, btnLogout;
 
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnMaiCamera = findViewById(R.id.btnMaiCamera);
         btnMaiSiren = findViewById(R.id.btnMaiSiren);
-        btnMaiGallery = findViewById(R.id.btnMaiGallery);
+        btnMaiList = findViewById(R.id.btnMaiList);
         btnDraReportlist = findViewById(R.id.btnDraReportlist);
         btnDraLaw1 = findViewById(R.id.btnDraLaw1);
         btnDraLaw2 = findViewById(R.id.btnDraLaw2);
@@ -160,11 +158,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         // 갤러리로 이동
-        btnMaiGallery.setOnClickListener(new View.OnClickListener() {
+        btnMaiList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(getApplicationContext(),GalaryActivity.class);
+                intent = new Intent(getApplicationContext(),ReportlistActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

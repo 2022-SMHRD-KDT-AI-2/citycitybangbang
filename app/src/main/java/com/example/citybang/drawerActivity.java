@@ -24,7 +24,7 @@ public class drawerActivity extends AppCompatActivity {
 
         btnMaiCamera = findViewById(R.id.btnMaiCamera);
         btnMaiSiren = findViewById(R.id.btnMaiSiren);
-        btnMaiGallery = findViewById(R.id.btnMaiGallery);
+        btnMaiGallery = findViewById(R.id.btnMaiList);
 
         Button button = findViewById(R.id.btnDraWithdrawal);
         button.setPaintFlags(button.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
