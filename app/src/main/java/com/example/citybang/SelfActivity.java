@@ -132,7 +132,6 @@ public class SelfActivity extends AppCompatActivity {
 
         selfImg.setImageBitmap(bitmap);
 
-
         // GPS를 통해 현재위치 가져오기
 
         if (!checkLocationServicesStatus()) {
