@@ -9,6 +9,10 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9982fb8589d4aeda9ccac9ef44b2f2cf&libraries=services,clusterer,drawing"></script>
 <link href="../CSS/map.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="../JS/map.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -75,7 +79,8 @@
 		[36.514494, 127.254835, '<div style="padding:5px;">주소 놓지</div>'],
 		[36.511590, 127.262530, '<div style="padding:5px;">주소 놓지하지</div>']
 	];
-
+	
+	
 	// 마커들을 저장할 변수 생성
 	var markers = [];
 	for (var i = 0; i < data.length; i++ ) {
