@@ -30,6 +30,13 @@ import java.util.Locale;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
 
@@ -40,9 +47,10 @@ public class SelfActivity extends AppCompatActivity {
     private static final int PERMISSIONS_REQUEST_CODE = 100;
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
 
+    RequestQueue requestQueue;
 
-    Button selfBtnCancel, selfBtnsiren,selfBtnLocation;
-    TextView selfTvArea, selfTvClock, selfTvLocation;
+    Button selfBtnCancel, selfBtnsiren, selfBtnLocation;
+    TextView selfTvArea, selfTvClock, selfTvLocation, selfEtContent;
 
     ImageView selfImg;
 
@@ -52,17 +60,16 @@ public class SelfActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self);
 
+        String a = SharedPreference.getAttribute(getBaseContext(), "id");
+
+        if (requestQueue == null){
+            requestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
+
         selfTvArea = findViewById(R.id.selfTvArea);
         selfTvClock = findViewById(R.id.selfTvClock);
         selfTvLocation = findViewById(R.id.selfTvLocation);
-
-        Date dt = new Date();
-
-        SimpleDateFormat full_sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat full_sdf2 = new SimpleDateFormat("a hh:mm:ss");
-
-        selfTvArea.setText(full_sdf1.format(dt).toString());
-        selfTvClock.setText(full_sdf2.format(dt).toString());
+        selfEtContent = findViewById(R.id.selfEtContent);
 
         // 툴바
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -75,8 +82,32 @@ public class SelfActivity extends AppCompatActivity {
         selfBtnsiren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SelfActivity.this,SplashingActivity.class);
-                startActivity(intent);
+                String acc_date = selfTvArea.getText().toString() + " " + selfTvClock.getText().toString();
+                String acc_place = selfTvLocation.getText().toString();
+                String re_comment = selfEtContent.getText().toString();
+
+                String url = "http://125.136.66.65:8090/citycitybangbang/report?id=" + a +
+                        "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
+
+                StringRequest request = new StringRequest(
+                        Request.Method.GET, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (response.equals("신고 완료!")) {
+                            Intent intent = new Intent(getApplicationContext(),SplashingActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(SelfActivity.this, "응답 실패", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                );
+
+                requestQueue.add(request);
+
                 finish();
             }
         });
@@ -142,15 +173,15 @@ public class SelfActivity extends AppCompatActivity {
         }
 
 
+        gpsTracker = new GpsTracker(SelfActivity.this);
 
-                gpsTracker = new GpsTracker(SelfActivity.this);
+        double latitude = gpsTracker.getLatitude();
+        double longitude = gpsTracker.getLongitude();
 
-                double latitude = gpsTracker.getLatitude();
-                double longitude = gpsTracker.getLongitude();
+        // 여기에 주소 들어옴!!!
+        String address = getCurrentAddress(latitude, longitude);
+        selfTvLocation.setText(address);
 
-                // 여기에 주소 들어옴!!!
-                String address = getCurrentAddress(latitude, longitude);
-                selfTvLocation.setText(address);
 
 
 
