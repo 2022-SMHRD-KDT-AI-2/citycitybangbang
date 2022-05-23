@@ -12,7 +12,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:background="@color/blue_1"
         android:gravity="center"
         android:minHeight="?attr/actionBarSize"
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="자주 묻는 질문   Q \u0026 A"
+            android:text="자주하는 질문"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"

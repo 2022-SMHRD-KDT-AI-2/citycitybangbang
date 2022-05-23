@@ -26,20 +26,18 @@ public class QnaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_law);
-
-        expandableListView = findViewById(R.id.eListview);
-
-        showList();
-
-        listAdapter = new ExpandableListviewAdapter(this, chapterList, topicList);
-        expandableListView.setAdapter(listAdapter);
-
+        setContentView(R.layout.activity_qna);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        expandableListView = findViewById(R.id.eListview);
+        showList();
+        listAdapter = new ExpandableListviewAdapter(this, chapterList, topicList);
+        expandableListView.setAdapter(listAdapter);
+
     }
 
     @Override
