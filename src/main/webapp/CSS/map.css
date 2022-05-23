@@ -1,17 +1,68 @@
 
 @charset "utf-8";
 
+body{
+	font-family: 'Nanum Gothic Coding', monospace !important;
+}
+
 #map{
-	width: 1300px;
-	height: 896px;
+	/* width: 1300px; */
+	height: 1000px;
 }
 
 #report{
-  background-color: #CFEDF6;
-  box-shadow: 1px 0.75px 0.75px 0.75px rgb(201, 201, 201);
+    background-color: #CFEDF6;
+    box-shadow: 1px 0.75px 0.75px 0.75px rgb(201, 201, 201);
 }
 
 .full{
 	float: right;
+	width: 93.2vw;
 }
 
+.area{
+	display: flex;
+	justify-content: center;
+}
+
+/*버튼 커미션 */
+.carea {
+    font-family: 'Nanum Gothic Coding', monospace;
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    background: #CFEDF6;
+    background: linear-gradient(0deg, #CFEDF6 0%, #CFEDF6 100%);
+}
+.carea:hover {
+    color: #1187CF;
+    background: transparent;
+    box-shadow:none;
+}
+.carea:before,
+.carea:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1187CF;
+    box-shadow:
+   -1px -1px 5px 0px #fff,
+   7px 7px 20px 0px #0003,
+   4px 4px 5px 0px #0002;
+    transition:400ms ease all;
+}
+.carea:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+}
+.carea:hover:before,
+.carea:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
