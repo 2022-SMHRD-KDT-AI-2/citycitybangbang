@@ -22,7 +22,7 @@
 	<div class="imgbox">
 		<img src="../IMG/v206_1522.png" alt="img" class="mainimg1">
 		<p></p>
-		<img src="../IMG/logo.jpg" alt="img" class="mainimg2">
+		<img src="../IMG/logo.png" alt="img" class="mainimg2">
 	</div>
 	<form class="form-inline" action="/citycitybangbang/webLogin.do" method="post">
 	<div class="loginbox">
