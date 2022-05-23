@@ -26,14 +26,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:subtitleTextColor="#FFFFFF"
-            app:titleTextColor="#FFFFFF"
-            app:theme="@style/ToolbarTheme">
+            app:theme="@style/ToolbarTheme"
+            app:titleTextColor="#FFFFFF">
 
         </androidx.appcompat.widget.Toolbar>
         <!--   툴바 끝     -->
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnYes"
             android:layout_width="140dp"
             android:layout_height="45dp"
             android:layout_marginTop="21dp"
@@ -44,20 +44,20 @@
             app:layout_constraintEnd_toEndOf="@+id/map_view"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="@+id/map_view"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            app:layout_constraintTop_toBottomOf="@+id/tvMapNow" />
 
         <RelativeLayout
             android:id="@+id/map_view"
             android:layout_width="369dp"
             android:layout_height="290dp"
             android:layout_marginTop="21dp"
-            app:layout_constraintEnd_toEndOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="@+id/btnMapNow"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/btnMapSearch"
             app:layout_constraintTop_toBottomOf="@+id/btnMapSearch" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnMapNow"
             android:layout_width="140dp"
             android:layout_height="45dp"
             android:layout_marginEnd="21dp"
@@ -73,11 +73,11 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textView20"
+            android:id="@+id/tvMapNow"
             android:layout_width="369dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="21dp"
-            android:text="\송암로 11광주 광역시 남고 송암로 11광주 광역시 남고 송암로 11광주 광역시 남고 송암로 11광주 광역시 남고 송암로 1"
+            android:text="현재 위치 버튼을 누르면, 지도에 현재 위치가 표시됩니다."
             android:textColor="#000000"
             android:textSize="17sp"
             android:textStyle="bold"

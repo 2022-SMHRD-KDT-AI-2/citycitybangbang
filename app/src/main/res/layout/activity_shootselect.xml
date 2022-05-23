@@ -18,45 +18,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:subtitleTextColor="#FFFFFF"
-        app:titleTextColor="#FFFFFF"/>
+        app:titleTextColor="#FFFFFF"
+        app:theme="@style/ToolbarTheme"/>
 
     <Button
-        android:id="@+id/btnDel"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="80dp"
+        android:id="@+id/btnShoCamera"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="21dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/button_radius"
         android:backgroundTint="@color/blue_1"
-        android:text="저장"
+        android:text="카메라"
         android:textColor="#FFFFFF"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnRpt2"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnRpt2"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:id="@+id/btnShoSiren"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="21dp"
         android:background="@drawable/button_radius"
         android:backgroundTint="@color/red"
         android:text="신고"
         android:textColor="#FFFFFF"
+        android:textSize="15sp"
         app:cornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnDel"
+        app:layout_constraintBottom_toBottomOf="@+id/btnShoCamera"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnDel"
-        app:layout_constraintTop_toTopOf="@+id/btnDel" />
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toEndOf="@+id/btnShoCamera"
+        app:layout_constraintTop_toTopOf="@+id/btnShoCamera"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imgReport"
+        android:id="@+id/ivShoReport"
         android:layout_width="400dp"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:srcCompat="@drawable/test1" />
+        app:srcCompat="@drawable/no_image1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

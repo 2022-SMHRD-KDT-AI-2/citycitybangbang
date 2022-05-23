@@ -29,7 +29,7 @@ public class PhotoselectActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        binding.btnRpt2.setOnClickListener(new View.OnClickListener() {
+        binding.btnShoSiren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

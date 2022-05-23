@@ -1,6 +1,7 @@
 package com.example.citybang;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +11,11 @@ import android.webkit.WebViewClient;
 
 public class WebviewSearchActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview_search);
-
 
         WebView webView = findViewById(R.id.wv);
         webView.getSettings().setJavaScriptEnabled(true);

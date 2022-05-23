@@ -26,20 +26,18 @@ public class QnaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_law);
-
-        expandableListView = findViewById(R.id.eListview);
-
-        showList();
-
-        listAdapter = new ExpandableListviewAdapter(this, chapterList, topicList);
-        expandableListView.setAdapter(listAdapter);
-
+        setContentView(R.layout.activity_qna);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        expandableListView = findViewById(R.id.eListview);
+        showList();
+        listAdapter = new ExpandableListviewAdapter(this, chapterList, topicList);
+        expandableListView.setAdapter(listAdapter);
+
     }
 
     @Override
@@ -48,8 +46,7 @@ public class QnaActivity extends AppCompatActivity {
             case android.R.id.home:{
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);  // 툴바 뒤로가기 누르면 여기로 간다!
                 startActivity(intent);
-
-                return true;
+                finish();
             }
         }
         return super.onOptionsItemSelected(item);

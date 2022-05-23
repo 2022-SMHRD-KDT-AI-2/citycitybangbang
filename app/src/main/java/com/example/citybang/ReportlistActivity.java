@@ -29,8 +29,7 @@ public class ReportlistActivity extends AppCompatActivity {
             case android.R.id.home:{
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);  // 툴바 뒤로가기 누르면 여기로 간다!
                 startActivity(intent);
-
-                return true;
+                finish();
             }
         }
         return super.onOptionsItemSelected(item);

@@ -34,6 +34,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="23sp"
+                android:layout_height="28sp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/swipe3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
@@ -76,14 +85,14 @@
             app:layout_constraintTop_toTopOf="@+id/btnMaiCamera" />
 
         <Button
-            android:id="@+id/btnMaiGallery"
+            android:id="@+id/btnMaiList"
             android:layout_width="170dp"
             android:layout_height="105dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/blue_2"
             android:drawableTop="@drawable/gallery1size"
-            android:text="갤러리"
+            android:text="나의 신고 내역"
             android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/btnMaiSiren"
@@ -227,6 +236,16 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/blue_3"
+                android:text="로그아웃"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/btnLogin"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
@@ -235,12 +254,14 @@
                 android:textColor="#000000" />
 
             <Button
+                android:id="@+id/btnMember"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@color/blue_3"
                 android:text="회원가입"
                 android:textColor="#000000" />
+
         </LinearLayout>
 
 
@@ -342,7 +363,9 @@
             android:id="@+id/btnDraWithdrawal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:background="#00FFFFFF"
+            android:gravity="end"
             android:text="회원탈퇴"
             android:textAlignment="center"
             android:textColor="@color/red"
