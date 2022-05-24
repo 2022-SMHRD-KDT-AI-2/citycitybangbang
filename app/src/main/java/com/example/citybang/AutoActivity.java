@@ -13,10 +13,14 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -54,8 +58,8 @@ public class AutoActivity extends AppCompatActivity {
     Button autoBtnLocation;
     int LOTATE = 1004;
 
+    Uri uri;
     ActivityAutoBinding binding;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,36 +87,39 @@ public class AutoActivity extends AppCompatActivity {
 
         autoBtnsiren = findViewById(R.id.autoBtnsiren);
         autoBtnsiren.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String acc_date = autoTvArea.getText().toString() + " " + autoTvClock.getText().toString();
-                    String acc_place = autoTvLocation.getText().toString();
-                    String re_comment = autoEtContent.getText().toString();
+            @Override
+            public void onClick(View view) {
+                String acc_date = autoTvArea.getText().toString() + " " + autoTvClock.getText().toString();
+                String acc_place = autoTvLocation.getText().toString();
+                String re_comment = autoEtContent.getText().toString();
 
-                    String url = "http://125.136.66.65:8081/citycitybangbang/report?id=" + a +
-                            "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
+                if (acc_date != null){
+                    if (acc_place != null){
+                        String url = "http://125.136.66.65:8090/citycitybangbang/report?id=" + a +
+                                "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
 
-                    StringRequest request = new StringRequest(
-                            Request.Method.GET, url, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            if (response.equals("신고 완료!")) {
-                                Intent intent = new Intent(getApplicationContext(),SplashingActivity.class);
-                                startActivity(intent);
+                        StringRequest request = new StringRequest(
+                                Request.Method.GET, url, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                if (response.equals("신고 완료!")) {
+                                    Intent intent = new Intent(getApplicationContext(),SplashingActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(AutoActivity.this, "응답 실패", Toast.LENGTH_SHORT).show();
                             }
                         }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(AutoActivity.this, "응답 실패", Toast.LENGTH_SHORT).show();
-                        }
+                        );
+
+                        requestQueue.add(request);
                     }
-                    );
-
-                    requestQueue.add(request);
-
-                    finish();
                 }
+                finish();
+            }
         });
 
         // 위치 찾기
@@ -125,7 +132,11 @@ public class AutoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivityForResult(intent[0], LOTATE);
+                String address = getIntent().getStringExtra("address");
+                String address2 = getIntent().getStringExtra("address2");
+                String address3 = address+ " " + address2;
 
+                autoTvLocation.setText(address3);
             }
         });
 
@@ -208,6 +219,7 @@ public class AutoActivity extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, REQUEST_CODE);
             }
+
         });
 
 
@@ -266,6 +278,10 @@ public class AutoActivity extends AppCompatActivity {
                     in.close();
 
                     autoImg.setImageBitmap(img);
+
+                    uri = data.getData();
+
+                    Toast.makeText(this, "uri확인" + uri, Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
 
                 }
