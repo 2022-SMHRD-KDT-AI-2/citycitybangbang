@@ -6,14 +6,14 @@ public class ReportVO {
 	private String re_date;
 	private String acc_date;
 	private String acc_place;
-	private byte[] image_file;
+	private String image_file;
 	private String re_comment;
 	private char re_complete;
 	
 	public ReportVO() { };
 	
 
-	public ReportVO(int re_num, String mem_id, String re_date, String acc_date, String acc_place, byte[] image_file,
+	public ReportVO(int re_num, String mem_id, String re_date, String acc_date, String acc_place, String image_file,
 			String re_comment, char re_complete) {
 		super();
 		this.re_num = re_num;
