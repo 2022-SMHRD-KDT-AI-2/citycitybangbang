@@ -69,8 +69,10 @@ public class AutoActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == LOTATE){
+
             if(resultCode == RESULT_OK){
-                autoTvLocation.setText(data.getStringExtra("address"));
+                address = data.getStringExtra("address");
+                autoTvLocation.setText(address);
             }else if(resultCode == RESULT_CANCELED){
                 address = data.getStringExtra("test");
                 String address2 = data.getStringExtra("test2");
