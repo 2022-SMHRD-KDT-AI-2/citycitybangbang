@@ -21,14 +21,14 @@ public class ConnectDB5 {
     Connection conn = null;
     PreparedStatement pstmt = null;
     PreparedStatement pstmt2 = null;
-    ResultSet rs = null;
 
     String sql = "";
     String sql2 = "";
     String returns = "a";
 
     public String connectionDB5(String mem_id, String acc_date, String acc_place, String re_comment, String image_file) {
-        try {
+        int cnt = -1;
+    	try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conn = DriverManager.getConnection(jdbcUrl, userId, userPw);
 
@@ -40,8 +40,9 @@ public class ConnectDB5 {
             pstmt.setString(4, re_comment);
             pstmt.setString(5, image_file);
             
-            rs = pstmt.executeQuery();
-            if (rs.next()) {
+            cnt = pstmt.executeUpdate();
+            
+            if (cnt >= 1) {
                 returns = "신고 완료!";
             }else {
             	returns = "0";

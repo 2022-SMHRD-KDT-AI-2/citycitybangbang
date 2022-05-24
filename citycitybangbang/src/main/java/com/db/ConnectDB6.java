@@ -46,7 +46,7 @@ public class ConnectDB6 {
             
             while (rs.next()) {
       
-            		list.add(rs.getString(1)  + "." + rs.getString(2) + "." + rs.getString(3) + "\n");
+            		list.add(rs.getString(1)  + ";" + rs.getString(2) + ";" + rs.getString(3) + "\n");
             }
            
         } catch (Exception e) {
