@@ -26,13 +26,13 @@ public class report extends HttpServlet {
 		String acc_date = request.getParameter("acc_date");
 		String acc_place = request.getParameter("acc_place");
 		String re_comment = request.getParameter("re_comment");
-		String image_file = request.getParameter("image_file");
+
 
 		/* String returns = id; */
 		
 		 System.out.println(id);
 
-		String returns = connectDB5.connectionDB5(id, acc_date, acc_place, re_comment, image_file);
+		String returns = connectDB5.connectionDB5(id, acc_date, acc_place, re_comment);
 
 		System.out.println(returns);
 		
