@@ -12,6 +12,7 @@ public class ReportVO {
 	
 	public ReportVO() { };
 	
+
 	public ReportVO(int re_num, String mem_id, String re_date, String acc_date, String acc_place, byte[] image_file,
 			String re_comment, char re_complete) {
 		super();
@@ -65,11 +66,11 @@ public class ReportVO {
 		this.acc_place = acc_place;
 	}
 
-	public byte[] getImage_file() {
+	public String getImage_file() {
 		return image_file;
 	}
 
-	public void setImage_file(byte[] image_file) {
+	public void setImage_file(String image_file) {
 		this.image_file = image_file;
 	}
 

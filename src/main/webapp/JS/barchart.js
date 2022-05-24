@@ -17,7 +17,8 @@ function barChart() {
 
         var baroptions = {
           chart: {
-            title: '시간대 별 신고량',           
+            title: '시간대 별 신고량',
+                     
           }
         };
 
