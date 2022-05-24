@@ -58,8 +58,51 @@ public class AutoActivity extends AppCompatActivity {
     Button autoBtnLocation;
     int LOTATE = 1004;
 
+    String address="";
+
     Uri uri;
     ActivityAutoBinding binding;
+
+    // 현재 위치 값!
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == LOTATE){
+            if(resultCode == RESULT_OK){
+                autoTvLocation.setText(data.getStringExtra("address"));
+            }else if(resultCode == RESULT_CANCELED){
+                address = data.getStringExtra("test");
+                String address2 = data.getStringExtra("test2");
+//                String address3 = address+ " " + address2;
+
+                autoTvLocation.setText(address+ " " + address2);
+
+            }
+        }
+
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                try {
+                    InputStream in = getContentResolver().openInputStream(data.getData());
+
+                    Bitmap img = BitmapFactory.decodeStream(in);
+                    in.close();
+
+                    autoImg.setImageBitmap(img);
+
+                    uri = data.getData();
+
+                    Toast.makeText(this, "uri확인" + uri, Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+
+                }
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,12 +133,12 @@ public class AutoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String acc_date = autoTvArea.getText().toString() + " " + autoTvClock.getText().toString();
-                String acc_place = autoTvLocation.getText().toString();
+                String acc_place = address;
                 String re_comment = autoEtContent.getText().toString();
 
                 if (acc_date != null){
                     if (acc_place != null){
-                        String url = "http://125.136.66.65:8090/citycitybangbang/report?id=" + a +
+                        String url = "http://125.136.66.65:8081/citycitybangbang/report?id=" + a +
                                 "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
 
                         StringRequest request = new StringRequest(
@@ -132,11 +175,6 @@ public class AutoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivityForResult(intent[0], LOTATE);
-                String address = getIntent().getStringExtra("address");
-                String address2 = getIntent().getStringExtra("address2");
-                String address3 = address+ " " + address2;
-
-                autoTvLocation.setText(address3);
             }
         });
 
@@ -251,48 +289,6 @@ public class AutoActivity extends AppCompatActivity {
             autoTvClock.setText(time);
         }
     };
-    // 현재 위치 값!
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == LOTATE){
-            if(resultCode == RESULT_OK){
-                autoTvLocation.setText(data.getStringExtra("address"));
-            }else if(resultCode == RESULT_CANCELED){
-                String address = data.getStringExtra("test");
-                String address2 = data.getStringExtra("test2");
-//                String address3 = address+ " " + address2;
-
-                autoTvLocation.setText(address+ " " + address2);
-
-            }
-        }
-
-        if (requestCode == REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                try {
-                    InputStream in = getContentResolver().openInputStream(data.getData());
-
-                    Bitmap img = BitmapFactory.decodeStream(in);
-                    in.close();
-
-                    autoImg.setImageBitmap(img);
-
-                    uri = data.getData();
-
-                    Toast.makeText(this, "uri확인" + uri, Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-
-                }
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
-            }
-        }
-
-
-
-    }
 
 
 
