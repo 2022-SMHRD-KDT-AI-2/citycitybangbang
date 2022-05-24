@@ -21,13 +21,13 @@ public class ConnectDB4 {
     Connection conn = null;
     PreparedStatement pstmt = null;
     PreparedStatement pstmt2 = null;
-    ResultSet rs = null;
 
     String sql = "";
     String sql2 = "";
     String returns = "a";
 
     public String connectionDB4(String mem_id) {
+    	int cnt = -1;
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conn = DriverManager.getConnection(jdbcUrl, userId, userPw);
@@ -35,9 +35,10 @@ public class ConnectDB4 {
             sql = "DELETE FROM t_member WHERE MEM_ID = ?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, mem_id);
+            
+            cnt = pstmt.executeUpdate();
 
-            rs = pstmt.executeQuery();
-            if (rs.next()) {
+            if (cnt>=1) {
                 returns = "È¸¿ø Å»Åð ¼º°ø!";
             }else {
             	returns = "0";

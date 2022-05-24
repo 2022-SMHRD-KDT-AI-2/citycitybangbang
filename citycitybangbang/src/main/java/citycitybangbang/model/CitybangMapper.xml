@@ -16,4 +16,9 @@
    <select id="postionList" resultType="citycitybangbang.model.ReportVO">
    		select * from t_report
    </select>
+   
+   <select id="selectAll1" resultType="citycitybangbang.model.ReportVO">
+      select acc_place from t_report
+      </select>
+   
 </mapper>

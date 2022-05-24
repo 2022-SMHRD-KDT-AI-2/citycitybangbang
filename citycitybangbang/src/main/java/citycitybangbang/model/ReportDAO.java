@@ -45,4 +45,12 @@ private Connection conn; // Connection : 데이터베이스에 접근하게 해주는 하나의 �
 		session.close();		
 		return rptlist;
 	}
+
+	public List<ReportVO> selectAll() {
+		SqlSession session=sqlSessionFactory.openSession();
+		List<ReportVO> list=session.selectList("selectAll");
+		session.close();
+		return list;
+	}
+	
 }
