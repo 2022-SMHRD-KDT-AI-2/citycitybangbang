@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -161,9 +162,23 @@ public class MainActivity extends AppCompatActivity {
         btnMaiList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(getApplicationContext(),ReportlistActivity.class);
-                startActivity(intent);
-                finish();
+                String url = "http://125.136.66.65:8090/citycitybangbang/reSuccess?id=" + a;
+                StringRequest request = new StringRequest(
+                        Request.Method.GET, url, new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String response)
+                    {
+                        Log.d("check", response);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "응답 실패", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                );
+
+                requestQueue.add(request);
             }
         });
 
