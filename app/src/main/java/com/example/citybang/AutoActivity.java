@@ -250,9 +250,9 @@ public class AutoActivity extends AppCompatActivity {
             }else if(resultCode == RESULT_CANCELED){
                 String address = data.getStringExtra("test");
                 String address2 = data.getStringExtra("test2");
-                String address3 = address+ " " + address2;
+//                String address3 = address+ " " + address2;
 
-                autoTvLocation.setText(address3);
+                autoTvLocation.setText(address+ " " + address2);
 
             }
         }

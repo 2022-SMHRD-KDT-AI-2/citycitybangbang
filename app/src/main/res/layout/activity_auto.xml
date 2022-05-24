@@ -189,7 +189,7 @@
 
                         <TextView
                             android:id="@+id/autoTvLocation"
-                            android:layout_width="wrap_content"
+                            android:layout_width="230dp"
                             android:layout_height="wrap_content"
                             android:text="  "
                             android:textColor="#A8A5A5" />
