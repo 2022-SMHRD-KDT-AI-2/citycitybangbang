@@ -12,4 +12,8 @@
     <select id="reportList" parameterType="citycitybangbang.model.ReportVO" resultType="citycitybangbang.model.ReportVO">
    		select * from t_report where re_date=#{date} 
    </select>
+   
+   <select id="postionList" resultType="citycitybangbang.model.ReportVO">
+   		select * from t_report
+   </select>
 </mapper>

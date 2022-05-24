@@ -39,4 +39,10 @@ private Connection conn; // Connection : 데이터베이스에 접근하게 해주는 하나의 �
 		return rptlist;
 	}
 	
+	public List<ReportVO> postionList () {
+		SqlSession session = sqlSessionFactory.openSession();
+		List<ReportVO> rptlist = session.selectList("postionList");
+		session.close();		
+		return rptlist;
+	}
 }

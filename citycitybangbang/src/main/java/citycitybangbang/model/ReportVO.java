@@ -5,21 +5,21 @@ public class ReportVO {
 	private String mem_id;
 	private String re_date;
 	private String acc_date;
-	private String acc_palce;
+	private String acc_place;
 	private byte[] image_file;
 	private String re_comment;
 	private char re_complete;
 	
 	public ReportVO() { };
 	
-	public ReportVO(int re_num, String mem_id, String re_date, String acc_date, String acc_palce, byte[] image_file,
+	public ReportVO(int re_num, String mem_id, String re_date, String acc_date, String acc_place, byte[] image_file,
 			String re_comment, char re_complete) {
 		super();
 		this.re_num = re_num;
 		this.mem_id = mem_id;
 		this.re_date = re_date;
 		this.acc_date = acc_date;
-		this.acc_palce = acc_palce;
+		this.acc_place = acc_place;
 		this.image_file = image_file;
 		this.re_comment = re_comment;
 		this.re_complete = re_complete;
@@ -57,12 +57,12 @@ public class ReportVO {
 		this.acc_date = acc_date;
 	}
 
-	public String getAcc_palce() {
-		return acc_palce;
+	public String getAcc_place() {
+		return acc_place;
 	}
 
-	public void setAcc_palce(String acc_palce) {
-		this.acc_palce = acc_palce;
+	public void setAcc_place(String acc_place) {
+		this.acc_place = acc_place;
 	}
 
 	public byte[] getImage_file() {
