@@ -89,7 +89,7 @@ public class AutoActivity extends AppCompatActivity {
                     String acc_place = autoTvLocation.getText().toString();
                     String re_comment = autoEtContent.getText().toString();
 
-                    String url = "http://125.136.66.65:8090/citycitybangbang/report?id=" + a +
+                    String url = "http://125.136.66.65:8081/citycitybangbang/report?id=" + a +
                             "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
 
                     StringRequest request = new StringRequest(
@@ -125,13 +125,10 @@ public class AutoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivityForResult(intent[0], LOTATE);
-                String address = getIntent().getStringExtra("address");
-                String address2 = getIntent().getStringExtra("address2");
-                String address3 = address+ " " + address2;
 
-                autoTvLocation.setText(address3);
             }
         });
+
 
 
 
@@ -250,6 +247,13 @@ public class AutoActivity extends AppCompatActivity {
         if (requestCode == LOTATE){
             if(resultCode == RESULT_OK){
                 autoTvLocation.setText(data.getStringExtra("address"));
+            }else if(resultCode == RESULT_CANCELED){
+                String address = data.getStringExtra("test");
+                String address2 = data.getStringExtra("test2");
+                String address3 = address+ " " + address2;
+
+                autoTvLocation.setText(address3);
+
             }
         }
 

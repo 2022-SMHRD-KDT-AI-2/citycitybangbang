@@ -83,11 +83,6 @@ public class ShootselectActivity extends AppCompatActivity {
                 int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
 
 
-
-
-
-
-
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 float scale = (float) (1024/(float)bitmap.getWidth());
                 int image_w = (int) (bitmap.getWidth()*scale);

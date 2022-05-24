@@ -42,13 +42,14 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         btn1 = findViewById(R.id.btn1);
-        Intent intent = new Intent(getApplicationContext(), AutoActivity.class);
+        Intent intent = new Intent();
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 intent.putExtra("address",et_address.getText().toString());
                 intent.putExtra("address2",et_address2.getText().toString());
-                startActivity(intent);
+
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });

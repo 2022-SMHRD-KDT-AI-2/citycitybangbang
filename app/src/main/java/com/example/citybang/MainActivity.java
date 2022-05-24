@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        String url = "http://125.136.66.65:8090/citycitybangbang/deleteUser?id=" + a;
+                        String url = "http://125.136.66.65:8081/citycitybangbang/deleteUser?id=" + a;
                         StringRequest request = new StringRequest(
                                 Request.Method.GET, url, new Response.Listener<String>(){
                             @Override

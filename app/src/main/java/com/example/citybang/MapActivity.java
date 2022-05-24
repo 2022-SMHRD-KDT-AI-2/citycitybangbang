@@ -39,6 +39,7 @@ public class MapActivity extends AppCompatActivity {
     private GpsTracker gpsTracker;
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
+    private static final int SEARCH_CODE = 300;
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
     MapPoint MARKER_POINT;
     MapPOIItem marker;
@@ -95,8 +96,7 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MapActivity.this,SearchActivity.class);
-                startActivity(intent);
-                finish();
+                startActivityForResult(intent, SEARCH_CODE);
             }
         });
 
@@ -347,6 +347,25 @@ public class MapActivity extends AppCompatActivity {
                 }
 
                 break;
+
+            case SEARCH_CODE:
+
+                if(resultCode == RESULT_OK){
+
+                    Intent intent2 = new Intent();
+
+                    intent2.putExtra("test", data.getStringExtra("address"));
+                    intent2.putExtra("test2", data.getStringExtra("address2"));
+
+                    Log.d("확인용1", data.getStringExtra("address"));
+                    Log.d("확인용2", data.getStringExtra("address2"));
+
+
+                    setResult(RESULT_CANCELED, intent2);
+                    finish();
+
+                }
+
         }
     }
 
