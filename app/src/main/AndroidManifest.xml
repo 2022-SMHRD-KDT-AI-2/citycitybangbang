@@ -20,6 +20,9 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".RecycleActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashingActivity"
             android:exported="false" />
         <activity
@@ -94,12 +97,12 @@
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-            <!--파일경로 xml 생성-->
+
+            <!-- 파일경로 xml 생성 -->
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_path"/>
+                android:resource="@xml/file_path" />
         </provider>
-
     </application>
 
 </manifest>
