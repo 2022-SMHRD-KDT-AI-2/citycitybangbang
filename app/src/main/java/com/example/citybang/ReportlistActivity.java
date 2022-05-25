@@ -3,7 +3,6 @@ package com.example.citybang;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,9 +10,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -23,18 +19,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ReportlistActivity extends AppCompatActivity {
-
-    ListView lv_contact;
-    ContactAdapter adapter;
-    List<ContactVO> data;
 
     RequestQueue requestQueue;
 
     String a = "";
+
+    String[] b;
+
+    String[][] c;
 
     // 툴바
     @Override
@@ -42,31 +35,7 @@ public class ReportlistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reportlist);
 
-        // 리스트뷰
-        data = new ArrayList<ContactVO>();
-
-        // 주소록에 표시될 20개의 가데이터를 삽입하자
-        for(int i = 0; i<10;i++){
-            data.add(new ContactVO("장소 "+i, "기간"+i, "시간" + i));
-        }
-
-        // 어댑터 생성(페이지정보, 항목 뷰 디자인, 아이템);
-        adapter = new ContactAdapter(getApplicationContext(), R.layout.item_cardview2, data);
-
-        lv_contact = findViewById(R.id.lv_contact);
-
-        lv_contact.setAdapter(adapter);
-
-        lv_contact.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                data.remove(i);
-
-                adapter.notifyDataSetChanged();
-            }
-        });
-        // 끝
+        int cnt1=0, cnt2=0, cnt3=0;
 
         String a = SharedPreference.getAttribute(getBaseContext(), "id");
 
@@ -77,8 +46,36 @@ public class ReportlistActivity extends AppCompatActivity {
 
         if (requestQueue == null){
             requestQueue = Volley.newRequestQueue(getApplicationContext());
-
         }
+
+        Intent intent = getIntent();
+        String re_list = intent.getStringExtra("report");
+
+        Log.d("list", re_list);
+
+        b = re_list.split(",");
+
+        c = new String[b.length][];
+
+        for (int i=0;i<b.length;i++){
+            c[i] = b[i].split(";");
+        }
+
+        for (int i=0;i<b.length;i++) {
+            if (c[i][2].equals("N")) {
+                cnt2++;
+            } else if (c[i][2].equals("Y")) {
+                cnt3++;
+            }
+        }
+
+        Log.d("cou", c[0][2]);
+
+        cnt1 = b.length;
+
+        String count = "신고접수 " + cnt1 + "건, " + "처리중 " + cnt2 + "건, " + "처리완료 " + cnt3  + "건";
+
+        Log.d("count", count);
     }
 
     @Override
@@ -92,8 +89,4 @@ public class ReportlistActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
 }
