@@ -115,8 +115,8 @@
 //지도를 초기화 시키는 함수
 var mapContainer = document.getElementById('map') // 지도를 표시할 div 
  mapOption = {
-     center: new kakao.maps.LatLng(36.49334, 127.27856), // 지도의 중심좌표
-     level: 11, // 지도의 확대 레벨
+     center: new kakao.maps.LatLng(36.44855391937, 127.41205881413), // 지도의 중심좌표
+     level: 13, // 지도의 확대 레벨
      mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
  }; 
  
