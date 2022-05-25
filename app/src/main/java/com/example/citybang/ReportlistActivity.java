@@ -57,7 +57,7 @@ public class ReportlistActivity extends AppCompatActivity {
 
         Log.d("cou",re_list);
 
-        b = re_list.split(",");
+        b = re_list.split(",,");
 
         c = new String[b.length][];
 
