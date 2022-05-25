@@ -168,7 +168,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response)
                     {
-                        Log.d("check", response);
+                        Log.d("check",response);
+                        Intent intent1 = new Intent(getApplicationContext(), ReportlistActivity.class);
+                        intent1.putExtra("report",response.substring(1,response.length()-2));
+                        startActivity(intent1);
                     }
                 }, new Response.ErrorListener() {
                     @Override
