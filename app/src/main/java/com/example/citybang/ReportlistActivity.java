@@ -57,15 +57,7 @@ public class ReportlistActivity extends AppCompatActivity {
 
         lv_contact.setAdapter(adapter);
 
-        lv_contact.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                data.remove(i);
-
-                adapter.notifyDataSetChanged();
-            }
-        });
         // 끝
 
         String a = SharedPreference.getAttribute(getBaseContext(), "id");
