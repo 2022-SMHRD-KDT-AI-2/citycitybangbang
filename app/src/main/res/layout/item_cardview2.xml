@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="21dp"
-            android:text="광주 광역시 서구 시청로 27"
+            android:text="광주 광역시 서구 시청로 27나와라"
             android:textColor="#000000"
             android:textColorHint="#000000"
             android:textSize="15sp"
