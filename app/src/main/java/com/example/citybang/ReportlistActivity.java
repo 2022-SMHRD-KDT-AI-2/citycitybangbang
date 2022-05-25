@@ -42,7 +42,7 @@ public class ReportlistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reportlist);
 
-        // 리스트뷰
+        // 리스트뷰입니다.
         data = new ArrayList<ContactVO>();
 
         // 주소록에 표시될 20개의 가데이터를 삽입하자
