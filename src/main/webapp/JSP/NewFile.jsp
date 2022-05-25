@@ -1,21 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@page import="java.util.List"%>
 <%@page import="citycitybangbang.model.ReportVO"%>
 <%@page import="java.util.ArrayList"%>
-    <%
+<%
 	List<ReportVO> list=(List<ReportVO>)request.getAttribute("list");
-System.out.println("----------------");
-/* System.out.println("¸Ê¸®½ºÆ® È®ÀÎ : " + list.get(1).getAcc_place()); */
+%>
 
+<%
+	pageContext.setAttribute("context", request.getContextPath());
+%>
+<%@page import="citycitybangbang.model.MemberVO"%>
+<%@ page isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<% 
+	MemberVO vo = (MemberVO)request.getAttribute("mbVO"); 
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+
+
+<title>ì‹ ê³  ê´€ë¦¬</title>
+<link href="/citycitybangbang/CSS/menu.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+   	function goOut(){
+  		location.href="/citycitybangbang/webLogout.do";
+  	}  	
+</script>  	
+   	
+   	
+   	
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9982fb8589d4aeda9ccac9ef44b2f2cf&libraries=services,clusterer,drawing"></script>
-<script type="text/javascript" src="../JS/map.js"></script>
+<link href="/citycitybangbang/CSS/map.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/citycitybangbang/JS/map.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,42 +43,107 @@ System.out.println("----------------");
 </head>
 
 <body>
+<div class="sbaner">
+            <table class="bar_manager">
+            <tr>
+                <td class="tdb"><img class="appimg2" src="/citycitybangbang/IMG/icon.png" alt="ì–´í”Œì´ë¯¸ì§€"></td>
+            </tr>
+            <tr>
+                <td class="tdb">
+                    <div class="managername">
+                        <span>${mbVO.mem_id}</span>
+                    </div>
+                </td>
+            </tr>    
+            <tr>
+                <td class="tdb"><button id="logout" onclick="goOut()">ë¡œê·¸ì•„ì›ƒ</button></td>
+            </tr>
+            </table>
+            <table class="barmenu" id="report" onclick="location.href='http://localhost:8081/citycitybangbang/area.do'">
+                <tr>
+                    <td><img class="appimg" src="/citycitybangbang/IMG/point.png" alt="ì–´í”Œì´ë¯¸ì§€" ></td>
+                </tr>
+                <tr>
+                    <td class="tdb" style="color: black;">ì‹ ê³ ìœ„ì¹˜</td>
+                </tr>
+            </table>
+            <table  class="barmenu" id="chart" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/graph.jsp'">
+                <tr>
+                    <td class="tdb"><img class="appimg" src="/citycitybangbang/IMG/chart.png" alt="ì–´í”Œì´ë¯¸ì§€"></td>
+                </tr>
+                <tr>
+                    <td class="tdb" style="color: black;">í†µê³„</td>
+                </tr>
+            </table>
+            <table class="barmenu"  id="list" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/list.jsp'">
+                <tr>
+                    <td class="tdb"><img class="appimg" src="/citycitybangbang/IMG/ë¦¬ìŠ¤íŠ¸.png" alt="ì–´í”Œì´ë¯¸ì§€"></td>
+                </tr>
+                <tr>
+                    <td class="tdb" style="color: black;">ë¦¬ìŠ¤íŠ¸</td>
+                </tr>
+            </table>     
+        </div>
+        
+        
 <div class="full">
 	<div class="area">
-		<button class= "carea" onclick="seoul()">¼­¿ï</button>
-		<button class= "carea" onclick="busan()">ºÎ»ê</button>
-		<button class= "carea" onclick="daegu()">´ë±¸</button>
-		<button class= "carea" onclick="incheon()">ÀÎÃµ</button>
-		<button class= "carea" onclick="gwangju()">±¤ÁÖ</button>
-		<button class= "carea" onclick="daejeon()">´ëÀü</button>
-		<button class= "carea" onclick="ulsan()">¿ï»ê</button>
-		<button class= "carea" onclick="sejong()">¼¼Á¾</button>
-		<button class= "carea" onclick="gyeonggi()">°æ±â</button>
-		<button class= "carea" onclick="gangwon()">°­¿ø</button>
-		<button class= "carea" onclick="chungcheonbuk()">ÃæºÏ</button>
-		<button class= "carea" onclick="chungcheonnam()">Ãæ³²</button>
-		<button class= "carea" onclick="jeollakbuk()">ÀüºÏ</button>
-		<button class= "carea" onclick="jeollanam()">Àü³²</button>
-		<button class= "carea" onclick="gyeongsangbuk()">°æºÏ</button>
-		<button class= "carea" onclick="gyeongsangnam()">°æ³²</button>
-		<button class= "carea" onclick="jeju()">Á¦ÁÖµµ</button>
+		<button class= "carea" onclick="seoul()">ì„œìš¸</button>
+		<button class= "carea" onclick="busan()">ë¶€ì‚°</button>
+		<button class= "carea" onclick="daegu()">ëŒ€êµ¬</button>
+		<button class= "carea" onclick="incheon()">ì¸ì²œ</button>
+		<button class= "carea" onclick="gwangju()">ê´‘ì£¼</button>
+		<button class= "carea" onclick="daejeon()">ëŒ€ì „</button>
+		<button class= "carea" onclick="ulsan()">ìš¸ì‚°</button>
+		<button class= "carea" onclick="sejong()">ì„¸ì¢…</button>
+		<button class= "carea" onclick="gyeonggi()">ê²½ê¸°</button>
+		<button class= "carea" onclick="gangwon()">ê°•ì›</button>
+		<button class= "carea" onclick="chungcheonbuk()">ì¶©ë¶</button>
+		<button class= "carea" onclick="chungcheonnam()">ì¶©ë‚¨</button>
+		<button class= "carea" onclick="jeollakbuk()">ì „ë¶</button>
+		<button class= "carea" onclick="jeollanam()">ì „ë‚¨</button>
+		<button class= "carea" onclick="gyeongsangbuk()">ê²½ë¶</button>
+		<button class= "carea" onclick="gyeongsangnam()">ê²½ë‚¨</button>
+		<button class= "carea" onclick="jeju()">ì œì£¼ë„</button>
 	</div>
-	<div id="map" style="width: 100%; height: 350px;"></div>
+	<div id="map"></div>
 
 </div>
 <script>
 
 
-//Áöµµ¸¦ ÃÊ±âÈ­ ½ÃÅ°´Â ÇÔ¼ö
-var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div 
+//ì§€ë„ë¥¼ ì´ˆê¸°í™” ì‹œí‚¤ëŠ” í•¨ìˆ˜
+var mapContainer = document.getElementById('map') // ì§€ë„ë¥¼ í‘œì‹œí•  div 
  mapOption = {
-     center: new kakao.maps.LatLng(36.49334, 127.27856), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-     level: 11, // ÁöµµÀÇ È®´ë ·¹º§
-     mapTypeId : kakao.maps.MapTypeId.ROADMAP // ÁöµµÁ¾·ù
+     center: new kakao.maps.LatLng(36.49334, 127.27856), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+     level: 11, // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
+     mapTypeId : kakao.maps.MapTypeId.ROADMAP // ì§€ë„ì¢…ë¥˜
  }; 
  
-	// Áöµµ¸¦ »ı¼ºÇÑ´Ù 
+	// ì§€ë„ë¥¼ ìƒì„±í•œë‹¤ 
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
+	      
+	   // ë§ˆì»¤ í´ëŸ¬ìŠ¤í„°ëŸ¬ë¥¼ ìƒì„±í•©ë‹ˆë‹¤ 
+	    var clusterer = new kakao.maps.MarkerClusterer({
+	        map: map, // ë§ˆì»¤ë“¤ì„ í´ëŸ¬ìŠ¤í„°ë¡œ ê´€ë¦¬í•˜ê³  í‘œì‹œí•  ì§€ë„ ê°ì²´ 
+	        averageCenter: true, // í´ëŸ¬ìŠ¤í„°ì— í¬í•¨ëœ ë§ˆì»¤ë“¤ì˜ í‰ê·  ìœ„ì¹˜ë¥¼ í´ëŸ¬ìŠ¤í„° ë§ˆì»¤ ìœ„ì¹˜ë¡œ ì„¤ì • 
+	        minLevel: 6 // í´ëŸ¬ìŠ¤í„° í•  ìµœì†Œ ì§€ë„ ë ˆë²¨ 
+	    });
+	    
+	   // ì§€ë„ íƒ€ì… ë³€ê²½ ì»¨íŠ¸ë¡¤ì„ ìƒì„±í•œë‹¤
+	   var mapTypeControl = new kakao.maps.MapTypeControl();
+
+	   // ì§€ë„ì˜ ìƒë‹¨ ìš°ì¸¡ì— ì§€ë„ íƒ€ì… ë³€ê²½ ì»¨íŠ¸ë¡¤ì„ ì¶”ê°€í•œë‹¤
+	   map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);   
+
+	   // ì§€ë„ì— í™•ëŒ€ ì¶•ì†Œ ì»¨íŠ¸ë¡¤ì„ ìƒì„±í•œë‹¤
+	   var zoomControl = new kakao.maps.ZoomControl();
+
+	   // ì§€ë„ì˜ ìš°ì¸¡ì— í™•ëŒ€ ì¶•ì†Œ ì»¨íŠ¸ë¡¤ì„ ì¶”ê°€í•œë‹¤
+	   map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+	   
+	   // ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
+	   var geocoder = new kakao.maps.services.Geocoder();
 	
 	let addr = [];
 	<%for (int i = 0; i < list.size(); i++) {%>
@@ -66,36 +151,37 @@ var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div
 	<%}%>
 	console.log(addr)
 	
-	//ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù
+	//ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 	var geocoder = new kakao.maps.services.Geocoder();
 	for(let i =0; i<addr.length; i++){
 	geocoder.addressSearch(addr[i], function(result, status) {
 
 	   console.log(result)
-	    // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é 
+	    // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´ 
 	     if (status === kakao.maps.services.Status.OK) {
 
 	        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-	      
-	        // °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡¸¦ ¸¶Ä¿·Î Ç¥½ÃÇÕ´Ï´Ù
+	      	markers = [];
+	        // ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¥¼ ë§ˆì»¤ë¡œ í‘œì‹œí•©ë‹ˆë‹¤
 	        var marker = new kakao.maps.Marker({
 	            map: map,
 	            position: coords
 	        });
 
-	        /* // ÀÎÆ÷À©µµ¿ì·Î Àå¼Ò¿¡ ´ëÇÑ ¼³¸íÀ» Ç¥½ÃÇÕ´Ï´Ù
-	        var infowindow = new kakao.maps.InfoWindow({
-	            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+dataNum2[i]+'</div>'
-	        });
-	        infowindow.open(map, marker); */
+	       
+	     	// ìƒì„±ëœ ë§ˆì»¤ë¥¼ ë§ˆì»¤ ì €ì¥í•˜ëŠ” ë³€ìˆ˜ì— ë„£ìŒ
+	        markers.push(marker);
 
-	        // ÁöµµÀÇ Áß½ÉÀ» °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡·Î ÀÌµ¿½ÃÅµ´Ï´Ù
-	        map.setCenter(coords);
+	     	// í´ëŸ¬ìŠ¤í„°ëŸ¬ì— ë§ˆì»¤ë“¤ì„ ì¶”ê°€í•©ë‹ˆë‹¤
+	        clusterer.addMarkers(markers);
 	    } 
 	    
 	    
 	});
 	}
+	
+	
+
 
 
 </script>
