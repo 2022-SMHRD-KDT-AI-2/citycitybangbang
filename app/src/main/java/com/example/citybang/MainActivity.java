@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         btnMaiList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "http://125.136.66.65:8090/citycitybangbang/reSuccess?id=" + a;
+                String url = "http://125.136.66.65:8081/citycitybangbang/reSuccess?id=" + a;
                 StringRequest request = new StringRequest(
                         Request.Method.GET, url, new Response.Listener<String>(){
                     @Override

@@ -26,8 +26,8 @@ public class RecycleActivity extends AppCompatActivity {
         }
 
         //RecylerView에는 LayoutManager : 레이아웃의 모양을 결정!!
-                // LinearLayoutManager 사용해보자
-                LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        // LinearLayoutManager 사용해보자
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         rv_contact.setLayoutManager(layoutManager);
 

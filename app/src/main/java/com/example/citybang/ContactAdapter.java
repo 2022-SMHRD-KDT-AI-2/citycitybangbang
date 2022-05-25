@@ -122,7 +122,4 @@ public class ContactAdapter extends BaseAdapter {
         TextView repTvarea2, reportList2, reportTime, textView41, textView42, textView43;
 
     }
-
-
-
 }
