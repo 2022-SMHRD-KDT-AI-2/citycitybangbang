@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -22,6 +23,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,9 +35,23 @@ public class MainActivity extends AppCompatActivity {
             btnDraLaw1, btnDraLaw2, btnDraAsk, btnDraStep, btnDraWithdrawal,
             btnLogin, btnMember, btnLogout;
 
+    TextView tvMaiToday, tvMaiMonth;
+
     Intent intent;
 
     RequestQueue requestQueue;
+
+    String list;
+
+    String rN[];
+
+    String rNd[];
+
+    String Month[];
+
+    String Today;
+
+    int cnt1=0,cnt2=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String a = SharedPreference.getAttribute(getBaseContext(), "id");
+
+        Log.d("final", getDate());
 
         btnMaiCamera = findViewById(R.id.btnMaiCamera);
         btnMaiSiren = findViewById(R.id.btnMaiSiren);
@@ -54,12 +74,70 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnMember = findViewById(R.id.btnMember);
         btnLogout = findViewById(R.id.btnLogout);
+        tvMaiToday = findViewById(R.id.tvMaiToday);
+        tvMaiMonth = findViewById(R.id.tvMaiMonth);
 
         Button button = findViewById(R.id.btnDraWithdrawal);
 
         if (requestQueue == null){
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
+
+
+        String url = "http://125.136.66.65:8081/citycitybangbang/reportNum?";
+        StringRequest request = new StringRequest(
+                Request.Method.GET, url, new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response)
+            {
+
+                list = response.substring(1,response.length()-1);
+
+                rN = list.split(", ");
+
+                Log.d("finl", list);
+
+
+                rNd = new String[rN.length];
+
+                Month = new String[rNd.length];
+
+
+                for (int i=0;i<rN.length;i++){
+                    rNd[i] = rN[i].substring(0,10);
+                }
+
+                for (int i=0;i<rNd.length;i++){
+                    if (rNd[i].equals(getDate())){
+                        cnt1 ++;
+                    }
+                }
+
+                for (int i=0;i<rNd.length;i++){
+                    Month[i] = rNd[i].substring(5,7);
+                }
+
+                tvMaiToday.setText(String.valueOf(cnt1));
+
+                Today = getDate().substring(5,7);
+
+                for (int i=0;i<Month.length;i++){
+                    if (Month[i].equals(Today)){
+                        cnt2++;
+                    }
+                }
+
+                tvMaiMonth.setText(String.valueOf(cnt2));
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "응답 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        requestQueue.add(request);
 
         // 팝업창
         btnDraWithdrawal.setOnClickListener(new View.OnClickListener() {
@@ -275,6 +353,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    private String getDate() {
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String getTime = dateFormat.format(date);
+        return getTime;
+    }
+
     @Override
     public void onResume() {
         super.onResume();
