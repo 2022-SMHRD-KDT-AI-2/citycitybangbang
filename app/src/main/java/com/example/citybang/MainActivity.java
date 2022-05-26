@@ -246,10 +246,19 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response)
                     {
-                        Log.d("check",response);
-                        Intent intent1 = new Intent(getApplicationContext(), ReportlistActivity.class);
-                        intent1.putExtra("report",response.substring(1,response.length()-2));
-                        startActivity(intent1);
+                        if (a != null){
+                            if(response.length()>2) {
+                                Log.d("check", response.substring(1,response.length()-2));
+                                Intent intent1 = new Intent(getApplicationContext(), ReportlistActivity.class);
+                                intent1.putExtra("report", response.substring(1,response.length()-2));
+                                startActivity(intent1);
+                            }else if(response.length() == 2){
+                                Toast.makeText(MainActivity.this, "신고 없음", Toast.LENGTH_SHORT).show();
+                            }
+                        }else if(a == null) {
+                            Intent intent1 = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(intent1);
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
