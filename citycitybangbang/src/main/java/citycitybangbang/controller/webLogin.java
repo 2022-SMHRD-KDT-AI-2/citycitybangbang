@@ -32,7 +32,7 @@ public class webLogin extends HttpServlet{
 		if(mbVO != null) {
 			HttpSession session=request.getSession();
 			session.setAttribute("mbVO", mbVO);		
-			response.sendRedirect("JSP/map.jsp");
+			response.sendRedirect("/citycitybangbang/area.do");
 		}else {
 			response.sendRedirect("JSP/first.jsp");
 		}
