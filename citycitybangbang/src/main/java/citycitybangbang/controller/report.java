@@ -1,8 +1,15 @@
 package citycitybangbang.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.Base64;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,11 +33,23 @@ public class report extends HttpServlet {
 		String acc_date = request.getParameter("acc_date");
 		String acc_place = request.getParameter("acc_place");
 		String re_comment = request.getParameter("re_comment");
-
-
+		String pic = request.getParameter("pic");
+		
+		byte dearr[] =Base64.getDecoder().decode(pic.replace("\n", ""));
+		
+		try( OutputStream stream = new FileOutputStream("C:/Users/smhrd/Desktop/pic/"+id+"_"+acc_date.replace(":", "-")+".png") ) 
+		{
+		   stream.write(dearr);
+		}
+		catch (Exception e) 
+		{
+		   System.err.println("Couldn't write to file...");
+		}
+		
 		/* String returns = id; */
 		
 		 System.out.println(id);
+		 System.out.println(acc_date);
 
 		String returns = connectDB5.connectionDB5(id, acc_date, acc_place, re_comment);
 
