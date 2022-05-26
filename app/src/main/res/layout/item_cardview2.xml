@@ -48,7 +48,7 @@
 
         <TextView
             android:id="@+id/repTvarea2"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="21dp"
