@@ -198,9 +198,26 @@ public class MainActivity extends AppCompatActivity {
         btnDraReportlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(getApplicationContext(),ReportlistActivity.class);
-                startActivity(intent);
-                finish();
+                String url = "http://125.136.66.65:8081/citycitybangbang/reSuccess?id=" + a;
+                StringRequest request = new StringRequest(
+                        Request.Method.GET, url, new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String response)
+                    {
+                        Log.d("check",response);
+                        Intent intent1 = new Intent(getApplicationContext(), ReportlistActivity.class);
+                        intent1.putExtra("report",response.substring(1,response.length()-2));
+                        startActivity(intent1);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "응답 실패", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                );
+
+                requestQueue.add(request);
             }
         });
 
