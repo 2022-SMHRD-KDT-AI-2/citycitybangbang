@@ -1,6 +1,7 @@
 package com.example.citybang;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,6 +72,9 @@ public class ContactAdapter extends BaseAdapter {
             holder.repTvarea2 = convertView.findViewById(R.id.repTvarea2);
             holder.reportList2 = convertView.findViewById(R.id.reportList2);
             holder.reportTime = convertView.findViewById(R.id.reportTime);
+            holder.repBtn = convertView.findViewById(R.id.repBtn);
+            holder.repBtn2 = convertView.findViewById(R.id.repBtn2);
+            holder.test1 = convertView.findViewById(R.id.test1);
 
 
 
@@ -86,6 +90,15 @@ public class ContactAdapter extends BaseAdapter {
         holder.repTvarea2.setText("발생 지역 : "+data.get(position).getArea());
         holder.reportList2.setText("발생 일자 : "+data.get(position).getDate());
         holder.reportTime.setText("발생 시간 : "+data.get(position).getTime());
+        holder.test1.setText(data.get(position).getTest1());
+
+
+        /*if("만약 처리중이라면"){
+            holder.repBtn.setText("처리중");
+            holder.repBtn.setBackgroundColor(Color.parseColor("#23A462"));
+        }else{
+            holder.repBtn.setText("처리완료");
+        }*/
 
 
 
@@ -119,7 +132,9 @@ public class ContactAdapter extends BaseAdapter {
 
     class ContactViewHolder{
 
-        TextView repTvarea2, reportList2, reportTime, textView41, textView42, textView43;
+        TextView repTvarea2, reportList2, reportTime, test1;
+        Button repBtn, repBtn2;
+
 
     }
 }

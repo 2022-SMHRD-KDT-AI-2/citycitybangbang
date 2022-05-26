@@ -22,7 +22,7 @@ public class RecycleActivity extends AppCompatActivity {
 
         data = new ArrayList<>();
         for (int i = 0; i <5; i++){
-            data.add(new ContactVO("지역"+i, "일자" + i, "시간" + i));
+            data.add(new ContactVO("지역"+i, "일자" + i, "시간" + i, "test"));
         }
 
         //RecylerView에는 LayoutManager : 레이아웃의 모양을 결정!!

@@ -1,12 +1,15 @@
 package com.example.citybang;
 
-public class ContactVO {
-    private String date, time, area;
+import android.widget.Button;
 
-    public ContactVO(String date, String time, String area) {
+public class ContactVO {
+    private String date, time, area, test1;
+
+    public ContactVO(String date, String time, String area, String test1) {
         this.date = date;
         this.time = time;
         this.area = area;
+        this.test1 = test1;
     }
 
     public String getDate() {
@@ -31,6 +34,14 @@ public class ContactVO {
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    public String getTest1() {
+        return test1;
+    }
+
+    public void setTest1(String test1) {
+        this.test1 = test1;
     }
 }
 

@@ -26,7 +26,7 @@ public class ReportlistActivity extends AppCompatActivity {
     ContactAdapter adapter;
     List<ContactVO> data;
 
-    TextView repTv1, repTv2, repTv3;
+    TextView repTv1, repTv2, repTv3, test1;
 
     String a = "";
 
@@ -49,6 +49,7 @@ public class ReportlistActivity extends AppCompatActivity {
         repTv1 = findViewById(R.id.repTv1);
         repTv2 = findViewById(R.id.repTv2);
         repTv3 = findViewById(R.id.repTv3);
+        test1 = findViewById(R.id.test1);
 
         String a = SharedPreference.getAttribute(getBaseContext(), "id");
 
@@ -98,7 +99,7 @@ public class ReportlistActivity extends AppCompatActivity {
 
         // 주소록에 표시될 20개의 가데이터를 삽입하자
         for(int i = 0; i<b.length;i++){
-            data.add(new ContactVO(d[i], e[i], c[i][1]));
+            data.add(new ContactVO(d[i], e[i], c[i][1], "가데이터"));
         }
 
         // 어댑터 생성(페이지정보, 항목 뷰 디자인, 아이템);
