@@ -56,7 +56,6 @@
 			success : function(res){
 				// 요청이 성공하면 실행
 				reloadPie(res)
-				reloadBar(res)
 			},
 			error : function(){alert("error!");}
 		})

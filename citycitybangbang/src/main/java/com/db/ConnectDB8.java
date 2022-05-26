@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.print.DocFlavor.STRING;
-
 import org.apache.catalina.tribes.util.Arrays;
-
 import citycitybangbang.model.ReportVO;
 
 public class ConnectDB8 {
@@ -32,21 +30,20 @@ public class ConnectDB8 {
     PreparedStatement pstmt2 = null;
     ResultSet rs = null;
     
-    List list = new ArrayList();
+    List<ReportVO> list = new ArrayList();
 
 
     String sql = "";
     String sql2 = "";
     String returns = "a";
    
-    public List connectionDB7(String ACC_DATE1, String ACC_DATE2, String area, String complete ) {
-    	
+    public List<ReportVO> connectionDB8(String ACC_DATE, String ACC_PLACE, String re_complete) {
     	
     	
     	StringBuffer sb = new StringBuffer();
-    	if (ACC_DATE1.substring(5, 6).equals("0")) {
+    	if (ACC_DATE.substring(5, 6).equals("0")) {
  
-    		sb.append(ACC_DATE1);
+    		sb.append(ACC_DATE);
 			sb.deleteCharAt(5);
 		}
     	String sb2= sb.toString();
@@ -55,19 +52,19 @@ public class ConnectDB8 {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conn = DriverManager.getConnection(jdbcUrl, userId, userPw);
             
-            if(complete.equals("전체")) {
+            if(.equals("전체")) {
 
             //'?%'   '%'||?||'%'
-            sql = "SELECT ACC_DATE, ACC_PLACE, RE_COMPLETE FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%'";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, sb2);
-            pstmt.setString(2, area);
+            	sql = "SELECT MEM_ID, ACC_DATE, ACC_PLACE, RE_COMPLETE FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%'";
+            	pstmt = conn.prepareStatement(sql);
+            	pstmt.setString(1, sb2);
+            	pstmt.setString(2, ACC_PLACE);
             } else {
-            	sql = "SELECT ACC_DATE, ACC_PLACE, RE_COMPLETE FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%' AND RE_COMPLETE = ? ";
+            	sql = "SELECT MEM_ID, ACC_DATE, ACC_PLACE, RE_COMPLETE FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%' AND RE_COMPLETE = ? ";
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, sb2);
-                pstmt.setString(2, area);
-                pstmt.setString(3, complete);
+                pstmt.setString(2, ACC_PLACE);
+                pstmt.setString(3, re_complete);
             }
 
             rs = pstmt.executeQuery();  
@@ -75,11 +72,22 @@ public class ConnectDB8 {
 
             
             while (rs.next()) {
+            	
+            	String mem_id = rs.getString(1);
+            	String acc_date = rs.getString(2);
+        		String acc_place = rs.getString(3);
+        		char re_complete = rs.getchar(4);
             		
-            		//list.add(rs.getString(1)  + "." + rs.getString(2) + "." + rs.getString(3) + "\n");
-            		char c = rs.getString(3).charAt(0);
-            		list.add(rs.getString(1)+","+rs.getString(2)+","+c+"\n");
-            }
+            	ReportVO rvo = new ReportVO();
+            	
+            	rvo.setMem_id(mem_id);
+        		rvo.setAcc_date(ACC_DATE);
+        		rvo.setAcc_place(ACC_PLACE);
+        		rvo.setRe_complete(re_complete);
+        		
+        		
+        		list.add(rvo);
+        }
             
             
             		

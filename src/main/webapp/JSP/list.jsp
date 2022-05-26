@@ -17,19 +17,17 @@
     <div id="daypst">
         <table class=".lt">
             <tr>
-            	<form action="webList.java" method="post">
-                	<input type="date" class="yymmdd2" name="date1" style="margin-right: 20px;">
-                	<select name="지역"class="lctlist" name="area" style="margin-right: 20px;">
-                    	<option value="광주">광주</option>
-                    	<option value="부산">부산</option>
-                    	<option value="서울">서울</option>
-                    	<option value="포항">포항</option></select>
-                	<select name="처리 여부"class="lctlist" name="check">
-                    	<option value="처리">처리</option>
-                    	<option value="미처리">미처리</option>
-                    	<option value="전체">전체</option>
-                	</select>
-                </form>
+               	<input type="date" class="yymmdd2" name="date" onchange="" style="margin-right: 20px;">
+               	<select name="지역"class="lctlist" name="area" style="margin-right: 20px;">
+                   	<option value="광주">광주</option>
+                   	<option value="부산">부산</option>
+                   	<option value="서울">서울</option>
+                   	<option value="포항">포항</option></select>
+               	<select name="처리 여부"class="lctlist" name="check">
+                   	<option value="처리">처리</option>
+                   	<option value="미처리">미처리</option>
+                   	<option value="전체">전체</option>
+               	</select>
             </tr>
         </table >
     </div>
@@ -39,14 +37,7 @@
             <tr>
                 <td id="tdl" class="day">날짜 들어가는칸</td>
                 <td id="tdl" class="list">지역 들어가는칸</td>
-                <td id="tdl" class="time">시간칸</td>
-                <td id="tdl" class="time" >처리/미처리</td>
-            </tr>
-            <tr>
-                <td id="tdl" class="day">날짜 들어가는칸</td>
-                <td id="tdl" class="list">지역 들어가는칸</td>
-                <td id="tdl" class="time">시간칸</td>
-                <td id="tdl" class="time" >처리/미처리</td>
+                <td id="tdl" class="check" >미처리</td>
             </tr>
         </table>
     </div>
@@ -74,5 +65,41 @@
             </tr>
         </table>
     </div>
+    <script type="text/javascript">
+	function loadData(){
+		
+		// #id
+		// .class
+		// 태그이름[속성명=속성값]
+		// .html() => 닫는태그 있는 경우
+		// .val() => 닫는태그 없는 경우
+		let date = $('input[name=date]').val()
+		console.log(date);
+		
+		// ajax 요청
+		$.ajax({
+			// /ContextPath/urlMapping
+			url : '/citycitybangbang/webList', //어디로 요청할건지
+			type : 'get', //Get? Post?
+			data : {
+				// 보내주는 data
+				// "name" : value
+				"date" : date
+				"area" : area
+				"check": check
+				
+			},
+			dataType : 'json',
+			success : function(res){
+				// 요청이 성공하면 실행
+				reloadPie(res)
+			},
+			error : function(){alert("error!");}
+		})
+
+		
+	}
+	
+</script>
 </body>
 </html>

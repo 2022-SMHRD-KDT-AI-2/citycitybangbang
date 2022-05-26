@@ -37,16 +37,16 @@ display: table;
     
 .list{
     margin: 0px;
-    width: 300px;
+    width: 45vw;
     }
     
 .day{
-    width: 200px;
+    width: 45vw;
     }
-    
-.time{
-    width: 100px;
-}
+.check{
+    width: 10vw;
+    }
+
 #daypst{
  top: 150px;
  left: 200px;
