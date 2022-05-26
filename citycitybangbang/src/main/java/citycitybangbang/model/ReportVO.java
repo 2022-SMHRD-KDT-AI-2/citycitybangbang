@@ -25,6 +25,13 @@ public class ReportVO {
 		this.re_comment = re_comment;
 		this.re_complete = re_complete;
 	}
+	
+	public ReportVO(String acc_date, String acc_place, char re_complete) {
+		super();
+		this.acc_date = acc_date;
+		this.acc_place = acc_place;
+		this.re_complete = re_complete;
+	}
 
 	public int getRe_num() {
 		return re_num;
