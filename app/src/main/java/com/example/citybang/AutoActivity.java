@@ -40,6 +40,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.citybang.databinding.ActivityAutoBinding;
 
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class AutoActivity extends AppCompatActivity {
@@ -226,6 +227,7 @@ public class AutoActivity extends AppCompatActivity {
                 myYear = c.get(Calendar.YEAR);
                 myMonth = c.get(Calendar.MONTH);
                 myDay = c.get(Calendar.DAY_OF_MONTH);
+
 
                 Dialog dlgDate = new DatePickerDialog(AutoActivity.this, myDateSetListener,
                         myYear, myMonth, myDay);

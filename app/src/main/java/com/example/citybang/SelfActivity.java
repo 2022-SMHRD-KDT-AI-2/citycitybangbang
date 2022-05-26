@@ -189,7 +189,7 @@ public class SelfActivity extends AppCompatActivity {
     private String getDate() {
         long now = System.currentTimeMillis();
         Date date = new Date(now);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-M-d");
         String getTime = dateFormat.format(date);
         return getTime;
     }
@@ -197,7 +197,7 @@ public class SelfActivity extends AppCompatActivity {
     private String getTime() {
         long now = System.currentTimeMillis();
         Date date = new Date(now);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("h:mm");
         String getTime = dateFormat.format(date);
         return getTime;
     }
