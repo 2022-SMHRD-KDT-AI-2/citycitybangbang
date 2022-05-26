@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>main</title>
-    <link href="../CSS/first.css" rel="stylesheet" type="text/css">
+    <link href="/citycitybangbang/CSS/first.css" rel="stylesheet" type="text/css">
     <script type="text/javascript">
    	function goMap(){
   		location.href="/citycitybangbang/JSP/map.jsp";
