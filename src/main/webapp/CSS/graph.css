@@ -44,3 +44,9 @@ body {
   height: 100vh;
   width: 100vw;
 }
+#submitbut{
+	position: absolute;
+	top : 150px;
+	left: 640px;
+	height: 20px;
+}

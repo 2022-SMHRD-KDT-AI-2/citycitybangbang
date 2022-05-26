@@ -17,19 +17,19 @@
     <div id="daypst">
         <table class=".lt">
             <tr>
-                <input type="date" class="yymmdd2">
-                 ~ 
-                <input type="date" class="yymmdd2" style="margin-right: 20px;">
-                <select name="지역"class="lctlist"  style="margin-right: 20px;">
-                    <option value="광주">광주</option>
-                    <option value="부산">부산</option>
-                    <option value="서울">서울</option>
-                    <option value="포항">포항</option></select>
-                <select name="처리 여부"class="lctlist">
-                    <option value="처리">처리</option>
-                    <option value="미처리">미처리</option>
-                    <option value="전체">전체</option>
-                </select>
+            	<form action="webList.java" method="post">
+                	<input type="date" class="yymmdd2" name="date1" style="margin-right: 20px;">
+                	<select name="지역"class="lctlist" name="area" style="margin-right: 20px;">
+                    	<option value="광주">광주</option>
+                    	<option value="부산">부산</option>
+                    	<option value="서울">서울</option>
+                    	<option value="포항">포항</option></select>
+                	<select name="처리 여부"class="lctlist" name="check">
+                    	<option value="처리">처리</option>
+                    	<option value="미처리">미처리</option>
+                    	<option value="전체">전체</option>
+                	</select>
+                </form>
             </tr>
         </table >
     </div>
