@@ -73,35 +73,35 @@ function gyeonggi() {
 		    
 	// 지도 중심을 이동 시킵니다
 	map.setCenter(moveLatLon);
-	map.setLevel(8);
+	map.setLevel(10);
 }
 
 // 강원
 function gangwon() {            
 	// 이동할 위도 경도 위치를 생성합니다 
-	var moveLatLon = new kakao.maps.LatLng(38.214446, 128.571625);
+	var moveLatLon = new kakao.maps.LatLng(37.645708494873, 128.39252910534);
 		    
 	// 지도 중심을 이동 시킵니다
 	map.setCenter(moveLatLon);
-	map.setLevel(8);
+	map.setLevel(11);
 }
 // 충북
 function chungcheonbuk() {            
 	// 이동할 위도 경도 위치를 생성합니다 
-	var moveLatLon = new kakao.maps.LatLng(36.635617767955, 127.49067691516);
+	var moveLatLon = new kakao.maps.LatLng(36.670303229442, 127.80478635713);
 		    
 	// 지도 중심을 이동 시킵니다
 	map.setCenter(moveLatLon);
-	map.setLevel(8);
+	map.setLevel(10);
 }
 // 충남
 function chungcheonnam() {            
 	// 이동할 위도 경도 위치를 생성합니다 
-	var moveLatLon = new kakao.maps.LatLng(36.658687776308, 126.67096502633);
+	var moveLatLon = new kakao.maps.LatLng(36.463734577641, 126.79556711814);
 		    
 	// 지도 중심을 이동 시킵니다
 	map.setCenter(moveLatLon);
-	map.setLevel(8);
+	map.setLevel(10);
 }
 // 전북
 function jeollakbuk() {            
@@ -110,16 +110,16 @@ function jeollakbuk() {
 		    
 	// 지도 중심을 이동 시킵니다
 	map.setCenter(moveLatLon);
-	map.setLevel(8);
+	map.setLevel(10);
 }
 // 전남
 function jeollanam() {            
 	// 이동할 위도 경도 위치를 생성합니다 
-	var moveLatLon = new kakao.maps.LatLng(34.816777472851, 126.46047664041);
+	var moveLatLon = new kakao.maps.LatLng(34.799991373215, 126.69713726064);
 		    
 	// 지도 중심을 이동 시킵니다
 	map.setCenter(moveLatLon);
-	map.setLevel(8);
+	map.setLevel(10);
 }
 // 경북
 function gyeongsangbuk() {            
@@ -128,7 +128,7 @@ function gyeongsangbuk() {
 		    
 	// 지도 중심을 이동 시킵니다
 	map.setCenter(moveLatLon);
-	map.setLevel(8);
+	map.setLevel(11);
 }
 // 경남
 function gyeongsangnam() {            
@@ -137,16 +137,16 @@ function gyeongsangnam() {
 		    
 	// 지도 중심을 이동 시킵니다
 	map.setCenter(moveLatLon);
-	map.setLevel(8);
+	map.setLevel(11);
 }
 // 제주도
 function jeju() {            
 	// 이동할 위도 경도 위치를 생성합니다 
-	var moveLatLon = new kakao.maps.LatLng(33.432426369234, 126.58466456498);
+	var moveLatLon = new kakao.maps.LatLng(33.385016424116, 126.62019607052);
 		    
 	// 지도 중심을 이동 시킵니다
 	map.setCenter(moveLatLon);
-	map.setLevel(10);
+	map.setLevel(9);
 }
 
 

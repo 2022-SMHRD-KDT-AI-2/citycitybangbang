@@ -25,7 +25,7 @@
     <div class="sbaner">
             <table class="bar_manager">
             <tr>
-                <td class="tdb"><img class="appimg" src="../IMG/리스트.png" alt="어플이미지"></td>
+                <td class="tdb"><img class="appimg" src="/citycitybangbang/IMG/icon.png" alt="어플이미지"></td>
             </tr>
             <tr>
                 <td class="tdb">
@@ -38,9 +38,9 @@
                 <td class="tdb"><button id="logout" onclick="goOut()">로그아웃</button></td>
             </tr>
             </table>
-            <table class="barmenu" id="report" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/map.jsp'">
+            <table class="barmenu" id="report" onclick="location.href='http://localhost:8081/citycitybangbang/area.do'">
                 <tr>
-                    <td><img class="appimg" src="../IMG/point.png" alt="어플이미지" ></td>
+                    <td><img class="appimg" src="/citycitybangbang/IMG/point.png" alt="어플이미지" ></td>
                 </tr>
                 <tr>
                     <td class="tdb" style="color: black;">신고위치</td>
@@ -48,7 +48,7 @@
             </table>
             <table  class="barmenu" id="chart" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/graph.jsp'">
                 <tr>
-                    <td class="tdb"><img class="appimg" src="../IMG/chart.png" alt="어플이미지"></td>
+                    <td class="tdb"><img class="appimg" src="/citycitybangbang/IMG/chart.png" alt="어플이미지"></td>
                 </tr>
                 <tr>
                     <td class="tdb" style="color: black;">통계</td>
@@ -56,7 +56,7 @@
             </table>
             <table class="barmenu"  id="list" onclick="location.href='http://localhost:8081/citycitybangbang/JSP/list.jsp'">
                 <tr>
-                    <td class="tdb"><img class="appimg" src="../IMG/리스트.png" alt="어플이미지"></td>
+                    <td class="tdb"><img class="appimg" src="/citycitybangbang/IMG/리스트.png" alt="어플이미지"></td>
                 </tr>
                 <tr>
                     <td class="tdb" style="color: black;">리스트</td>

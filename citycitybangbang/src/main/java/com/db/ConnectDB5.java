@@ -21,27 +21,27 @@ public class ConnectDB5 {
     Connection conn = null;
     PreparedStatement pstmt = null;
     PreparedStatement pstmt2 = null;
-    ResultSet rs = null;
 
     String sql = "";
     String sql2 = "";
     String returns = "a";
 
-    public String connectionDB5(String mem_id, String acc_date, String acc_place, String re_comment, String image_file) {
-        try {
+    public String connectionDB5(String mem_id, String acc_date, String acc_place, String re_comment) {
+        int cnt = -1;
+    	try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conn = DriverManager.getConnection(jdbcUrl, userId, userPw);
 
-            sql = "INSERT INTO t_report(mem_id, acc_date, acc_place, re_comment, image_file) VALUES(?,?,?,?,?)";
+            sql = "INSERT INTO t_report(mem_id, acc_date, acc_place, re_comment) VALUES(?,?,?,?)";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, mem_id);
             pstmt.setString(2, acc_date);
             pstmt.setString(3, acc_place);
             pstmt.setString(4, re_comment);
-            pstmt.setString(5, image_file);
             
-            rs = pstmt.executeQuery();
-            if (rs.next()) {
+            cnt = pstmt.executeUpdate();
+            
+            if (cnt >= 1) {
                 returns = "신고 완료!";
             }else {
             	returns = "0";
