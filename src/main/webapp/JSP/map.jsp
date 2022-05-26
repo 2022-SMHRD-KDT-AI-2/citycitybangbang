@@ -5,8 +5,6 @@
 <%@page import="java.util.ArrayList"%>
 <%
 List<ReportVO> list = (List<ReportVO>) request.getAttribute("list");
-System.out.println("----------------");
-System.out.println("맵리스트 확인 : " + list.get(1).getAcc_place());
 %>
 
 <!DOCTYPE html>
