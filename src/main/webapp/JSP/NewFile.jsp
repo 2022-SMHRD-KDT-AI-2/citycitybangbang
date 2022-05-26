@@ -33,7 +33,7 @@
    	
    	
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9982fb8589d4aeda9ccac9ef44b2f2cf&libraries=services,clusterer,drawing"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	b49504140bdc64dd44654eded0cde29f&libraries=services,clusterer,drawing"></script>
 <link href="/citycitybangbang/CSS/map.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/citycitybangbang/JS/map.js"></script>
 
