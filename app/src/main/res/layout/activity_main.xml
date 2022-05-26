@@ -168,7 +168,7 @@
                 android:id="@+id/tvMaiMonth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="100dp"
                 android:text="1500"
                 android:textAlignment="textEnd"
                 android:textColor="@color/green"

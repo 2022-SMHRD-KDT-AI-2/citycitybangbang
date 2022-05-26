@@ -99,7 +99,7 @@ public class ReportlistActivity extends AppCompatActivity {
 
         // 주소록에 표시될 20개의 가데이터를 삽입하자
         for(int i = 0; i<b.length;i++){
-            data.add(new ContactVO(d[i], e[i], c[i][1], "가데이터"));
+            data.add(new ContactVO(d[i], e[i], c[i][1], c[i][2]));
         }
 
         // 어댑터 생성(페이지정보, 항목 뷰 디자인, 아이템);

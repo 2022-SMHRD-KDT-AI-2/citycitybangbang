@@ -2,6 +2,7 @@ package com.example.citybang;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import kotlin.reflect.KVisibility;
 
 public class ContactAdapter extends BaseAdapter {
 
@@ -91,6 +94,19 @@ public class ContactAdapter extends BaseAdapter {
         holder.reportList2.setText("발생 일자 : "+data.get(position).getDate());
         holder.reportTime.setText("발생 시간 : "+data.get(position).getTime());
         holder.test1.setText(data.get(position).getTest1());
+
+        String a = data.get(position).getTest1();
+
+        if (a.charAt(0) == 'N'){
+            holder.repBtn2.setVisibility(View.VISIBLE);
+            holder.repBtn.setVisibility(View.GONE);
+            holder.test1.setText("");
+        }else if (a.charAt(0) == 'Y'){
+            holder.repBtn2.setVisibility(View.GONE);
+            holder.repBtn.setVisibility(View.VISIBLE);
+            holder.test1.setText("");
+        }
+
 
 
         /*if("만약 처리중이라면"){
