@@ -61,7 +61,7 @@ public class QnaActivity extends AppCompatActivity {
         chapterList.add("회원가입은 꼭 해야하나요");
         chapterList.add("회원 탈퇴는 어떻게 하나요");
         chapterList.add("로그인 안하고 신고하기도 가능한가요");
-        chapterList.add("신고한 걸 어떻게 확인하나요");
+        chapterList.add("신고 내역을 어떻게 확인하나요");
 
         List<String> topic1 = new ArrayList<>();
         topic1.add("메인 페이지에서 촬영하기를 누른 후 촬영된 사진을 확인하여 신고 버튼을 누르시면 GPS 기반 해당 사진 위치가 " +
@@ -75,7 +75,7 @@ public class QnaActivity extends AppCompatActivity {
         List<String> topic4 = new ArrayList<>();
         topic4.add("회원가입후 우측 상단에 있는 사이드 메뉴바 버튼을 클릭후 해당 메뉴 하단에 있는 회원 탈퇴를 클릭하시면 안전하게 회원 탈퇴가 가능합니다");
         List<String> topic5 = new ArrayList<>();
-        topic5.add("가능합니다");
+        topic5.add("불가능 합니다. 신뢰성있는 신고를 위해 로그인은 필수 입니다. 신고한 민원의 처리 여부도 받아보실 수 있으니"+"회원가입 후 로그인 하시는걸 추천드립니다.");
         List<String> topic6 = new ArrayList<>();
         topic6.add("해당기능은 회원가입자에 한에 제공하는 기능이기 때문에 민원의 처리 여부를 확인 하시려면 회원가입을 해주시길 바랍니다.");
 
