@@ -189,7 +189,7 @@ public class AutoActivity extends AppCompatActivity {
 
                 if (acc_date != null){
                     if (acc_place != null){
-                        String url = "http://125.136.66.65:8081/citycitybangbang/report2?id=" + a +
+                        String url = "http://59.3.122.222:8081/citycitybangbang/report2?id=" + a +
                                 "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
 
                         StringRequest request = new StringRequest(
@@ -204,7 +204,7 @@ public class AutoActivity extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(AutoActivity.this, "응답 실패", Toast.LENGTH_SHORT).show();
+
                             }
                         }
                         );
