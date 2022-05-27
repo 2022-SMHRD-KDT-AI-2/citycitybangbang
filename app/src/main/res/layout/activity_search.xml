@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:text="주소입력"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="주소를 입력해주세요"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <EditText
                 android:id="@+id/et_address2"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="상세주소를 입력해주세요"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -78,11 +78,11 @@
             <Button
                 android:id="@+id/btn1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:background="@drawable/button_grayradius"
                 android:text="확인"
                 android:textColor="#000000"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
 
         </LinearLayout>

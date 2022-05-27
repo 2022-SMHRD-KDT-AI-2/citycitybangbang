@@ -10,7 +10,7 @@
         android:id="@+id/etMemId"
         style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="200dp"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/border"
         android:ems="10"
@@ -27,7 +27,7 @@
     <Button
         android:id="@+id/btnMemCheck"
         android:layout_width="85dp"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:background="@drawable/button_radius"
         android:backgroundTint="@color/blue_1"
         android:text="중복확인"
@@ -54,7 +54,7 @@
     <EditText
         android:id="@+id/erMemPw"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_marginTop="18dp"
         android:background="@drawable/border"
         android:ems="10"
@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
         android:text="비밀번호는 9자리 이상 12자리 이하로 숫자, 영문자, 특수문자를 혼용하여 설정해주세요"
-        android:textSize="9sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@+id/erMemPw"
         app:layout_constraintStart_toStartOf="@+id/erMemPw"
         app:layout_constraintTop_toBottomOf="@+id/erMemPw" />
@@ -99,7 +99,7 @@
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_marginTop="18dp"
         android:background="@drawable/border"
         android:ems="10"
@@ -115,7 +115,7 @@
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="190dp"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_marginTop="18dp"
         android:background="@drawable/border"
         android:ems="10"
@@ -143,7 +143,7 @@
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_marginStart="5dp"
         android:background="@drawable/border"
         android:gravity="center"
@@ -184,7 +184,7 @@
         android:background="#00FFFFFF"
         android:text="로그인"
         android:textColor="@color/blue_1"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView3" />
 
@@ -195,7 +195,7 @@
         android:layout_marginStart="52dp"
         android:text="이미 계정이 있으신가요? "
         android:textColor="#000000"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnDraSafe"
         app:layout_constraintStart_toStartOf="@+id/btnLogMem2"
         app:layout_constraintTop_toTopOf="@+id/btnDraSafe"
