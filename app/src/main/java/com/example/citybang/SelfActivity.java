@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationManager;
@@ -144,6 +145,10 @@ public class SelfActivity extends AppCompatActivity {
 
                 requestQueue.add(request);
                 requestQueue.start();
+
+                selfBtnsiren.setClickable(false);
+                selfBtnsiren.setText("신고 중");
+
             }
         });
 

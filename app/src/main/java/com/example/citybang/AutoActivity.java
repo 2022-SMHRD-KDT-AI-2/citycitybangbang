@@ -164,7 +164,10 @@ public class AutoActivity extends AppCompatActivity {
                         requestQueue.add(request);
                     }
                 }
+
                 finish();
+
+
             }
         });
 
