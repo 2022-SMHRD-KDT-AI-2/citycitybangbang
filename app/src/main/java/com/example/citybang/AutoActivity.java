@@ -114,21 +114,16 @@ public class AutoActivity extends AppCompatActivity {
                     autoImg.setImageBitmap(img);
 
                     uri = data.getData();
-
-                    Toast.makeText(this, "uri확인" + uri, Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
 
                 }
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
-            }
+            } else if (resultCode == RESULT_CANCELED) { }
         }
 
         if (requestCode == REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 try {
                     img_path = getImagePathToUri(data.getData()); //이미지의 URI를 얻어 경로값으로 반환.
-                    Toast.makeText(getBaseContext(), "img_path : " + img_path, Toast.LENGTH_SHORT).show();
                     //이미지를 비트맵형식으로 반환
                     image_bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
 
@@ -216,7 +211,6 @@ public class AutoActivity extends AppCompatActivity {
 
                         //DoFileUpload(serverURL, img_path);
                         DoFileUpload(url, img_path);
-                        Toast.makeText(getApplicationContext(), "이미지 전송 성공", Toast.LENGTH_SHORT).show();
                         Log.d("Send", "Success");
 
                         requestQueue.add(request);
@@ -259,8 +253,6 @@ public class AutoActivity extends AppCompatActivity {
                         Intent intent = new Intent(AutoActivity.this,MainActivity.class);
                         startActivity(intent);
                         finish();
-
-
                     }
                 });
 
@@ -340,7 +332,6 @@ public class AutoActivity extends AppCompatActivity {
 
         //이미지의 이름 값
         String imgName = imgPath.substring(imgPath.lastIndexOf("/") + 1);
-        Toast.makeText(AutoActivity.this, "이미지 이름 : " + imgName, Toast.LENGTH_SHORT).show();
         this.imageName = imgName;
 
         return imgPath;
