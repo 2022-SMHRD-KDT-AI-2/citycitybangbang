@@ -29,7 +29,7 @@
             android:layout_gravity="center"
             android:text="간단한 이륜차 관련 법령"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="163dp"
             tools:layout_editor_absoluteY="16dp" />
@@ -37,7 +37,7 @@
 
     <ExpandableListView
         android:id="@+id/eListview"
-        android:layout_width="360dp"
+        android:layout_width="308dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="30dp"
