@@ -16,6 +16,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import com.db.ConnectDB5;
 
+// self신고용
 @WebServlet("/report2")
 public class report2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
