@@ -234,7 +234,7 @@ public class SelfActivity extends AppCompatActivity {
     private String getTime() {
         long now = System.currentTimeMillis();
         Date date = new Date(now);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("h:mm");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("k:mm");
         String getTime = dateFormat.format(date);
         return getTime;
     }
