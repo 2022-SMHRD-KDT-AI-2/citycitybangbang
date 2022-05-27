@@ -41,11 +41,14 @@ display: table;
     }
     
 .day{
-    width: 30vw;
+    width: 20vw;
     }
 .check{
     width: 10vw;
     }
+.btn{
+	width: 10vw
+}
 
 #daypst{
  top: 150px;
@@ -87,4 +90,7 @@ display: table;
 }
 #reportscroll{
 	overflow: scroll;
+}
+.hidden{
+	display: none;
 }

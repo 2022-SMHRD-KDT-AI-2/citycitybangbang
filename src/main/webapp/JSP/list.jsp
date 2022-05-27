@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="../CSS/list.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../JS/list.js"></script>
+
 </head>
 <body>
 <div class="tbaner"><p>접수된 신고</p></div>
@@ -21,7 +22,21 @@
                    	<option value="광주">광주</option>
                    	<option value="부산">부산</option>
                    	<option value="서울">서울</option>
-                   	<option value="포항">포항</option></select>
+                   	<option value="대구">대구</option>
+                   	<option value="인천">인천</option>
+                   	<option value="대전">대전</option>
+                   	<option value="울산">울산</option>
+                   	<option value="세종">세종</option>
+                   	<option value="경기">경기</option>
+                   	<option value="강원">강원</option>
+                   	<option value="충북">충북</option>
+                   	<option value="충남">충남</option>
+                   	<option value="전북">전북</option>
+                   	<option value="전남">전남</option>
+                   	<option value="경북">경북</option>
+                   	<option value="경남">경남</option>
+                   	<option value="제주도">제주도</option>
+                   	</select>
                	<select class="lctlist" name="check" onchange="loadList()">
                     <option value="전체">전체</option>
                    	<option value="처리">처리</option>
@@ -39,6 +54,7 @@
                 	<td id="tdl" class="day">날짜</td>
                 	<td id="tdl" class="list">지역</td>
                 	<td id="tdl" class="check" >처리여부</td>
+                	<td id="tdl" class="btn" >상세보기</td>
             	</tr>
                </thead>
                
@@ -54,31 +70,8 @@
     </div>
     <div id="detailbox">
         <table id="detailtable">
-            <tr>
-                <td id="tdl" class="reporter">신고자 : asd</td>
-                <td id="tdl" style="text-align: center;">처리 여부</td>
-                <td id="tdl" class="lctlist" >훼손 여부</td>
-            </tr>
-            <tr>
-                <td id="tdl" class="reporter">신고 위치 : asd</td>
-                <td id="tdl" class="lctlist"> 심각함</td>
-                <td id="tdl"><select name="처리 여부"class="lctlist" style="margin-left:3px ;">
-                    <option value="처리">처리</option>
-                    <option value="미처리">미처리</option></td>
-            </tr>
-            <tr>
-                <td id="tdl" colspan="3" style="text-align: center;">
-                    첨부 사진
-                </td>
-            </tr>
-            <tr>
-                <td id="tdl" colspan="3">
-                    <img src="../IMG/chart.png" class="rptimg" alt="이미지">
-                </td>
-            </tr>
+
         </table>
     </div>
-
-</script>
 </body>
 </html>

@@ -46,6 +46,7 @@ public class ConnectDB8 {
 			sb.deleteCharAt(5);
 		}
     	String sb2= sb.toString();
+    	System.out.println(date);
    
     	if("처리".equals(check)) {
     		check="Y";
@@ -59,12 +60,12 @@ public class ConnectDB8 {
             
             if("전체".equals(check)) {
             //'?%'   '%'||?||'%'
-            	sql = "SELECT MEM_ID, ACC_DATE, ACC_PLACE, RE_COMPLETE, IMAGE_FILE FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%'";
+            	sql = "SELECT RE_NUM, MEM_ID, ACC_DATE, ACC_PLACE, RE_COMPLETE, IMAGE_FILE FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%'";
             	pstmt = conn.prepareStatement(sql);
             	pstmt.setString(1, sb2);
             	pstmt.setString(2, area);
             } else {
-            	sql = "SELECT MEM_ID, ACC_DATE, ACC_PLACE, RE_COMPLETE, IMAGE_FILE FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%' AND RE_COMPLETE = ? ";
+            	sql = "SELECT RE_NUM, MEM_ID, ACC_DATE, ACC_PLACE, RE_COMPLETE, IMAGE_FILE FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%' AND RE_COMPLETE = ? ";
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, sb2);
                 pstmt.setString(2, area);
@@ -77,14 +78,16 @@ public class ConnectDB8 {
             
             while (rs.next()) {
             	
-            	String mem_id = rs.getString(1);
-            	String acc_date = rs.getString(2);
-        		String acc_place = rs.getString(3);
-        		String re_complete = rs.getString(4);
-        		String image_file= rs.getString(5);
-            		
+            	int re_num=rs.getInt(1);
+            	String mem_id = rs.getString(2);
+            	String acc_date = rs.getString(3);
+        		String acc_place = rs.getString(4);
+        		String re_complete = rs.getString(5);
+        		String image_file= rs.getString(6);
+        		
             	ReportVO rvo = new ReportVO();
             	
+            	rvo.setRe_num(re_num);
             	rvo.setMem_id(mem_id);
         		rvo.setAcc_date(date);
         		rvo.setAcc_place(acc_place);
