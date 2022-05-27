@@ -204,7 +204,7 @@ public class AutoActivity extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(AutoActivity.this, "응답 실패", Toast.LENGTH_SHORT).show();
+
                             }
                         }
                         );
