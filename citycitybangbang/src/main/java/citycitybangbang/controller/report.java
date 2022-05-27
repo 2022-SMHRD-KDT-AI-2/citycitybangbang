@@ -34,6 +34,7 @@ public class report extends HttpServlet {
 		String acc_place = request.getParameter("acc_place");
 		String re_comment = request.getParameter("re_comment");
 		String pic = request.getParameter("pic");
+		String image_file="";
 		
 		byte dearr[] =Base64.getDecoder().decode(pic.replace("\n", ""));
 		
@@ -48,10 +49,12 @@ public class report extends HttpServlet {
 		
 		/* String returns = id; */
 		
+		image_file = id+"_"+acc_date.replace(":", "-")+".png";
+		
 		 System.out.println(id);
 		 System.out.println(acc_date);
 
-		String returns = connectDB5.connectionDB5(id, acc_date, acc_place, re_comment);
+		String returns = connectDB5.connectionDB5(id, acc_date, acc_place, re_comment, image_file);
 
 		System.out.println(returns);
 		
