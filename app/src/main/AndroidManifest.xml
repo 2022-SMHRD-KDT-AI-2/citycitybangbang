@@ -52,9 +52,6 @@
             android:name=".SelfActivity"
             android:exported="true" />
         <activity
-            android:name=".GalaryActivity"
-            android:exported="true" />
-        <activity
             android:name=".ShootselectActivity"
             android:exported="true" />
         <activity
