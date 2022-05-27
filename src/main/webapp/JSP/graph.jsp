@@ -56,27 +56,11 @@
 			success : function(res){
 				// 요청이 성공하면 실행
 				reloadPie(res)
-			},
-			error : function(){alert("error!");}
-		})
-		$.ajax({
-			// /ContextPath/urlMapping
-			url : '/citycitybangbang/webList', //어디로 요청할건지
-			type : 'get', //Get? Post?
-			data : {
-				// 보내주는 data
-				// "name" : value
-				"date" : date
-			},
-			dataType : 'json',
-			success : function(res){
-				// 요청이 성공하면 실행
 				reloadBar(res)
 			},
 			error : function(){alert("error!");}
 		})
-		
-		
+
 	}
 	
 </script>

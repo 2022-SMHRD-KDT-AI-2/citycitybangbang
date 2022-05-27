@@ -37,11 +37,11 @@ display: table;
     
 .list{
     margin: 0px;
-    width: 45vw;
+    width: 60vw;
     }
     
 .day{
-    width: 45vw;
+    width: 30vw;
     }
 .check{
     width: 10vw;
@@ -75,7 +75,7 @@ display: table;
     text-align: center;
 }
 .reporter{
-    width: 600px;
+    width: 400px;
     height: 300;
     font-size: 25px;
 }

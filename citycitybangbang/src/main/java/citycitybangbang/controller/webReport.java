@@ -33,10 +33,9 @@ public class webReport extends HttpServlet {
 		String area = request.getParameter("area");
 		String check = request.getParameter("check");
 		
-		System.out.println("webList : "+ date);
 		ConnectDB8 connectDB8 = ConnectDB8.getInstance8();
 		List<ReportVO> list = connectDB8.connectionDB8(date,area,check);
-		System.out.println("webList : "+ list);	
+		System.out.println("List : "+ list);	
 		
 		
 		// List<ReportVO> ==> JSON( JavaScript Object Notation)
