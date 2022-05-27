@@ -32,6 +32,14 @@ public class ReportVO {
 		this.acc_place = acc_place;
 		this.re_complete = re_complete;
 	}
+	
+	public ReportVO(String mem_id, String acc_date, String acc_place, char re_complete) {
+		super();
+		this.mem_id = mem_id;
+		this.acc_date = acc_date;
+		this.acc_place = acc_place;
+		this.re_complete = re_complete;
+	}
 
 	public int getRe_num() {
 		return re_num;

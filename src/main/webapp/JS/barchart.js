@@ -43,7 +43,6 @@ function reloadBar(res){
 		let arr = res[i].acc_date.split(/:| /);
 		arr[1]*=1;
 		hour[i]=arr[1];
-		console.log(hour[i])
 	}
 	for(let i = 0; i<res.length; i++){
 		if(hour[i]>=0 && hour[i]<=2){
