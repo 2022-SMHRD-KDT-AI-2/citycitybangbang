@@ -7,9 +7,9 @@
 <head>
     <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../CSS/list.css">
+<link rel="stylesheet" href="/citycitybangbang/CSS/list.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="../JS/list.js"></script>
+<script src="/citycitybangbang/JS/list.js"></script>
 </head>
 <body>
 <div class="tbaner"><p>접수된 신고</p></div>

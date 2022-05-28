@@ -1,24 +1,23 @@
 @charset "UTF-8";
 
-
 .chart1{
   width: 800px; 
   height: 650px;
   position: absolute;
-  top: 300px;
+  top: 195px;
   left: 200px;
 
 }
 .chart2{
   position: absolute;
-  top: 250px;
+  top: 200px;
   left: 1000px;
 
 }
 .yymmdd{
   position: absolute;
-  top: 150px;
-  left: 400px;
+  top: 170px;
+  left: 200px;
   width: 200px;
   height: 20px;
 }
@@ -30,19 +29,25 @@
 .tbaner {
 left: 130px;
 width: 100vw;
-height: 100px;
+height: 65px;
 background-color: #1187CF ;
-text-align: center;
 position: absolute;
-font-size: 40px;
-color: white;
 vertical-align:middle;
 display: table;
 }
+
+.space{
+	text-align: center;
+	padding-right: 140px;
+	font-size: 26px;
+	color: white;
+}
+
 body {
   margin: 0px;
   height: 100vh;
   width: 100vw;
+  font-family: 'Nanum Gothic Coding', monospace !important;
 }
 #submitbut{
 	position: absolute;

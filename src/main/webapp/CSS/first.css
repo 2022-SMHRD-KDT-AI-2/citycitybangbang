@@ -12,12 +12,12 @@
 
 .loginbox{
   position: absolute;
-  top: 650px;
+  top: 460px;
   left: 790px;
 }
 .imgbox{
   position: absolute;
-  top: 300px;
+  top: 160px;
   left: 600px;
 }
 .mainimg1{
@@ -34,18 +34,23 @@
 
 .account {
   width: 400px;
-  height: 25px;
+  height: 30px;
   display: block;
   margin-bottom: 10px;
-  padding: 3px;
+  padding: 8px;
   border: 1px solid lightgray;
-  border-radius: 3px;
+  border-radius: 10px;
+  font-size: 16px;
 }
 
 #btnlogin {
-  width: 400px;
-  height: 25px;
-  background-color: skyblue;
-  border-color: transparent;
-  color: white;
+    width: 417px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #1187CF;
+    border-color: transparent;
+    color: white;
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: bold;
 }

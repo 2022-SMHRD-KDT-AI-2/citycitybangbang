@@ -85,6 +85,6 @@ display: table;
     border: 1px solid #000000;
     text-align: left;
 }
-#reportscroll{
+/* #reportscroll{
 	overflow: scroll;
-}
+} */
