@@ -20,12 +20,16 @@
   		location.href="/citycitybangbang/webLogout.do";
   	}
    	</script>
+   	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+   	
 </head>
 <body>
     <div class="sbaner">
             <table class="bar_manager">
             <tr>
-                <td class="tdb"><img class="appimg" src="/citycitybangbang/IMG/icon.png" alt="어플이미지"></td>
+                <td class="tdb"><img class="appimg2" src="/citycitybangbang/IMG/icon.png" alt="어플이미지"></td>
             </tr>
             <tr>
                 <td class="tdb">

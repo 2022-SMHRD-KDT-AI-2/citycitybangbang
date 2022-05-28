@@ -91,6 +91,3 @@ display: table;
 #reportscroll{
 	overflow: scroll;
 }
-.hidden{
-	display: none;
-}
