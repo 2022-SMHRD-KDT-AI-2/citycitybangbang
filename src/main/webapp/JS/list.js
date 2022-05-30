@@ -38,12 +38,14 @@
 		let check=[];
 		let num=[];
 		let tr = '';
+		let dmg=[]
 		for(let i = 0; i<res.length; i++){
 			name.push(res[i].mem_id);
 			place.push(res[i].acc_place)
 			img.push(res[i].image_file);
 			check.push(res[i].re_complete)
 			num.push(res[i].re_num)
+			dmg.push(res[i].damage)
 			
 
 			tr += `
@@ -54,13 +56,17 @@
                 	<td id="tdl" class="btn"><input type="button" class="checkBtn" value="up"/></td>
                 	<input type="hidden" value="`+ name[i] +`"/>
                 	<input type="hidden" value="`+ img[i] +`"/>
-                	<input type="hidden" value="`+ num[i] +`"/>                   	
+                	<input type="hidden" value="`+ num[i] +`"/>  
+                	<input type="hidden" value="`+ dmg[i] +`"/>                 	
             	</tr>`
 			
 		}
 		
 		$("#listtable>tbody").html(tr)
 	}
+	
+
+	
 	
 	$(document).on("click",".checkBtn",function() {
 
@@ -77,11 +83,19 @@
 			var id = td.eq(4).val();
 			var area = td.eq(1).text();
 			var img = td.eq(5).val();
-			var check = td.text(2).text;
+			var check = td.eq(2).text();
 			var num = td.eq(6).val();
+			var updmg = td.eq(7).val();
 			var img2 = "http://125.136.66.65:8081/report/upload/"+img
-                   					
 			
+				function select(check) {
+					if(check == "Y"){
+						
+					}
+		
+	}
+                   					
+			console.log(updmg)
 			str +=`
 			<thead>
             <tr>
@@ -93,15 +107,11 @@
             </tr>
             <tr>
             	<td id="tdl" class="reporter" name="num" >신고 번호 : `+num+`</td>                
-                <td id="tdl" class="lctlist"> 심각함</td>
-                <td id="tdl"><select name="처리 여부"class="lctlist" style="margin-left:3px;" onchange="checkreup()">
-                if(check == "Y"){>
+                <td id="tdl" class="lctlist">`+updmg+`</td>
+                <td id="tdl"><select name="selectCheck"class="lctlist" style="margin-left:3px;" onchange="checkreup()">                
 					<option value="처리">처리</option>
                     <option value="미처리">미처리</option></td>
-				}else if(check == "N")
-					<option value="미처리">미처리</option>
-                    <option value="처리">처리</option></td>
-					}
+                    
             </tr>
              <tr>
 				<td id="tdl" class="reporter" colspan="3" >신고 위치 : `+area+` </td>
@@ -129,22 +139,22 @@
 
 
 function checkreup() {
-		let check = $('input[name=recheck]').val()
+		let check = $('select[name=selectCheck]').val()
+		console.log(check)
 		let num = $('input[name=renum]').val()
-		
-		console.log("시바아아알")
+		console.log(num)
 		$.ajax({
 			// /ContextPath/urlMapping
 			url : '/citycitybangbang/webcheckupdate', //어디로 요청할건지
-			type : 'get', //Get? Post?
+			type : 'post', //Get? Post?
 			data : {
 				
-				"check": check,
-				"num" : num
+				"recheck": check,
+				"renum" : num
 				
 			},			
-			success : function(){
-				console.log(성공)
+			success : function(){ 
+				console.log('성공')
 				loadList() 				
 			},
 			error : function(){alert("error!");}

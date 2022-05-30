@@ -6,7 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>readRecipe Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<dependencies>
 
 		<dependency>
@@ -60,37 +60,45 @@
 			<version>3.5.8</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/servlets.com/cos -->
+		<dependency>
+			<groupId>servlets.com</groupId>
+			<artifactId>cos</artifactId>
+			<version>05Nov2002</version>
+		</dependency>
+
+
 	</dependencies>
-	
+
 	<build>
 		<finalName> readRecipe </finalName>
-		
+
 		<resources>
-        <resource>
-           <directory>src/main/java</directory>
-           <includes>
-              <include>**/*.xml</include>
-              <include>**/*.properties</include>
-           </includes>
-        </resource>
-     
-     </resources>
-		
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+
+		</resources>
+
 		<pluginManagement>
 			<plugins>
 				<!-- 서버 배포 셋팅 -->
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.1</version> 
+					<version>3.8.1</version>
 					<configuration>
 						<source>1.8</source>
 						<target>1.8</target>
 						<encoding>MS949</encoding>
 					</configuration>
-				
+
 				</plugin>
-				
-							
+
+
 				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
 					<artifactId>tomcat7-maven-plugin</artifactId>

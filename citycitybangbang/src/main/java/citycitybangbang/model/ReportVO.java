@@ -9,12 +9,15 @@ public class ReportVO {
 	private String image_file;
 	private String re_comment;
 	private char re_complete;
+	private String damage;
 	
+
+
 	public ReportVO() { };
 	
 
 	public ReportVO(int re_num, String mem_id, String re_date, String acc_date, String acc_place, String image_file,
-			String re_comment, char re_complete) {
+			String re_comment, char re_complete, String damage) {
 		super();
 		this.re_num = re_num;
 		this.mem_id = mem_id;
@@ -24,6 +27,7 @@ public class ReportVO {
 		this.image_file = image_file;
 		this.re_comment = re_comment;
 		this.re_complete = re_complete;
+		this.damage = damage;
 	}
 	
 	public ReportVO(String acc_date, String acc_place, char re_complete) {
@@ -105,7 +109,15 @@ public class ReportVO {
 		this.re_complete = re_complete;
 	};
 	
-	
+	public String getDamage() {
+		return damage;
+	}
+
+
+	public void setDamage(String damage) {
+		this.damage = damage;
+	}
+
 	
 
 }

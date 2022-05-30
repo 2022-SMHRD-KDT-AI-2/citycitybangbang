@@ -75,10 +75,10 @@ public class ConnectDB7 {
             		char re_complete = rs.getString(3).charAt(0);
             		
             		ReportVO rvo = new ReportVO();
+            		
             		rvo.setAcc_date(acc_date);
             		rvo.setAcc_place(acc_place);
             		rvo.setRe_complete(re_complete);
-            		
             		
             		list.add(rvo);
             }

@@ -7,14 +7,10 @@
 <head>
     <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/citycitybangbang/CSS/list.css">
+<link rel="stylesheet" href="../CSS/list.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<<<<<<< HEAD
 <script src="../JS/list.js" charset="UTF-8" ></script>
 
-=======
-<script src="/citycitybangbang/JS/list.js"></script>
->>>>>>> branch 'main' of https://github.com/2022-SMHRD-KDT-AI-2/citycitybangbang.git
 </head>
 <body>
 <div class="tbaner"><p>접수된 신고</p></div>

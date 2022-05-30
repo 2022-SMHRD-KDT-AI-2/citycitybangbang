@@ -60,12 +60,12 @@ public class ConnectDB8 {
             
             if("ÀüÃ¼".equals(check)) {
             //'?%'   '%'||?||'%'
-            	sql = "SELECT RE_NUM, MEM_ID, ACC_DATE, ACC_PLACE, RE_COMPLETE, IMAGE_FILE FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%'";
+            	sql = "SELECT RE_NUM, MEM_ID, ACC_DATE, ACC_PLACE, RE_COMPLETE, IMAGE_FILE, DAMAGE  FROM  t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%'";
             	pstmt = conn.prepareStatement(sql);
             	pstmt.setString(1, sb2);
             	pstmt.setString(2, area);
             } else {
-            	sql = "SELECT RE_NUM, MEM_ID, ACC_DATE, ACC_PLACE, RE_COMPLETE, IMAGE_FILE FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%' AND RE_COMPLETE = ? ";
+            	sql = "SELECT RE_NUM, MEM_ID, ACC_DATE, ACC_PLACE, RE_COMPLETE, IMAGE_FILE, DAMAGE  FROM t_report WHERE acc_date LIKE ?||'%' AND ACC_PLACE LIKE '%'||?||'%' AND RE_COMPLETE = ? ";
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, sb2);
                 pstmt.setString(2, area);
@@ -84,6 +84,7 @@ public class ConnectDB8 {
         		String acc_place = rs.getString(4);
         		String re_complete = rs.getString(5);
         		String image_file= rs.getString(6);
+        		String damage = rs.getString(7);
         		
             	ReportVO rvo = new ReportVO();
             	
@@ -93,6 +94,7 @@ public class ConnectDB8 {
         		rvo.setAcc_place(acc_place);
         		rvo.setRe_complete(re_complete.charAt(0));
         		rvo.setImage_file(image_file);
+        		rvo.setDamage(damage);
         		
         		list.add(rvo);
         }   
