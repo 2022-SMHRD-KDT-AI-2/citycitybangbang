@@ -47,7 +47,6 @@
       // .html() => 닫는태그 있는 경우
       // .val() => 닫는태그 없는 경우
       let date = $('input[name=date]').val()
-      console.log(date);
       
       // ajax 요청
       $.ajax({
@@ -64,6 +63,9 @@
             // 요청이 성공하면 실행
             reloadPie(res)
             reloadBar(res)
+            if(res.length == "0"){
+            	{alert("해당 날짜의 데이터가 없습니다");}
+            }
          },
          error : function(){alert("error!");}
       })

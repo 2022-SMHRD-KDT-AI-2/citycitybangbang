@@ -88,14 +88,7 @@
 			var updmg = td.eq(7).val();
 			var img2 = "http://125.136.66.65:8081/report/upload/"+img
 			
-				function select(check) {
-					if(check == "Y"){
-						
-					}
-		
-	}
-                   					
-			console.log(updmg)
+
 			str +=`
 			<thead>
             <tr>
@@ -109,8 +102,8 @@
             	<td id="tdl" class="reporter" name="num" >신고 번호 : `+num+`</td>                
                 <td id="tdl" class="lctlist">`+updmg+`</td>
                 <td id="tdl"><select name="selectCheck"class="lctlist" style="margin-left:3px;" onchange="checkreup()">                
-					<option value="처리">처리</option>
-                    <option value="미처리">미처리</option></td>
+					<option value="미처리">미처리</option>
+                    <option value="처리">처리</option></td>
                     
             </tr>
              <tr>
@@ -140,9 +133,7 @@
 
 function checkreup() {
 		let check = $('select[name=selectCheck]').val()
-		console.log(check)
 		let num = $('input[name=renum]').val()
-		console.log(num)
 		$.ajax({
 			// /ContextPath/urlMapping
 			url : '/citycitybangbang/webcheckupdate', //어디로 요청할건지
