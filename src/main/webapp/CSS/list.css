@@ -91,3 +91,7 @@ display: table;
 #reportscroll{
 	overflow: scroll;
 }
+.rptimg{
+	width: 800px;
+	height: 800px;
+}
