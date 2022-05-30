@@ -13,7 +13,7 @@
 
 </head>
 <body>
-<div class="tbaner"><p>접수된 신고</p></div>
+<div class="tbaner"><p class="space">접수된 신고</p></div>
 <jsp:include page="menu.jsp"/>
     <div id="daypst">
             <tr>
