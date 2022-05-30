@@ -12,14 +12,17 @@
 .tbaner {
 left: 130px;
 width: 100vw;
-height: 100px;
+height: 65px;
 background-color: #1187CF ;
-text-align: center;
 position: absolute;
-font-size: 40px;
-color: white;
 vertical-align:middle;
 display: table;
+}
+.space{
+	text-align: center;
+	padding-right: 140px;
+	font-size: 26px;
+	color: white;
 }
 
 #id{
@@ -88,10 +91,14 @@ display: table;
     border: 1px solid #000000;
     text-align: left;
 }
-#reportscroll{
+/* #reportscroll{
 	overflow: scroll;
+<<<<<<< HEAD
 }
 .rptimg{
 	width: 800px;
 	height: 800px;
 }
+=======
+} */
+>>>>>>> branch 'main' of https://github.com/2022-SMHRD-KDT-AI-2/citycitybangbang.git
