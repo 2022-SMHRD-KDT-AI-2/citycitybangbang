@@ -24,6 +24,7 @@ public class deleteUser extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		
+		
 		/* String returns = id; */
 	
 		String returns = connectDB4.connectionDB4(id);
