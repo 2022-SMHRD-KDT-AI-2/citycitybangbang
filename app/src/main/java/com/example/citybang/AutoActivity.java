@@ -1,5 +1,7 @@
 package com.example.citybang;
 
+import android.Manifest;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -7,18 +9,23 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
@@ -42,10 +49,15 @@ import com.example.citybang.databinding.ActivityAutoBinding;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class AutoActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 20;
+    private static final int REQUEST_PERMISSION = 11;
 
     Button autoBtnCancel,autoBtnArea, autoBtnClock, autoBtnsiren, autoBtnGallery;
     TextView autoTvArea, autoTvClock, autoEtContent;
@@ -59,7 +71,14 @@ public class AutoActivity extends AppCompatActivity {
     Button autoBtnLocation;
     int LOTATE = 1004;
 
+    String a = "";
+
     String address="";
+
+    private String img_path = new String();
+    private Bitmap image_bitmap_copy = null;
+    private Bitmap image_bitmap = null;
+    private String imageName = null;
 
     Uri uri;
     ActivityAutoBinding binding;
@@ -104,6 +123,30 @@ public class AutoActivity extends AppCompatActivity {
                 Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
             }
         }
+
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                try {
+                    img_path = getImagePathToUri(data.getData()); //이미지의 URI를 얻어 경로값으로 반환.
+                    Toast.makeText(getBaseContext(), "img_path : " + img_path, Toast.LENGTH_SHORT).show();
+                    //이미지를 비트맵형식으로 반환
+                    image_bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
+
+                    //사용자 단말기의 width , height 값 반환
+                    int reWidth = (int) (getWindowManager().getDefaultDisplay().getWidth());
+                    int reHeight = (int) (getWindowManager().getDefaultDisplay().getHeight());
+
+                    //image_bitmap 으로 받아온 이미지의 사이즈를 임의적으로 조절함. width: 400 , height: 300
+                    image_bitmap_copy = Bitmap.createScaledBitmap(image_bitmap, 400, 300, true);
+                    ImageView image = (ImageView) findViewById(R.id.imageView);  //이미지를 띄울 위젯 ID값
+                    image.setImageBitmap(image_bitmap_copy);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
     }
 
 
@@ -116,12 +159,19 @@ public class AutoActivity extends AppCompatActivity {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
+        a = SharedPreference.getAttribute(getBaseContext(), "id");
+
         autoTvArea = findViewById(R.id.autoTvArea);
         autoTvClock = findViewById(R.id.autoTvClock);
         autoTvLocation = findViewById(R.id.autoTvLocation);
         autoEtContent = findViewById(R.id.autoEtContent);
 
         String a = SharedPreference.getAttribute(getBaseContext(), "id");
+
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .permitDiskReads()
+                .permitDiskWrites()
+                .permitNetwork().build());
 
         // 툴바
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -139,9 +189,12 @@ public class AutoActivity extends AppCompatActivity {
                 String acc_place = address;
                 String re_comment = autoEtContent.getText().toString();
 
+                autoBtnsiren.setClickable(false);
+                autoBtnsiren.setText("신고 중");
+
                 if (acc_date != null){
                     if (acc_place != null){
-                        String url = "http://125.136.66.65:8081/citycitybangbang/report?id=" + a +
+                        String url = "http://59.3.122.222:8081/citycitybangbang/report2?id=" + a +
                                 "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
 
                         StringRequest request = new StringRequest(
@@ -160,6 +213,11 @@ public class AutoActivity extends AppCompatActivity {
                             }
                         }
                         );
+
+                        //DoFileUpload(serverURL, img_path);
+                        DoFileUpload(url, img_path);
+                        Toast.makeText(getApplicationContext(), "이미지 전송 성공", Toast.LENGTH_SHORT).show();
+                        Log.d("Send", "Success");
 
                         requestQueue.add(request);
                     }
@@ -256,15 +314,109 @@ public class AutoActivity extends AppCompatActivity {
         autoBtnGallery.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+                intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, REQUEST_CODE);
             }
 
         });
 
 
+
+
+    }
+
+    public String getImagePathToUri(Uri data) {
+        //사용자가 선택한 이미지의 정보를 받아옴
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = managedQuery(data, proj, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+
+        //이미지의 경로 값
+        String imgPath = cursor.getString(column_index);
+        Log.d("test", imgPath);
+
+        //이미지의 이름 값
+        String imgName = imgPath.substring(imgPath.lastIndexOf("/") + 1);
+        Toast.makeText(AutoActivity.this, "이미지 이름 : " + imgName, Toast.LENGTH_SHORT).show();
+        this.imageName = imgName;
+
+        return imgPath;
+    }//end of getImagePathToUri()
+
+    public void DoFileUpload(String apiUrl, String absolutePath) {
+        HttpFileUpload(apiUrl, "", absolutePath);
+    }
+
+    String lineEnd = "\r\n";
+    String twoHyphens = "--";
+    String boundary = "*****";
+
+    public void HttpFileUpload(String urlString, String params, String fileName) {
+        try {
+
+            FileInputStream mFileInputStream = new FileInputStream(fileName);
+            URL connectUrl = new URL(urlString);
+            Log.d("Test", "mFileInputStream  is " + mFileInputStream);
+
+            // HttpURLConnection 통신
+            HttpURLConnection conn = (HttpURLConnection) connectUrl.openConnection();
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+            conn.setUseCaches(false);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Connection", "Keep-Alive");
+            conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
+
+            // write data
+            DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
+            dos.writeBytes(twoHyphens + boundary + lineEnd);
+            dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + fileName + "\"" + lineEnd);
+            dos.writeBytes(lineEnd);
+
+            int bytesAvailable = mFileInputStream.available();
+            int maxBufferSize = 1024;
+            int bufferSize = Math.min(bytesAvailable, maxBufferSize);
+
+            byte[] buffer = new byte[bufferSize];
+            int bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
+
+            Log.d("Test", "image byte is " + bytesRead);
+
+            // read image
+            while (bytesRead > 0) {
+                dos.write(buffer, 0, bufferSize);
+                bytesAvailable = mFileInputStream.available();
+                bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
+            }
+
+            dos.writeBytes(lineEnd);
+            dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+
+            // close streams
+            Log.e("Test", "File is written");
+            mFileInputStream.close();
+            dos.flush();
+            // finish upload...
+
+            // get response
+            InputStream is = conn.getInputStream();
+
+            StringBuffer b = new StringBuffer();
+            for (int ch = 0; (ch = is.read()) != -1; ) {
+                b.append((char) ch);
+            }
+            is.close();
+            Log.e("Test", b.toString());
+
+
+        } catch (Exception e) {
+            Log.d("Test", "exception " + e.getMessage());
+            // TODO: handle exception
+        }
     }
 
     private DatePickerDialog.OnDateSetListener myDateSetListener
@@ -272,9 +424,27 @@ public class AutoActivity extends AppCompatActivity {
 
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
+
+            String b = "";
+            String d = "";
+            String a = Integer.toString(monthOfYear+1);
+            String c = Integer.toString(dayOfMonth);
+
+            if (a.length() == 1){
+                b = "0" + a;
+            }else{
+                b = a;
+            }
+
+            if (c.length() == 1){
+                d = "0" + c;
+            }else{
+                d = c;
+            }
+
             String date = String.valueOf(year) + "-" +
-                    String.valueOf(monthOfYear + 1) + "-"
-                    + String.valueOf(dayOfMonth);
+                    b + "-"
+                    + d;
             TextView autoTvArea;
             autoTvArea = findViewById(R.id.autoTvArea);
             autoTvArea.setText(date);

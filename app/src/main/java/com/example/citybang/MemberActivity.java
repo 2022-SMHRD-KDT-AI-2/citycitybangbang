@@ -55,7 +55,7 @@ public class MemberActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String id = binding.etMemId.getText().toString();
 
-                String url = "http://125.136.66.65:8090/citycitybangbang/idCheck?id=" + id;
+                String url = "http://59.3.122.222:8081/citycitybangbang/idCheck?id=" + id;
 
                 StringRequest request = new StringRequest(
                         Request.Method.GET, url, new Response.Listener<String>(){
@@ -93,7 +93,7 @@ public class MemberActivity extends AppCompatActivity {
                 sex = result;
 
 
-                String url = "http://125.136.66.65:8090/citycitybangbang/androidDB?id=";
+                String url = "http://59.3.122.222:8081/citycitybangbang/androidDB?id=";
                 url += id;
                 url += "&pw=";
                 url += pw;

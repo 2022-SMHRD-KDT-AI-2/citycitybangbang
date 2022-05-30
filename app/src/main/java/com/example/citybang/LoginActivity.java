@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 SharedPreference.setAttribute(getBaseContext(), "id", binding.etLogId.getText().toString());
 
-                String url = "http://125.136.66.65:8081/citycitybangbang/login?id=" + id + "&pw=" + pw;
+                String url = "http://59.3.122.222:8081/citycitybangbang/login?id=" + id + "&pw=" + pw;
 
                 StringRequest request = new StringRequest(
                         Request.Method.GET, url, new Response.Listener<String>(){

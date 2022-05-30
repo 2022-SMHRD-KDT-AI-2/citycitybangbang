@@ -84,51 +84,54 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        String url = "http://125.136.66.65:8081/citycitybangbang/reportNum?";
+        String url = "http://59.3.122.222:8081/citycitybangbang/reportNum?";
         StringRequest request = new StringRequest(
                 Request.Method.GET, url, new Response.Listener<String>(){
             @Override
             public void onResponse(String response)
             {
+                if(response.length()>2) {
+                    list = response.substring(1, response.length() - 1);
 
-                list = response.substring(1,response.length()-1);
+                    rN = list.split(", ");
 
-                rN = list.split(", ");
-
-                Log.d("finl", list);
-
-
-                rNd = new String[rN.length];
-
-                Month = new String[rNd.length];
+                    Log.d("finl", list);
 
 
-                for (int i=0;i<rN.length;i++){
-                    rNd[i] = rN[i].substring(0,10);
-                }
+                    rNd = new String[rN.length];
 
-                for (int i=0;i<rNd.length;i++){
-                    if (rNd[i].equals(getDate())){
-                        cnt1 ++;
+                    Month = new String[rNd.length];
+
+
+                    for (int i = 0; i < rN.length; i++) {
+                        rNd[i] = rN[i].substring(0, 10);
                     }
-                }
 
-                for (int i=0;i<rNd.length;i++){
-                    Month[i] = rNd[i].substring(5,7);
-                }
-
-                tvMaiToday.setText(String.valueOf(cnt1));
-
-                Today = getDate().substring(5,7);
-
-                for (int i=0;i<Month.length;i++){
-                    if (Month[i].equals(Today)){
-                        cnt2++;
+                    for (int i = 0; i < rNd.length; i++) {
+                        if (rNd[i].equals(getDate())) {
+                            cnt1++;
+                        }
                     }
+
+                    for (int i = 0; i < rNd.length; i++) {
+                        Month[i] = rNd[i].substring(5, 7);
+                    }
+
+                    tvMaiToday.setText(String.valueOf(cnt1));
+
+                    Today = getDate().substring(5, 7);
+
+                    for (int i = 0; i < Month.length; i++) {
+                        if (Month[i].equals(Today)) {
+                            cnt2++;
+                        }
+                    }
+
+                    tvMaiMonth.setText(String.valueOf(cnt2));
+                }else{
+                    tvMaiToday.setText(String.valueOf(0));
+                    tvMaiMonth.setText(String.valueOf(0));
                 }
-
-                tvMaiMonth.setText(String.valueOf(cnt2));
-
             }
         }, new Response.ErrorListener() {
             @Override
@@ -151,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        String url = "http://125.136.66.65:8081/citycitybangbang/deleteUser?id=" + a;
+                        String url = "http://59.3.122.222:8081/citycitybangbang/deleteUser?id=" + a;
                         StringRequest request = new StringRequest(
                                 Request.Method.GET, url, new Response.Listener<String>(){
                             @Override
@@ -240,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
         btnMaiList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "http://125.136.66.65:8081/citycitybangbang/reSuccess?id=" + a;
+                String url = "http://59.3.122.222:8081/citycitybangbang/reSuccess?id=" + a;
                 StringRequest request = new StringRequest(
                         Request.Method.GET, url, new Response.Listener<String>(){
                     @Override
@@ -285,16 +288,25 @@ public class MainActivity extends AppCompatActivity {
         btnDraReportlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "http://125.136.66.65:8081/citycitybangbang/reSuccess?id=" + a;
+                String url = "http://59.3.122.222:8081/citycitybangbang/reSuccess?id=" + a;
                 StringRequest request = new StringRequest(
                         Request.Method.GET, url, new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response)
                     {
-                        Log.d("check",response);
-                        Intent intent1 = new Intent(getApplicationContext(), ReportlistActivity.class);
-                        intent1.putExtra("report",response.substring(1,response.length()-2));
-                        startActivity(intent1);
+                        if (a != null){
+                            if(response.length()>2) {
+                                Log.d("check", response.substring(1,response.length()-2));
+                                Intent intent1 = new Intent(getApplicationContext(), ReportlistActivity.class);
+                                intent1.putExtra("report", response.substring(1,response.length()-2));
+                                startActivity(intent1);
+                            }else if(response.length() == 2){
+                                Toast.makeText(MainActivity.this, "신고 없음", Toast.LENGTH_SHORT).show();
+                            }
+                        }else if(a == null) {
+                            Intent intent1 = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(intent1);
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
