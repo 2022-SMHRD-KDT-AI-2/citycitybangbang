@@ -279,8 +279,15 @@ public class MainActivity extends AppCompatActivity {
         btnMaiSiren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(getApplicationContext(),AutoActivity.class);
-                startActivity(intent);
+
+                if(a == null) {
+                    Intent intent1 = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent1);
+                }else if(a != null){
+                    intent = new Intent(getApplicationContext(),AutoActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -367,9 +374,14 @@ public class MainActivity extends AppCompatActivity {
 
                 checkPermission(); //권한체크
 
-                intent = new Intent(getApplicationContext(),ShootselectActivity.class);
-                startActivity(intent);
-                finish();
+                if(a == null) {
+                    Intent intent1 = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent1);
+                }else if(a != null) {
+                    intent = new Intent(getApplicationContext(), ShootselectActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 

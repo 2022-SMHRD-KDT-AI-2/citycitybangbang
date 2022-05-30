@@ -16,25 +16,20 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -58,7 +53,6 @@ public class SelfActivity extends AppCompatActivity {
     TextView selfTvArea, selfTvClock, selfTvLocation, selfEtContent;
 
     ImageView selfImg;
-    private Bitmap bitmap;
 
 
     @Override
@@ -92,23 +86,14 @@ public class SelfActivity extends AppCompatActivity {
                 String acc_place = selfTvLocation.getText().toString();
                 String re_comment = selfEtContent.getText().toString();
 
-                // BytArrayOutputStream을 이용해 Bitmap 인코딩
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                // 인코딩된 ByteStream을 String으로 획득
-                byte[] image = byteArrayOutputStream.toByteArray();
-                String byteStream = Base64.encodeToString(image, 0);
-
-//                String url = "http://125.136.66.65:8090/citycitybangbang/report?id=" + a +
-//                        "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
-                String url = "http://59.3.122.222:8081/citycitybangbang/report";
+                String url = "http://125.136.66.65:8090/citycitybangbang/report?id=" + a +
+                        "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
 
                 StringRequest request = new StringRequest(
-                        Request.Method.POST, url, new Response.Listener<String>() {
+                        Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if (response.equals("신고 완료!")) {
-                            finish();
                             Intent intent = new Intent(getApplicationContext(),SplashingActivity.class);
                             startActivity(intent);
                         }
@@ -117,33 +102,13 @@ public class SelfActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(SelfActivity.this, "응답 실패", Toast.LENGTH_SHORT).show();
-                        error.printStackTrace();
-                        // Log.d("hhd",error.getMessage());
                     }
                 }
-                ){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<String, String>();
-                        if (a != null) params.put("id", a);
-                        if (acc_date != null) params.put("acc_date",acc_date);
-                        if (acc_place != null) params.put("acc_place",acc_place);
-                        if (re_comment != null) params.put("re_comment",re_comment);
-                        if (byteStream != null) params.put("pic",byteStream);
-                        return params;
-                    }
-                };
-
-                request.setRetryPolicy(new com.android.volley.DefaultRetryPolicy(
-
-                        20000 ,
-
-                        com.android.volley.DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-
-                        com.android.volley.DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                );
 
                 requestQueue.add(request);
-                requestQueue.start();
+
+                finish();
             }
         });
 
@@ -192,8 +157,7 @@ public class SelfActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         byte[] byteArray = getIntent().getByteArrayExtra("image");
-        bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-
+        Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
 
         selfImg.setImageBitmap(bitmap);
@@ -225,7 +189,7 @@ public class SelfActivity extends AppCompatActivity {
     private String getDate() {
         long now = System.currentTimeMillis();
         Date date = new Date(now);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-M-d");
         String getTime = dateFormat.format(date);
         return getTime;
     }

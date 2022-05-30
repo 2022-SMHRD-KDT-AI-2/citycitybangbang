@@ -24,8 +24,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
-            android:layout_width="411dp"
-            android:layout_height="450dp"
+            android:layout_width="0dp"
+            android:layout_height="420dp"
             android:background="@color/blue_3"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,9 +56,9 @@
 
         <Button
             android:id="@+id/btnMaiCamera"
-            android:layout_width="170dp"
-            android:layout_height="105dp"
-            android:layout_marginStart="24dp"
+            android:layout_width="150dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="21dp"
             android:layout_marginTop="80dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/blue_2"
@@ -71,8 +71,8 @@
 
         <Button
             android:id="@+id/btnMaiSiren"
-            android:layout_width="170dp"
-            android:layout_height="105dp"
+            android:layout_width="150dp"
+            android:layout_height="85dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/blue_2"
             android:drawableTop="@drawable/sirensize"
@@ -86,8 +86,8 @@
 
         <Button
             android:id="@+id/btnMaiList"
-            android:layout_width="170dp"
-            android:layout_height="105dp"
+            android:layout_width="150dp"
+            android:layout_height="85dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/blue_2"
@@ -104,10 +104,10 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintVertical_bias="0.0">
 
             <TextView
                 android:id="@+id/textView5"
@@ -117,7 +117,7 @@
                 android:layout_marginTop="29dp"
                 android:text="전체 신고 현황"
                 android:textColor="#000000"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,9 +127,9 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <View
-                android:layout_width="360dp"
+                android:layout_width="320dp"
                 android:layout_height="1dp"
-                android:layout_marginBottom="44dp"
+                android:layout_marginBottom="25dp"
                 android:background="@color/gray"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -140,8 +140,9 @@
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:text="한달 누적 신고 건수"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/textView10"
                 app:layout_constraintHorizontal_bias="0.484"
                 app:layout_constraintStart_toStartOf="@+id/tvMaiMonth"
@@ -156,7 +157,7 @@
                 android:text="2"
                 android:textAlignment="textEnd"
                 android:textColor="@color/blue_1"
-                android:textSize="45sp"
+                android:textSize="42sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5"
@@ -169,7 +170,7 @@
                 android:text="건"
                 android:textAlignment="textStart"
                 android:textColor="@color/blue_1"
-                android:textSize="25sp"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvMaiToday"
                 app:layout_constraintStart_toEndOf="@+id/tvMaiToday"
                 app:layout_constraintTop_toTopOf="@+id/tvMaiToday"
@@ -179,8 +180,9 @@
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:text="오늘 신고 건수"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/textView7"
                 app:layout_constraintHorizontal_bias="0.513"
                 app:layout_constraintStart_toStartOf="@+id/tvMaiToday"
@@ -193,7 +195,7 @@
                 android:text="2"
                 android:textAlignment="textEnd"
                 android:textColor="@color/green"
-                android:textSize="45sp"
+                android:textSize="42sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvMaiToday"
                 app:layout_constraintEnd_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toTopOf="@+id/tvMaiToday"
@@ -207,7 +209,7 @@
                 android:text="건"
                 android:textAlignment="textStart"
                 android:textColor="@color/green"
-                android:textSize="25sp"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvMaiMonth"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvMaiMonth"
@@ -244,7 +246,8 @@
                 android:layout_weight="1"
                 android:background="@color/blue_3"
                 android:text="로그아웃"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btnLogin"
@@ -253,7 +256,8 @@
                 android:layout_weight="1"
                 android:background="@color/blue_3"
                 android:text="로그인"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btnMember"
@@ -262,7 +266,8 @@
                 android:layout_weight="1"
                 android:background="@color/blue_3"
                 android:text="회원가입"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -275,7 +280,7 @@
             android:text="     마이페이지"
             android:textAlignment="textStart"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <Button
@@ -286,7 +291,7 @@
             android:text="     나의 신고내역"
             android:textAlignment="textStart"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:theme="@style/RippleEffect" />
 
         <Button
@@ -297,7 +302,7 @@
             android:text="     안전정보"
             android:textAlignment="textStart"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <Button
@@ -308,7 +313,7 @@
             android:text="     이륜차 도로교통법"
             android:textAlignment="textStart"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:theme="@style/RippleEffect" />
 
         <Button
@@ -319,7 +324,7 @@
             android:text="     이륜차 번호판 관련 법령"
             android:textAlignment="textStart"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:theme="@style/RippleEffect" />
 
         <Button
@@ -330,7 +335,7 @@
             android:text="     고객센터"
             android:textAlignment="textStart"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <Button
@@ -341,7 +346,7 @@
             android:text="     자주하는 질문"
             android:textAlignment="textStart"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:theme="@style/RippleEffect" />
 
         <Button
@@ -352,13 +357,13 @@
             android:text="     처리 절차 안내"
             android:textAlignment="textStart"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:theme="@style/RippleEffect" />
 
         <Button
             android:id="@+id/button11"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="100dp"
             android:background="#00FFFFFF" />
 
         <Button
