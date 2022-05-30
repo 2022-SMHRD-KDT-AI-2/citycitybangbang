@@ -78,6 +78,7 @@ function loadBarChart(){
 }
 
 function reloadBar(res){
+	
    let hour =[]
    let time = []
    for(let i=0;i<8;i++){
@@ -89,11 +90,9 @@ function reloadBar(res){
       hour[i]=arr[1];
    }
    
-   if (res.length == "0"){
-	for(let i=0;i<8;i++){
-      time[i]=0;
-   }}else{
-	 for(let i = 0; i<res.length; i++){
+   
+   
+   for(let i = 0; i<res.length; i++){
       if(hour[i]>=0 && hour[i]<=2){
          time[0] +=1;
       }else if(hour[i]>=3 && hour[i]<=5){
@@ -114,10 +113,6 @@ function reloadBar(res){
       for(let i = 0; i<time.length; i++){
          bar[i+1][1]=time[i]
       }
-}
-	
-   
-  
       
    }   
    google.charts.setOnLoadCallback(barChart)
