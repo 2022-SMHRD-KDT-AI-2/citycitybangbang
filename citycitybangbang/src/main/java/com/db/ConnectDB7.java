@@ -43,12 +43,21 @@ public class ConnectDB7 {
     	
     	
     	StringBuffer sb = new StringBuffer();
-    	if (ACC_DATE.substring(5, 6).equals("0")) {
- 
-    		sb.append(ACC_DATE);
-			sb.deleteCharAt(5);
+    	if (ACC_DATE.substring(5,6).equals("0")) {
+    		if(ACC_DATE.substring(7,8).equals("0")) {	
+    			sb.append(ACC_DATE);
+    			sb.deleteCharAt(5);
+    			sb.deleteCharAt(6);
+    		}else if(ACC_DATE.substring(8,9).equals("0")) {
+    			sb.append(ACC_DATE);
+    			sb.deleteCharAt(5);
+    			sb.deleteCharAt(7);
+    		}else {
+    			sb.append(ACC_DATE);
+    			sb.deleteCharAt(5);
+    		}
 		}
-    	
+
     	System.out.println("ConnetDB7 : "+ sb);
     	
     	

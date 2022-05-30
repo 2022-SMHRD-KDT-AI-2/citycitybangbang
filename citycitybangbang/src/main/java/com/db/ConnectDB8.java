@@ -31,8 +31,7 @@ public class ConnectDB8 {
     ResultSet rs = null;
     
     List<ReportVO> list = new ArrayList();
-
-
+   
     String sql = "";
     String sql2 = "";
     String returns = "a";
@@ -40,10 +39,19 @@ public class ConnectDB8 {
     public List<ReportVO> connectionDB8(String date, String area, String check) {    	
     	
     	StringBuffer sb = new StringBuffer();
-    	if (date.substring(5, 6).equals("0")) {
- 
-    		sb.append(date);
-			sb.deleteCharAt(5);
+    	if (date.substring(5,6).equals("0")) {
+    		if(date.substring(7,8).equals("0")) {	
+    			sb.append(date);
+    			sb.deleteCharAt(5);
+    			sb.deleteCharAt(6);
+    		}else if(date.substring(8,9).equals("0")) {
+    			sb.append(date);
+    			sb.deleteCharAt(5);
+    			sb.deleteCharAt(7);
+    		}else {
+    			sb.append(date);
+    			sb.deleteCharAt(5);
+    		}
 		}
     	String sb2= sb.toString();
     	System.out.println(date);
