@@ -99,9 +99,7 @@ public class SelfActivity extends AppCompatActivity {
                 byte[] image = byteArrayOutputStream.toByteArray();
                 String byteStream = Base64.encodeToString(image, 0);
 
-//                String url = "http://125.136.66.65:8090/citycitybangbang/report?id=" + a +
-//                        "&acc_date=" + acc_date + "&acc_place=" + acc_place + "&re_comment=" + re_comment;
-                String url = "http://125.136.66.65:8081/citycitybangbang/report";
+                String url = "http://59.3.122.222:8081/citycitybangbang/report";
 
                 StringRequest request = new StringRequest(
                         Request.Method.POST, url, new Response.Listener<String>() {
