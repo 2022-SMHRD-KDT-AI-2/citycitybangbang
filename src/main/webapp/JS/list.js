@@ -119,7 +119,7 @@
             <tbody>
             <tr>
                 <td id="tdl" colspan="3">
-                    <img src="`+img2+`" class="rptimg" alt="이미지">
+                    <img src="`+img2+`" class="rptimg" alt="이미지" style="width:500px; height:500px;">
                 </td>
             </tr>
             </tbody>
