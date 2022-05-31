@@ -92,12 +92,15 @@ MyBatis
   - 통계
   - 신고 리스트
 
-
-
 ## 서비스 흐름도
+<img src="https://user-images.githubusercontent.com/99248442/171129382-76fc9fe6-81e6-47d3-8bbe-4d8d399c8404.png" width="500" height="500">
 
-<img src="https://user-images.githubusercontent.com/99248442/167537944-91fd7a69-fe4c-4c94-9f5d-3b93bb67d3b3.png" width="700" height="700">
+## 서비스 구현(앱)
+<img src="https://user-images.githubusercontent.com/99248442/171130277-0907c1ab-258c-4211-9787-89fd82e821e2.png" width="500" height="400">
 
+
+## 서비스 구현(웹)
+<img src="https://user-images.githubusercontent.com/99248442/171130688-2c66f4eb-59ce-45b7-8a76-395c63d8a4cb.png" width="400" height="700">
 
 
 ## 팀원 단위 업무 분담
