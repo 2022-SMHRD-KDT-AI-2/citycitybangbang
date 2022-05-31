@@ -46,6 +46,8 @@ Easy OCR
 Oracle  
 MyBatis  
 
+<img src="https://user-images.githubusercontent.com/99248442/171133169-8ec96053-b8fb-4ed1-a17d-a433f503ed66.png" width="900">
+
 
 ## 구현 방법
 
@@ -92,7 +94,7 @@ MyBatis
   - 통계
   - 신고 리스트
 
-<img src="https://user-images.githubusercontent.com/99248442/171133169-8ec96053-b8fb-4ed1-a17d-a433f503ed66.png" width="900">
+
 
 ## 서비스 흐름도
 <img src="https://user-images.githubusercontent.com/99248442/171129382-76fc9fe6-81e6-47d3-8bbe-4d8d399c8404.png" width="900">
